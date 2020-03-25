@@ -41,10 +41,11 @@
         <td><input type="text" id="e-mail"> </td>
       </tr>
 
-        <td colspan="2">
+      <tr>
+        <td>
           <input type="submit" onClick="isValid();return false;">
           <input type="submit" value="Annuler" onClick="erase();return false;">
         </td>
-    </tr>
+      </tr>
    </form>
  </table>

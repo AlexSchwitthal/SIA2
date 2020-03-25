@@ -21,13 +21,25 @@
                             <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=listeAdherent">Gestion des adhérents</a></li>
                             <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant&action=osef">Gestion des étudiants</a></li>
 
-                            <?php /* if ($_SESSION["idVisiteur"] == directeur) { ?>
-                                <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'statVisiteur') { ?> class="active"<?php } ?>><a href="index.php?uc=statVisiteur&action=selectionnerVisiteur">Statistiques par visiteur</a></li>
-                                <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'statFrais') { ?> class="active"<?php } ?>><a href="index.php?uc=statFrais&action=selectionnerFrais">Statistiques par frais</a></li>
-                            <?php } */ ?>
-                            <!-- <li <?php  //if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'deconnexion') { ?> class="active"<?php /*}*/ ?>><a href="index.php?uc=deconnexion&action=demandeDeconnexion">Déconnexion</a></li> -->
+                            <?php if(isset($_SESSION["logs"])) { ?>
+                              <li><a href="index.php?uc=connexion&action=demandeDeconnexion">Deconnexion</a></li>
+                            <?php
+                            }
+                            else { ?>
+                                <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'connexion') { ?> class="active"<?php } ?>><a href="index.php?uc=connexion&action=demandeConnexion">Connexion</a></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
-                         <!-- Visiteur : --> <?php // echo $_SESSION['prenom'] . " " . $_SESSION['nom'] ?>
                     </div>
                 </div>
+                <div class="float-xs-left">
+                  <?php if(isset($_SESSION["logs"])) {
+                    echo "connecté en tant que : ".$_SESSION['logs'];
+                  }
+                  else {
+                    echo "mode invité";
+                  }
+                  ?>
+               </div>
             </div>

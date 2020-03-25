@@ -30,6 +30,10 @@ switch ($uc) {
             include("controllers/c_accueil.php");
             break;
         }
+    case 'connexion': {
+            include("controllers/c_connexion.php");
+            break;
+      }
     case 'gestionAdherent': {
             include("controllers/c_gestionAdherent.php");
             break;
