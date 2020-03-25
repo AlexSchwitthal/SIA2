@@ -56,9 +56,9 @@ class PdoEpa {
      * @return toutes les informations des adhérents sous la forme d'un tableau associatif
      */
     public function getAdherents() {
-        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id, nom, prenom, ville, cp, adresse, tel, email FROM adherent");
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent");
         $requete_prepare->execute();
-        return $requete_prepare->fetch();
+        return $requete_prepare->fetchAll();
     }
 }
 ?>
