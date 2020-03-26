@@ -19,9 +19,9 @@ require_once("config.php");
 class PdoEpa {
 
     private static $serveur = 'mysql:host='.DB_SERVER;
-    private static $bdd = 'dbname='.DB_DATABASE;
-    private static $user = DB_USER;
-    private static $mdp = DB_PWD;
+    private static $bdd = 'dbname='.DB_NAME;
+    private static $user = DB_USERNAME;
+    private static $mdp = DB_PASSWORD;
     private static $monPdo;
     private static $monPdoEpa = null;
 
@@ -60,5 +60,38 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
+
+
+  /**
+   * Crée un adhérent
+   * à partir des informations fournies en paramètre
+   *
+   * @param $nom : nom de l'adhérent
+   * @param $prenom : prenom de l'adhérent
+   * @param $ville : ville de l'adhérent
+   * @param $cp : code postal de l'adhérent
+   * @param $adresse : adresse de l'adhérent
+   * @param $tel : numéro de téléphone de l'adhérent
+   * @param $email : adresse e-mail de l'adhérent
+   */
+  public function creerAdherent($nom, $prenom, $ville, $cp, $adresse, $tel, $email) {
+      var_dump($nom);
+      var_dump($prenom);
+      var_dump($ville);
+      var_dump($cp);
+      var_dump($adresse);
+      var_dump($tel);
+      var_dump($email);
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO adherent (`nom`, `prenom`, `ville`, `cp`, `adresse`, `tel`, `email`) "
+              . "VALUES (:nom, :prenom, :ville, :cp, :adresse, :tel, :email) ");
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ville', $ville, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':cp', $cp, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
 }
 ?>
