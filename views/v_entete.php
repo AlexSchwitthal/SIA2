@@ -19,7 +19,7 @@
                         <ul class="nav nav-pills pull-right" role="tablist">
                             <li <?php if (!isset($_REQUEST['uc']) || $_REQUEST['uc'] == 'accueil') { ?> class="active"<?php } ?>><a href="index.php">Accueil</a></li>
                             <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=listeAdherent">Gestion des adhérents</a></li>
-                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant&action=osef">Gestion des étudiants</a></li>
+                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant&action=affichageEtudiant">Gestion des étudiants</a></li>
 
                             <?php if(isset($_SESSION["logs"])) { ?>
                               <li><a href="index.php?uc=connexion&action=demandeDeconnexion">Deconnexion</a></li>
