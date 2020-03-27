@@ -8,9 +8,4 @@
     <tr>
       <td><a href="./index.php?uc=gestionEtudiant&action=redactionNews">Redaction News</a></td>
     </tr>
-    <tr>
-      <td><a href="./index.php?uc=gestionEtudiant&action=affichageNews">Affichage News</a></td>
-    </tr>
   </table>
-  
-  

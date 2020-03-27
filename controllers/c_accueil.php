@@ -1,3 +1,4 @@
 <?php
-  echo "hello world";
+  $lesNews = $pdo->getNews();
+  include("views/v_affichageNews.php");
 ?>

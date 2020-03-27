@@ -42,6 +42,10 @@ switch ($uc) {
             include("controllers/c_gestionEtudiant.php");
             break;
     }
+    default: {
+            include("controllers/c_accueil.php");
+            break;
+    }
 }
 
 include("views/v_pied.php");
