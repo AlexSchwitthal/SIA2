@@ -3,13 +3,13 @@
       <div id="menuGauche">
           <ul id="menuList">
               <li>
-                  <a href="./index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Inscription étudiant</a>
+                  <a href="./index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Inscrire un étudiant</a>
               </li>
               <li>
-                  <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Affichage étudiant demandeur</a>
+                  <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
               </li>
               <li>
-                  <a href="./index.php?uc=gestionEtudiant&action=redactionNews">Redaction News</a>
+                  <a href="./index.php?uc=gestionEtudiant&action=redactionNews">Rédiger une news</a>
               </li>
           </ul>
       </div>
