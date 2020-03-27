@@ -75,13 +75,6 @@ class PdoEpa {
    * @param $email : adresse e-mail de l'adhérent
    */
   public function creerAdherent($nom, $prenom, $ville, $cp, $adresse, $tel, $email) {
-      var_dump($nom);
-      var_dump($prenom);
-      var_dump($ville);
-      var_dump($cp);
-      var_dump($adresse);
-      var_dump($tel);
-      var_dump($email);
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO adherent (`nom`, `prenom`, `ville`, `cp`, `adresse`, `tel`, `email`) "
               . "VALUES (:nom, :prenom, :ville, :cp, :adresse, :tel, :email) ");
       $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
