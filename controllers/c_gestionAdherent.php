@@ -32,6 +32,7 @@ switch ($action) {
             }
             break;
     }
+
     case 'pageAdherent' : {
           if (!(empty($_REQUEST['id']))) {
               $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
@@ -41,8 +42,16 @@ switch ($action) {
               else {
                 header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");
               }
-              break;
           }
+          break;
+    }
+
+    case 'supprimerAdherent' : {
+          if (!(empty($_REQUEST['id']))) {
+              $pdo->supprimerAdherent($_REQUEST['id']);
+              include("views/v_suppressionAdherent.php");
+          }
+          break;
     }
 
     default: {
