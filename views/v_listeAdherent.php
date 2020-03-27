@@ -1,4 +1,5 @@
-  <form name="form" method="post" action="">
+<div class="col-md-10">
+      <form name="form" method="post" action="">
         <input type="submit" onClick="isValid();return false;">
         <input type="submit" value="Annuler" onClick="erase();return false;">
   </form>
@@ -31,3 +32,4 @@
     }
     ?>
   </table>
+</div>

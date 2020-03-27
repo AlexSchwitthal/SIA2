@@ -1,6 +1,7 @@
   <?php
     echo $erreur;
   ?>
+<div class="col-md-10">
   <table>
     <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent">
       <tr>
@@ -52,3 +53,4 @@
       </tr>
    </form>
  </table>
+</div>

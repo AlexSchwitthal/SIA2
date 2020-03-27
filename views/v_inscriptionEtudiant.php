@@ -1,3 +1,4 @@
+<div class="col-md-10">
   <table>
     <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant">
       <tr>
@@ -9,20 +10,20 @@
         <td> Prénom : </td>
         <td><input type="text" id="prenom" name="prenom"> </td>
       </tr>
-      
+
       <tr>
         <td> Sexe : </td>
         <td>
         	<input type="radio" name="sexe" value="homme" checked> Homme
-          	<input type="radio" name="sexe" value="femme"> Femme 
+          	<input type="radio" name="sexe" value="femme"> Femme
         </td>
       </tr>
-      
+
       <tr>
         <td> Date de naissance : </td>
         <td><input type="text" id="ddn" name="ddn"> </td>
       </tr>
-      
+
       <tr>
         <td> Nationnalité : </td>
         <td><input type="text" id="nation" name="nation"> </td>
@@ -39,12 +40,12 @@
           	<input type="radio" name="es" value="etude"> Études
         </td>
       </tr>
-      
+
       <tr>
         <td> Date d'arrivée à Paris : </td>
         <td><input type="text" id="dap" name="dap"> </td>
       </tr>
-      
+
 	  <tr>
         <td> Langue parlée : </td>
         <td><input type="text" id="langue" name="langue"> </td>
@@ -63,16 +64,16 @@
         <td> E-mail : </td>
         <td><input type="text" id="email" name="email"> </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Prise en charge : </td>
         <td>
-        	<input type="radio" name="pec" value="yes" checked> Oui 
-          	<input type="radio" name="pec" value="no"> Non 
+        	<input type="radio" name="pec" value="yes" checked> Oui
+          	<input type="radio" name="pec" value="no"> Non
         </td>
       </tr>
 
@@ -84,6 +85,4 @@
       </tr>
    </form>
  </table>
- 
-
-
+</div>

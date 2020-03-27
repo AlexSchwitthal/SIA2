@@ -33,7 +33,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="float-xs-left">
+                <div>
                   <?php if(isset($_SESSION["logs"])) {
                     echo "connecté en tant que : ".$_SESSION['logs'];
                   }

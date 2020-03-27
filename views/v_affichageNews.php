@@ -1,3 +1,4 @@
+<div class="col-md-10">
   <table class="table table-bordered table-responsive table-striped">
     <tr>
       <td> ID </td>
@@ -16,3 +17,4 @@
     }
     ?>
   </table>
+</div>
