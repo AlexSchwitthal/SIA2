@@ -56,22 +56,29 @@ class PdoEpa {
      * @return toutes les informations des adhérents sous la forme d'un tableau associatif
      */
     public function getAdherents() {
-        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent");
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent ORDER BY id");
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
-    
+
+    public function getAdherentById($id) {
+      $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent where id = :id");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+      return $requete_prepare->fetch();
+    }
+
     public function getEtudiants() {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM arrivant");
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
-    
+
     public function getNews() {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news");
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
-    } 
+    }
 
 
   /**
@@ -98,7 +105,7 @@ class PdoEpa {
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
-  
+
   public function creerEtudiant($nom, $prenom, $sexe, $ddn, $nation, $es, $dap, $langue, $tel, $email, $pec) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `prenom`, `sexe`, `ddn`, `nation`, `es`, `dap`, `langue`, `tel`, `email`, `pec`) "
               . "VALUES (:nom, :prenom, :sexe, :ddn, :nation, :es, :dap, :langue, :tel, :email, :pec) ");
@@ -115,7 +122,7 @@ class PdoEpa {
       $requete_prepare->bindParam(':pec', $pec, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
-  
+
   public function creerNews($nom, $description) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO news (`nom`, `description`) "
               . "VALUES (:nom, :description) ");
@@ -123,7 +130,7 @@ class PdoEpa {
       $requete_prepare->bindParam(':description', $description, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
-  
-  
+
+
 }
 ?>

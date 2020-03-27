@@ -32,5 +32,23 @@ switch ($action) {
             }
             break;
     }
+    case 'pageAdherent' : {
+          if (!(empty($_REQUEST['id']))) {
+              $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+              if (is_array($lAdherent)) {
+                include("views/v_pageAdherent.php");
+              }
+              else {
+                header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");
+              }
+              break;
+          }
+    }
+
+    default: {
+          $lesAdherents = $pdo->getAdherents();
+          include("views/v_listeAdherent.php");
+          break;
+    }
 }
 ?>

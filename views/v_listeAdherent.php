@@ -19,7 +19,9 @@
     foreach ($lesAdherents as $adherent) {
       ?>
       <tr>
-        <td> <?php echo $adherent['id'] ?></td>
+        <?php
+        echo '<td><a href="index.php?uc=gestionAdherent&action=pageAdherent&id='. $adherent['id'] . '">' . $adherent['id'] . '</a></td>';
+        ?>
         <td> <?php echo $adherent['nom'] ?></td>
         <td> <?php echo $adherent['prenom'] ?></td>
         <td> <?php echo $adherent['ville'] ?></td>

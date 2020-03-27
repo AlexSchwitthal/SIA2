@@ -16,11 +16,6 @@ switch ($action) {
   		include("views/v_redactionNews.php");
   		break;
     }
-    case 'affichageNews': {
-    	$lesNews = $pdo->getNews();
-  		include("views/v_affichageNews.php");
-  		break;
-    }
 
     case 'ajoutEtudiant': {
               $pdo->creerEtudiant(
@@ -49,5 +44,10 @@ switch ($action) {
         break;
     }
 
+    default: {
+      $lesEtudiants = $pdo->getEtudiants();
+      include("views/v_affichageEtudiant.php");
+      break;
+    }
 }
 ?>
