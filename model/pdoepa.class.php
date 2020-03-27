@@ -60,6 +60,12 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
+    
+    public function getEtudiants() {
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM arrivant");
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll();
+    }
 
 
   /**
@@ -86,5 +92,25 @@ class PdoEpa {
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
+  
+  public function creerEtudiant($nom, $prenom, $sexe, $ddn, $nation, $es, $dap, $langue, $tel, $email, $pec) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `prenom`, `sexe`, `ddn`, `nation`, `es`, `dap`, `langue`, `tel`, `email`, `pec`) "
+              . "VALUES (:nom, :prenom, :sexe, :ddn, :nation, :es, :dap, :langue, :tel, :email, :pec) ");
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ddn', $ddn, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':nation', $nation, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':es', $es, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':dap', $dap, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':langue', $langue, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':pec', $pec, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
+  
+  
+  
 }
 ?>
