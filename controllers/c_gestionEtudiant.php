@@ -13,11 +13,12 @@ switch ($action) {
     	break;
     }
     case 'redactionNews' : {
-		echo "redactionNews";
+		include("views/v_redactionNews.php");
 		break;
     }
     case 'affichageNews': {
-		echo "affichageNews";
+    	$lesNews = $pdo->getNews();
+		include("views/v_affichageNews.php");
 		break;
     }
     
@@ -37,6 +38,15 @@ switch ($action) {
               );
               include("views/v_validationEtudiant.php");
            	  break;
+    }
+    
+    case 'ajoutNews':{
+    	$pdo->creerNews(
+        	$_REQUEST['nom'],
+            $_REQUEST['description']
+        );
+        include("views/v_validationNews.php");
+        break;
     }
     
 }

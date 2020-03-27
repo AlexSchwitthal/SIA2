@@ -66,6 +66,12 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
+    
+    public function getNews() {
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news");
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll();
+    } 
 
 
   /**
@@ -110,6 +116,13 @@ class PdoEpa {
       $requete_prepare->execute();
   }
   
+  public function creerNews($nom, $description) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO news (`nom`, `description`) "
+              . "VALUES (:nom, :description) ");
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':description', $description, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
   
   
 }
