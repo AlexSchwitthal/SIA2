@@ -2,7 +2,7 @@
 
 function nbErreurs($request) {
   $erreurs = false;
-  $messageErreur = '<div id="erreur" class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
+  $messageErreur = '<div class="col-md-10"><div id="erreur" class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
 
   if (empty($request['nom'])) {
     $messageErreur .= '<br />- Le nom';
@@ -59,6 +59,8 @@ function nbErreurs($request) {
 
   if (empty($request['email'])) {
     $messageErreur .= '<br />- L\'adresse e-mail';
+    $erreurs = true;
+
   }
   else if(!mb_ereg('^[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+'.
       '@'.
