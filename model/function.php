@@ -57,14 +57,14 @@ function nbErreurs($request) {
     $erreurs = true;
   }
 
-  if (empty($_POST['email'])) {
+  if (empty($request['email'])) {
     $messageErreur .= '<br />- L\'adresse e-mail';
   }
   else if(!mb_ereg('^[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+'.
       '@'.
       '[-!#$%&\'*+\\/0-9=?A-Z^_`a-z{|}~]+\.'.
       '[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+$',
-      $_POST['email'])) {
+      $request['email'])) {
     $messageErreur .= '<br />- L\'adresse e-mail doit être valide';
     $erreurs = true;
   }
