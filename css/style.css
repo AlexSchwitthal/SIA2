@@ -5130,3 +5130,29 @@ ul#menuList a:hover {
     background: #e0e0e0;
     color: #4582B4;
 }
+
+td.h-entete {
+    background-color: #e0e0e0;
+    color: #4582B4;
+    font-weight: bold;
+    width: 20%;
+    padding: 1px 10px 1px 5px;
+}
+
+td.h-valeur {
+    background-color: #f0f0f0;
+    color: #4582B4;
+    padding: 1px 10px 1px 5px;
+    width: 80%;
+}
+
+.marge {
+    margin: 10px 0px 10px 0px;
+}
+
+.tableauPersonne {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}

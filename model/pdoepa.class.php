@@ -113,6 +113,21 @@ class PdoEpa {
       $requete_prepare->execute();
   }
 
+  public function modifierAdherent($id, $nom, $prenom, $ville, $cp, $adresse, $tel, $email) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE adherent ".
+      "SET nom = :nom, prenom = :prenom, ville = :ville, cp = :cp, adresse = :adresse, tel = :tel, email = :email ".
+      "WHERE id = :id");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ville', $ville, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':cp', $cp, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
+
   public function creerEtudiant($nom, $prenom, $sexe, $ddn, $nation, $es, $dap, $langue, $tel, $email, $pec) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `prenom`, `sexe`, `ddn`, `nation`, `es`, `dap`, `langue`, `tel`, `email`, `pec`) "
               . "VALUES (:nom, :prenom, :sexe, :ddn, :nation, :es, :dap, :langue, :tel, :email, :pec) ");

@@ -1,20 +1,22 @@
 <div class="col-md-10">
-  <table class="table table-bordered table-responsive table-striped">
-    <tr>
-      <td> ID </td>
-      <td> Nom </td>
-      <td> Description </td>
-    </tr>
-    <?php
-    foreach ($lesNews as $news) {
-      ?>
+  <div class="marge">
+    <table class="table table-bordered table-responsive table-striped">
       <tr>
-        <td> <?php echo $news['id'] ?></td>
-        <td> <?php echo $news['nom'] ?></td>
-        <td> <?php echo $news['description'] ?></td>
+        <td> ID </td>
+        <td> Nom </td>
+        <td> Description </td>
       </tr>
       <?php
-    }
-    ?>
-  </table>
+      foreach ($lesNews as $news) {
+        ?>
+        <tr>
+          <td> <?php echo $news['id'] ?></td>
+          <td> <?php echo $news['nom'] ?></td>
+          <td> <?php echo $news['description'] ?></td>
+        </tr>
+        <?php
+      }
+      ?>
+    </table>
+  </div>
 </div>

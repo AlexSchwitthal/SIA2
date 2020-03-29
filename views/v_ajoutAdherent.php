@@ -2,7 +2,7 @@
     echo $erreur;
   ?>
 <div class="col-md-10">
-  <table>
+  <table class="marge">
     <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent">
       <tr>
         <td> Nom : </td>

@@ -1,5 +1,5 @@
 <div class="col-md-10">
-  <table>
+  <table class="marge">
     <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant">
       <tr>
         <td> Nom : </td>

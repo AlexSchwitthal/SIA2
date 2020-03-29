@@ -54,6 +54,49 @@ switch ($action) {
           break;
     }
 
+    case 'modifierAdherent' : {
+      $erreur = '';
+      if (!(empty($_REQUEST['id']))) {
+          $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+          if (is_array($lAdherent)) {
+            include("views/v_modifierAdherent.php");
+          }
+          else {
+            header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");
+          }
+          break;
+      }
+    }
+
+    case 'validerModificationAdherent' : {
+      $erreur = nbErreurs($_REQUEST);
+      if(strlen($erreur) == 0) {
+        $pdo->modifierAdherent(
+          $_REQUEST['id'],
+          $_REQUEST['nom'],
+          $_REQUEST['prenom'],
+          $_REQUEST['ville'],
+          $_REQUEST['cp'],
+          $_REQUEST['adresse'],
+          $_REQUEST['tel'],
+          $_REQUEST['email']
+        );
+        include("views/v_validationModificationAdherent.php");
+      }
+      else {
+        if (!(empty($_REQUEST['id']))) {
+            $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+            if (is_array($lAdherent)) {
+              include("views/v_modifierAdherent.php");
+            }
+            else {
+              header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");
+            }
+        }
+      }
+      break;
+    }
+
     default: {
           $lesAdherents = $pdo->getAdherents();
           include("views/v_listeAdherent.php");
