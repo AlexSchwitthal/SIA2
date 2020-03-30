@@ -2,7 +2,7 @@
 
 function nbErreurs($request) {
   $erreurs = false;
-  $messageErreur = '<div class="col-md-10"><div class="marge"><div id="erreur" class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
+  $messageErreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
 
   if (empty($request['nom'])) {
     $messageErreur .= '<br />- Le nom';
@@ -74,7 +74,7 @@ function nbErreurs($request) {
 
   // RETURN //
   if($erreurs) {
-      $messageErreur .= '</div></div>';
+      $messageErreur .= '</b></div></div>';
       return $messageErreur;
   }
   else {

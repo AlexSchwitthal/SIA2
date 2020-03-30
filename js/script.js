@@ -1,4 +1,4 @@
-<script>
+
   function validate(evt) {
    var theEvent = evt || window.event;
 
@@ -16,4 +16,3 @@
      if(theEvent.preventDefault) theEvent.preventDefault();
    }
  }
-</script>

@@ -12,7 +12,7 @@
 
       <tr>
         <td> News : </td>
-        <td><textarea rows = "5" cols = "60" name = "description"> Entrer la news...</textarea></td>
+        <td><textarea rows = "5" cols = "60" name = "description" onfocus="this.value=''"> Entrer la news...</textarea></td>
       </tr>
 
       <tr>
@@ -25,7 +25,6 @@
           <input type="submit" value="Annuler" onClick="erase();return false;">
         </td>
       </tr>
-
    </form>
  </table>
 </div>
