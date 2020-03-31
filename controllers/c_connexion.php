@@ -12,7 +12,6 @@ switch ($action) {
 			$verification = $pdo->verifierLogin($_REQUEST['login'], $_REQUEST['mdp']);
 
       		if($verification == 1) {
-      			echo "OK";
          		$_SESSION['logs'] = $_REQUEST['login'];
          		include("views/v_connexionValide.php");
       		}
