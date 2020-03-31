@@ -9,18 +9,16 @@ switch ($action) {
             break;
         }
     case 'valideConnexion': {
-			$verification = $pdo->verifierLogin(
-                $_REQUEST['login'],
-                $_REQUEST['mdp'],
-              );
+			$verification = $pdo->verifierLogin($_REQUEST['login'], $_REQUEST['mdp']);
 
       		if($verification == 1) {
-      			session_start();
       			echo "OK";
          		$_SESSION['logs'] = $_REQUEST['login'];
          		include("views/v_connexionValide.php");
-      		}else {
-         		echo "Votre identifient ou votre mot de passe est invalide";
+      		}
+          else {
+         		echo "Votre identifiant ou votre mot de passe est invalide";
+            include("views/v_connexion.php");
       		}
             break;
         }
