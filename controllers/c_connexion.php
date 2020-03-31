@@ -5,7 +5,6 @@ if (!isset($_REQUEST['action'])) {
 $action = $_REQUEST['action'];
 switch ($action) {
     case 'demandeConnexion': {
-            echo 'test';
             include("views/v_connexion.php");
             break;
         }
@@ -18,7 +17,7 @@ switch ($action) {
          		include("views/v_connexionValide.php");
       		}
           else {
-         		echo "Votre identifiant ou votre mot de passe est invalide";
+            echo '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Votre identifiant ou votre mot de passe est invalide !</b></div</div></div>';
             include("views/v_connexion.php");
       		}
             break;
