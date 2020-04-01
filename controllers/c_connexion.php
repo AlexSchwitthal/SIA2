@@ -13,7 +13,6 @@ switch ($action) {
       		if($verification == 1) {
          		$_SESSION['logs'] = $_REQUEST['login'];
          		$_SESSION['groupe'] = $pdo->getGroupe($_REQUEST['login'], $_REQUEST['mdp']);
-         		//echo $_SESSION['groupe'];
          		include("views/v_connexionValide.php");
       		}
           else {

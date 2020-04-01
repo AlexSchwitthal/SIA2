@@ -86,7 +86,7 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
-    
+
     public function verifierLogin($login,$mdp) {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
         $requete_prepare->bindParam(':username', $login, PDO::PARAM_STR);
@@ -96,14 +96,14 @@ class PdoEpa {
 		$nb = count($array);
 		return $nb;
     }
-    
+
     public function getGroupe($login,$mdp) {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT groupe FROM users WHERE username = :username AND password = :password");
         $requete_prepare->bindParam(':username', $login, PDO::PARAM_STR);
         $requete_prepare->bindParam(':password', $mdp, PDO::PARAM_STR);
         $requete_prepare->execute();
 		$array = $requete_prepare->fetch();
-		return $array[groupe];
+		return $array['groupe'];
     }
 
 

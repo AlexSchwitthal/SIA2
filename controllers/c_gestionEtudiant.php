@@ -8,7 +8,7 @@ switch ($action) {
     	break;
     }
     case 'affichageEtudiant': {
-    	if($_SESSION['groupe']==3){
+    	if(estConnecte() && $_SESSION['groupe']==3){
     		$lesEtudiants = $pdo->getEtudiants();
 		  	include("views/v_affichageEtudiant.php");
     	}

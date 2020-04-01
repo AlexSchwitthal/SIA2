@@ -95,4 +95,13 @@ function estNom($element) {
   }
 }
 
+function estConnecte() {
+  if(isset($_SESSION['groupe'])) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 ?>
