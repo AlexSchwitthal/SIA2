@@ -7,7 +7,7 @@
 
     <tr>
       <td> mot de passe : </td>
-      <td><input type="text" id="mdp" name="mdp"> </td>
+      <td><input type="password" id="mdp" name="mdp"> </td>
     </tr>
 
     <tr>
