@@ -95,9 +95,14 @@ function estNom($element) {
   }
 }
 
-function estConnecte() {
+function userGroupe($valueExpected) {
   if(isset($_SESSION['groupe'])) {
-    return true;
+    if($_SESSION['groupe'] == $valueExpected) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
   else {
     return false;

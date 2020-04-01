@@ -6,7 +6,7 @@
                   <a href="./index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Inscrire un étudiant</a>
               </li>
 
-              <?php if(estConnecte() && $_SESSION['groupe']==3){ ?>
+              <?php if(userGroupe(3)){ ?>
               <li>
                   <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
               </li>
