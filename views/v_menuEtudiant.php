@@ -5,9 +5,13 @@
               <li>
                   <a href="./index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Inscrire un étudiant</a>
               </li>
+
+              <?php if($_SESSION['groupe']==3){ ?>
               <li>
                   <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
               </li>
+              <?php } ?>
+              
               <li>
                   <a href="./index.php?uc=gestionEtudiant&action=redactionNews">Rédiger une news</a>
               </li>

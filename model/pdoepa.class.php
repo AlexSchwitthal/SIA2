@@ -96,6 +96,15 @@ class PdoEpa {
 		$nb = count($array);
 		return $nb;
     }
+    
+    public function getGroupe($login,$mdp) {
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT groupe FROM users WHERE username = :username AND password = :password");
+        $requete_prepare->bindParam(':username', $login, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':password', $mdp, PDO::PARAM_STR);
+        $requete_prepare->execute();
+		$array = $requete_prepare->fetch();
+		return $array[groupe];
+    }
 
 
   /**
