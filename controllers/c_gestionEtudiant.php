@@ -8,8 +8,13 @@ switch ($action) {
     	break;
     }
     case 'affichageEtudiant': {
-    	$lesEtudiants = $pdo->getEtudiants();
-		  include("views/v_affichageEtudiant.php");
+    	if($_SESSION['groupe']==3){
+    		$lesEtudiants = $pdo->getEtudiants();
+		  	include("views/v_affichageEtudiant.php");
+    	}
+    	else{
+    		echo "Connexion requise";
+    	}
     	break;
     }
     case 'redactionNews' : {
