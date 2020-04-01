@@ -9,8 +9,7 @@ switch ($action) {
             break;
         }
     case 'valideConnexion': {
-			$verification = $pdo->verifierLogin($_REQUEST['login'], $_REQUEST['mdp']);
-
+      		$verification = $pdo->verifierLogin($_REQUEST['login'], $_REQUEST['mdp']);
       		if($verification == 1) {
          		$_SESSION['logs'] = $_REQUEST['login'];
          		include("views/v_connexionValide.php");

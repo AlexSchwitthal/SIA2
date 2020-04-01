@@ -2,8 +2,8 @@
     echo $erreur;
   ?>
 <div class="col-md-10">
-  <table class="marge">
-    <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent">
+  <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent">
+    <table class="marge">
       <tr>
         <td> Nom : </td>
         <td><input type="text" id="nom" name="nom"> </td>
@@ -44,13 +44,13 @@
         <td> E-mail : </td>
         <td><input type="text" id="email" name="email"> </td>
       </tr>
+    </table>
+    <br>
+    <p>L’adhésion implique le respect des statuts et du règlement intérieur,
+      à la disposition de l’adhérent <a href="index.php">ici</a>.<p>
 
-      <tr>
-        <td colspan="2">
-          <input type="submit">
-          <input type="submit" value="Annuler" onClick="erase();return false;">
-        </td>
-      </tr>
-   </form>
- </table>
+    <p><input type="checkbox" id="cgv" name="cgv"> Vous autorisez l’association EPA à stocker les informations vous concernant.</p>
+    <input type="submit">
+    <input type="submit" value="Annuler" onClick="erase();return false;">
+  </form>
 </div>

@@ -71,7 +71,10 @@ function nbErreurs($request) {
     $erreurs = true;
   }
 
-
+  if(!(isset($request['cgv']))) {
+    $messageErreur .= '<br />- Les conditions générales doivent être accepté';
+    $erreurs = true;
+  }
   // RETURN //
   if($erreurs) {
       $messageErreur .= '</b></div></div>';
