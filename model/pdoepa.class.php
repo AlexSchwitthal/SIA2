@@ -62,8 +62,29 @@ class PdoEpa {
     }
 
     public function getAdherentsInscrits($statut) {
-        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent WHERE payement_cotisation = :payement_cotisation ORDER BY id");
-        $requete_prepare->bindParam(':payement_cotisation', $statut, PDO::PARAM_STR);
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent WHERE statut = :statut ORDER BY id");
+        $requete_prepare->bindParam(':statut', $statut, PDO::PARAM_STR);
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll();
+    }
+
+    public function getAdherentsInscritsRestriction($statut, $prenom, $nom, $cotisation) {
+        $requete = "SELECT * FROM adherent WHERE statut = :statut ";
+        $prenom = "%".$prenom."%";
+        $nom = "%".$nom."%";
+
+        if($prenom != '') {
+          $requete .= "AND prenom LIKE :prenom ";
+        }
+        if($nom != '') {
+          $requete .= "AND nom LIKE :nom ";
+        }
+        $requete .= "ORDER BY id";
+
+        $requete_prepare = pdoEpa::$monPdo->prepare($requete);
+        $requete_prepare->bindParam(':statut', $statut, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
@@ -156,7 +177,7 @@ class PdoEpa {
 
   public function validerAdherent($id) {
     $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE adherent ".
-    "SET payement_cotisation = 1 ".
+    "SET statut = 1 ".
     "WHERE id = :id");
     $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
     $requete_prepare->execute();

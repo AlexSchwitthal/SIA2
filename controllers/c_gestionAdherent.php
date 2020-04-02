@@ -9,6 +9,24 @@ switch ($action) {
             include("views/v_listeAdherent.php");
             break;
     }
+    case 'listeAdherentTrier': {
+            $adherentsInscrits = $pdo->getAdherentsInscritsRestriction(
+              1,
+              $_REQUEST['prenom'],
+              $_REQUEST['nom'],
+              $_REQUEST['cotisation']
+            );
+
+            $adherentsNonInscrits = $pdo->getAdherentsInscritsRestriction(
+              0,
+              $_REQUEST['prenom'],
+              $_REQUEST['nom'],
+              $_REQUEST['cotisation']
+            );
+
+            include("views/v_listeAdherent.php");
+            break;
+    }
     case 'ajouterAdherent': {
             $erreur = '';
             include("views/v_ajoutAdherent.php");
@@ -104,7 +122,7 @@ switch ($action) {
           if (is_array($lAdherent)) {
             if (isset($_POST['accepter'])) {
                 $pdo->validerAdherent($_REQUEST['id']);
-                include("views/v_validationAdherent.php");    
+                include("views/v_validationAdherent.php");
             }
             else {
                 $pdo->supprimerAdherent($_REQUEST['id']);
