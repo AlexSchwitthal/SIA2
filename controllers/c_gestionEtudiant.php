@@ -4,20 +4,52 @@ $action = $_REQUEST['action'];
 
 switch ($action) {
     case 'inscriptionEtudiant': {
-		  include("views/v_inscriptionEtudiant.php");
+    	if(isset($_SESSION['groupe'])) {
+    		echo "Vous êtes déjà inscrit";
+    	}
+    	else{
+    		include("views/v_inscriptionEtudiant.php");
+    	}
     	break;
     }
+    
     case 'affichageEtudiant': {
     	if(userGroupe(3)) {
+    		// Vue tous les étudiants
     		$lesEtudiants = $pdo->getEtudiants();
 		  	include("views/v_affichageEtudiant.php");
+    	}
+    	elseif(userGroupe(1)){
+    		 //Vue uniquement de l'utilisateur connecté
+    		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
+    		include("views/v_affichageEtudiant.php");
     	}
     	else{
     		echo "Connexion requise";
     	}
     	break;
     }
+    
+    case 'modifierEtudiant':{
+    	if(userGroupe(1)) {
+    		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
+    		include("views/v_modificationEtudiant.php");
+    	}
+    	else{
+    		echo "Erreur";
+    		
+    	}
+    	break;
+    
+    }
+    
+    case 'updateEtudiant':{
+    
+    
+    }
+    
     case 'redactionNews' : {
+    	
   		include("views/v_redactionNews.php");
   		break;
     }
@@ -100,8 +132,8 @@ switch ($action) {
     }
 
     default: {
-      $lesEtudiants = $pdo->getEtudiants();
-      include("views/v_affichageEtudiant.php");
+      $lesNews = $pdo->getNews();
+  	  include("views/v_affichageNews.php");
       break;
     }
 }
