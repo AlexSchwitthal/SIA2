@@ -154,6 +154,14 @@ class PdoEpa {
       $requete_prepare->execute();
   }
 
+  public function validerAdherent($id) {
+    $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE adherent ".
+    "SET payement_cotisation = 1 ".
+    "WHERE id = :id");
+    $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+    $requete_prepare->execute();
+  }
+
   public function creerEtudiant($nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `sexe`, `prenom`, `nation`, `ddn`, `langue`, `tel`, `email`, `dap`, `ddp`, `motif`, `besoin_hebergement`, `besoin_accompagnement`, `besoin_transport`, `besoin_autres`, `autor1`, `autor2`) "
               . "VALUES (:nom, :sexe, :prenom, :nation, :ddn, :langue, :tel, :email, :dap, :ddp, :motif, :besoin_hebergement, :besoin_accompagnement, :besoin_transport, :besoin_autres, :autor1 , :autor2) ");

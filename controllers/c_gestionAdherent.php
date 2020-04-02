@@ -98,10 +98,30 @@ switch ($action) {
       break;
     }
 
+    case 'validerAdhesion' : {
+      if (!(empty($_REQUEST['id']))) {
+          $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+          if (is_array($lAdherent)) {
+            if (isset($_POST['accepter'])) {
+                $pdo->validerAdherent($_REQUEST['id']);
+                include("views/v_validationAdherent.php");    
+            }
+            else {
+                $pdo->supprimerAdherent($_REQUEST['id']);
+                include("views/v_suppressionAdherent.php");
+            }
+          }
+          else {
+            header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");
+          }
+      }
+      break;
+    }
     default: {
-          $lesAdherents = $pdo->getAdherents();
-          include("views/v_listeAdherent.php");
-          break;
+        $adherentsInscrits = $pdo->getAdherentsInscrits(1);
+        $adherentsNonInscrits = $pdo->getAdherentsInscrits(0);
+        include("views/v_listeAdherent.php");
+        break;
     }
 }
 ?>

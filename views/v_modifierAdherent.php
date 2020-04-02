@@ -50,6 +50,7 @@
       <td><input type="text" id="email" name="email" value="<?php echo $lAdherent['email'] ?>"> </td>
     </tr>
 
+    <input type="checkbox" id="cgv" name="cgv" style="display:none" checked>
     <tr>
       <td colspan="2">
         <input type="submit">

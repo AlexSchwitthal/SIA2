@@ -10,13 +10,10 @@
     <table class="table table-bordered table-responsive table-striped">
       <tr>
         <td> ID </td>
-        <td> Nom </td>
         <td> Prenom </td>
-        <td> Ville </td>
-        <td> CP </td>
-        <td> Adresse </td>
+        <td> Nom </td>
+        <td> mail </td>
         <td> Tel </td>
-        <td> E-mail </td>
       </tr>
       <?php
       foreach ($adherentsInscrits as $adherent) {
@@ -25,13 +22,10 @@
           <?php
           echo '<td><a href="index.php?uc=gestionAdherent&action=pageAdherent&id='. $adherent['id'] . '">' . $adherent['id'] . '</a></td>';
           ?>
-          <td> <?php echo $adherent['nom'] ?></td>
           <td> <?php echo $adherent['prenom'] ?></td>
-          <td> <?php echo $adherent['ville'] ?></td>
-          <td> <?php echo $adherent['cp'] ?></td>
-          <td> <?php echo $adherent['adresse'] ?></td>
-          <td> <?php echo $adherent['tel'] ?></td>
+          <td> <?php echo $adherent['nom'] ?></td>
           <td> <?php echo $adherent['email'] ?></td>
+          <td> <?php echo $adherent['tel'] ?></td>
         </tr>
         <?php
       }
@@ -44,13 +38,11 @@
     <table class="table table-bordered table-responsive table-striped">
       <tr>
         <td> ID </td>
-        <td> Nom </td>
         <td> Prenom </td>
-        <td> Ville </td>
-        <td> CP </td>
-        <td> Adresse </td>
+        <td> Nom </td>
+        <td> mail </td>
         <td> Tel </td>
-        <td> E-mail </td>
+        <td></td>
       </tr>
       <?php
       foreach ($adherentsNonInscrits as $adherent) {
@@ -59,13 +51,18 @@
           <?php
           echo '<td><a href="index.php?uc=gestionAdherent&action=pageAdherent&id='. $adherent['id'] . '">' . $adherent['id'] . '</a></td>';
           ?>
-          <td> <?php echo $adherent['nom'] ?></td>
           <td> <?php echo $adherent['prenom'] ?></td>
-          <td> <?php echo $adherent['ville'] ?></td>
-          <td> <?php echo $adherent['cp'] ?></td>
-          <td> <?php echo $adherent['adresse'] ?></td>
-          <td> <?php echo $adherent['tel'] ?></td>
+          <td> <?php echo $adherent['nom'] ?></td>
           <td> <?php echo $adherent['email'] ?></td>
+          <td> <?php echo $adherent['tel'] ?></td>
+          <td>
+            <?php
+            echo '<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdhesion&id='. $adherent['id'] .'">';
+            ?>
+              <input type="submit" value="Accepter" name="accepter" id="accepter">
+              <input type="submit" value="Refuser" name="refuser" id="refuser">
+            </form>
+          </td>
         </tr>
         <?php
       }
