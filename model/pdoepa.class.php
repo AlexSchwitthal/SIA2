@@ -114,6 +114,13 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
+	
+    public function getEtudiantConnecte($username){
+    	$requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM arrivant WHERE ref_users = (SELECT id FROM users WHERE username = :username)");
+    	$requete_prepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requete_prepare->execute();
+        return $requete_prepare->fetch();
+    }
 
     public function getNews() {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news");
