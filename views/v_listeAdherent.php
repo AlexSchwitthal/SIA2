@@ -1,8 +1,11 @@
+
 <div class="col-md-10">
-      <form name="form" method="post" action="">
-        <input type="submit" onClick="isValid();return false;">
-        <input type="submit" value="Annuler" onClick="erase();return false;">
+  <form name="form" method="post" action="">
+    <input type="submit" onClick="isValid();return false;">
+    <input type="submit" value="Annuler" onClick="erase();return false;">
   </form>
+
+  <h2>Adhérents inscrits : </h2>
   <div class="marge">
     <table class="table table-bordered table-responsive table-striped">
       <tr>
@@ -16,7 +19,41 @@
         <td> E-mail </td>
       </tr>
       <?php
-      foreach ($lesAdherents as $adherent) {
+      foreach ($adherentsInscrits as $adherent) {
+        ?>
+        <tr>
+          <?php
+          echo '<td><a href="index.php?uc=gestionAdherent&action=pageAdherent&id='. $adherent['id'] . '">' . $adherent['id'] . '</a></td>';
+          ?>
+          <td> <?php echo $adherent['nom'] ?></td>
+          <td> <?php echo $adherent['prenom'] ?></td>
+          <td> <?php echo $adherent['ville'] ?></td>
+          <td> <?php echo $adherent['cp'] ?></td>
+          <td> <?php echo $adherent['adresse'] ?></td>
+          <td> <?php echo $adherent['tel'] ?></td>
+          <td> <?php echo $adherent['email'] ?></td>
+        </tr>
+        <?php
+      }
+      ?>
+    </table>
+  </div>
+  <br>
+  <h2>Adhérents en attente : </h2>
+  <div class="marge">
+    <table class="table table-bordered table-responsive table-striped">
+      <tr>
+        <td> ID </td>
+        <td> Nom </td>
+        <td> Prenom </td>
+        <td> Ville </td>
+        <td> CP </td>
+        <td> Adresse </td>
+        <td> Tel </td>
+        <td> E-mail </td>
+      </tr>
+      <?php
+      foreach ($adherentsNonInscrits as $adherent) {
         ?>
         <tr>
           <?php

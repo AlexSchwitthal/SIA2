@@ -61,6 +61,13 @@ class PdoEpa {
         return $requete_prepare->fetchAll();
     }
 
+    public function getAdherentsInscrits($statut) {
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent WHERE payement_cotisation = :payement_cotisation ORDER BY id");
+        $requete_prepare->bindParam(':payement_cotisation', $statut, PDO::PARAM_STR);
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll();
+    }
+
     public function getAdherentById($id) {
       $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent where id = :id");
       $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
@@ -167,7 +174,7 @@ class PdoEpa {
       $requete_prepare->bindParam(':besoin_autres', $besoin_autres, PDO::PARAM_STR);
       $requete_prepare->bindParam(':autor1', $autor1, PDO::PARAM_STR);
       $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
-      
+
       $requete_prepare->execute();
   }
 

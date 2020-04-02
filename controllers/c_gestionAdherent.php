@@ -4,7 +4,8 @@ $action = $_REQUEST['action'];
 
 switch ($action) {
     case 'listeAdherent': {
-            $lesAdherents = $pdo->getAdherents();
+            $adherentsInscrits = $pdo->getAdherentsInscrits(1);
+            $adherentsNonInscrits = $pdo->getAdherentsInscrits(0);
             include("views/v_listeAdherent.php");
             break;
     }
