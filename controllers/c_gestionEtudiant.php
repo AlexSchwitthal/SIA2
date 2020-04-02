@@ -1,5 +1,10 @@
 <?php
 include("views/v_menuEtudiant.php");
+
+
+if (empty($_REQUEST['action'])) {
+    $_REQUEST['action'] = 'news';
+}
 $action = $_REQUEST['action'];
 
 switch ($action) {
@@ -12,14 +17,14 @@ switch ($action) {
     	}
     	break;
     }
-    
+
     case 'affichageEtudiant': {
     	if(userGroupe(3)) {
     		// Vue tous les étudiants
     		$lesEtudiants = $pdo->getEtudiants();
 		  	include("views/v_affichageEtudiant.php");
     	}
-    	elseif(userGroupe(1)){
+    	else if(userGroupe(1)){
     		 //Vue uniquement de l'utilisateur connecté
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
     		include("views/v_affichageEtudiant.php");
@@ -29,7 +34,7 @@ switch ($action) {
     	}
     	break;
     }
-    
+
     case 'modifierEtudiant':{
     	if(userGroupe(1)) {
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
@@ -37,19 +42,19 @@ switch ($action) {
     	}
     	else{
     		echo "Erreur";
-    		
+
     	}
     	break;
-    
+
     }
-    
+
     case 'updateEtudiant':{
-    
-    
+
+
     }
-    
+
     case 'redactionNews' : {
-    	
+
   		include("views/v_redactionNews.php");
   		break;
     }
@@ -60,44 +65,44 @@ switch ($action) {
     }else{
     	$motif = $_REQUEST['motif'];
     }
-    
+
     if(strcmp($_REQUEST['besoin_autres_check'],'oui')==0){
     	$besoin_autres = $_REQUEST['besoin_autres'];
     }else{
     	$besoin_autres = 'non';
     }
-    
+
     if(strcmp($_REQUEST['besoin_hebergement'],'oui')==0){
     	$besoin_hebergement = $_REQUEST['besoin_hebergement'];
     }else{
     	$besoin_hebergement = 'non';
     }
-    
+
     if(strcmp($_REQUEST['besoin_accompagnement'],'oui')==0){
     	$besoin_accompagnement = $_REQUEST['besoin_accompagnement'];
     }else{
     	$besoin_accompagnement = 'non';
     }
-    
+
     if(strcmp($_REQUEST['besoin_transport'],'oui')==0){
     	$besoin_transport = $_REQUEST['besoin_transport'];
     }else{
     	$besoin_transport = 'non';
     }
-    
+
     if(strcmp($_REQUEST['autor1'],'oui')==0){
     	$autor1 = $_REQUEST['autor1'];
     }else{
     	$autor1 = 'non';
     }
-    
+
     if(strcmp($_REQUEST['autor2'],'oui')==0){
     	$autor2 = $_REQUEST['autor2'];
     }else{
     	$autor2 = 'non';
     }
-    
-    
+
+
               $pdo->creerEtudiant(
                 $_REQUEST['nom'],
                 $_REQUEST['sexe'],
@@ -117,7 +122,7 @@ switch ($action) {
                 $autor1,
                 $autor2
               );
-              
+
               include("views/v_validationEtudiant.php");
            	  break;
     }
