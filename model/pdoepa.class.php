@@ -163,6 +163,8 @@ class PdoEpa {
   }
 
   public function creerEtudiant($nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2) {
+      
+      // Requête 1 : création de la ligne dans arrivant
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `sexe`, `prenom`, `nation`, `ddn`, `langue`, `tel`, `email`, `dap`, `ddp`, `motif`, `besoin_hebergement`, `besoin_accompagnement`, `besoin_transport`, `besoin_autres`, `autor1`, `autor2`) "
               . "VALUES (:nom, :sexe, :prenom, :nation, :ddn, :langue, :tel, :email, :dap, :ddp, :motif, :besoin_hebergement, :besoin_accompagnement, :besoin_transport, :besoin_autres, :autor1 , :autor2) ");
       $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
@@ -182,9 +184,44 @@ class PdoEpa {
       $requete_prepare->bindParam(':besoin_autres', $besoin_autres, PDO::PARAM_STR);
       $requete_prepare->bindParam(':autor1', $autor1, PDO::PARAM_STR);
       $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
-
       $requete_prepare->execute();
-  }
+      
+      // Requête 2 : création de la ligne dans users
+      $requete_prepare2 = PdoEpa::$monPdo->prepare("INSERT INTO users (`username`, `password`, `groupe`) "
+              . "VALUES (:username, :password, :groupe)");
+      $username = $nom . $prenom;
+      $password = $nom . $prenom;
+      $groupe = 1;
+      $requete_prepare2->bindParam(':username', $username, PDO::PARAM_STR);
+      $requete_prepare2->bindParam(':password', $password, PDO::PARAM_STR);
+      $requete_prepare2->bindParam(':groupe', $groupe, PDO::PARAM_STR);
+      $requete_prepare2->execute();
+      
+      // Requête 3 : Recupération de l'ID.users
+      $requete_prepare3 = pdoEpa::$monPdo->prepare("SELECT id FROM users WHERE username = :username AND password = :password");
+      $requete_prepare3->bindParam(':username', $username, PDO::PARAM_STR);
+      $requete_prepare3->bindParam(':password', $password, PDO::PARAM_STR);
+      $requete_prepare3->execute();
+	  $id1 = $requete_prepare3->fetch();
+	  $id11 = intval($id1['id']);
+	  
+	  // Requête 4 : Recupération de l'ID.arrivant
+      $requete_prepare4 = pdoEpa::$monPdo->prepare("SELECT id FROM arrivant WHERE nom = :nom AND prenom = :prenom");
+      $requete_prepare4->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare4->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare4->execute();
+	  $id2 = $requete_prepare4->fetch();
+	  $id22 = intval($id2['id']);
+	  
+	  // Requête 4 : Liaison des deux tables
+	  $requete_prepare5 = pdoEpa::$monPdo->prepare("UPDATE `arrivant` SET ref_users=:id11 WHERE id = :id22");
+      $requete_prepare5->bindParam(':id11', $id11, PDO::PARAM_INT);
+      $requete_prepare5->bindParam(':id22', $id22, PDO::PARAM_INT);
+      $requete_prepare5->execute();
+	  
+      
+	}
+
 
   public function creerNews($nom, $description) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO news (`nom`, `description`) "

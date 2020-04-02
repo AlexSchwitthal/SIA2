@@ -85,6 +85,7 @@ switch ($action) {
                 $autor1,
                 $autor2
               );
+              
               include("views/v_validationEtudiant.php");
            	  break;
     }
