@@ -147,20 +147,27 @@ class PdoEpa {
       $requete_prepare->execute();
   }
 
-  public function creerEtudiant($nom, $prenom, $sexe, $ddn, $nation, $es, $dap, $langue, $tel, $email, $pec) {
-      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `prenom`, `sexe`, `ddn`, `nation`, `es`, `dap`, `langue`, `tel`, `email`, `pec`) "
-              . "VALUES (:nom, :prenom, :sexe, :ddn, :nation, :es, :dap, :langue, :tel, :email, :pec) ");
+  public function creerEtudiant($nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `sexe`, `prenom`, `nation`, `ddn`, `langue`, `tel`, `email`, `dap`, `ddp`, `motif`, `besoin_hebergement`, `besoin_accompagnement`, `besoin_transport`, `besoin_autres`, `autor1`, `autor2`) "
+              . "VALUES (:nom, :sexe, :prenom, :nation, :ddn, :langue, :tel, :email, :dap, :ddp, :motif, :besoin_hebergement, :besoin_accompagnement, :besoin_transport, :besoin_autres, :autor1 , :autor2) ");
       $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
       $requete_prepare->bindParam(':sexe', $sexe, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':ddn', $ddn, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
       $requete_prepare->bindParam(':nation', $nation, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':es', $es, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':dap', $dap, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ddn', $ddn, PDO::PARAM_STR);
       $requete_prepare->bindParam(':langue', $langue, PDO::PARAM_STR);
       $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':pec', $pec, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':dap', $dap, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ddp', $ddp, PDO::PARAM_STR); //NEW
+      $requete_prepare->bindParam(':motif', $motif, PDO::PARAM_STR); //CHANGEMENT NOM
+      $requete_prepare->bindParam(':besoin_hebergement', $besoin_hebergement, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_accompagnement', $besoin_accompagnement, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_transport', $besoin_transport, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_autres', $besoin_autres, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':autor1', $autor1, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
+      
       $requete_prepare->execute();
   }
 
