@@ -37,7 +37,7 @@
                 </div>
                 <div>
                   <?php if(isset($_SESSION["logs"])) {
-                    echo "connecté en tant que : ".$_SESSION['logs'];
+                    echo "connecté en tant que : ".$_SESSION['logs']. " (".getTypeUtilisateurs($_SESSION['groupe']).")";
                   }
                   else {
                     echo "mode invité";

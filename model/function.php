@@ -109,4 +109,25 @@ function userGroupe($valueExpected) {
   }
 }
 
+function getTypeUtilisateurs($groupe) {
+  switch($groupe) {
+    case '0' : {
+      return 'invité';
+      break;
+    }
+    case '1' : {
+      return 'etudiant';
+      break;
+    }
+    case '2' : {
+      return 'adherent';
+      break;
+    }
+    case '3' : {
+      return 'admin';
+      break;
+    }
+  }
+}
+
 ?>
