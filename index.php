@@ -16,7 +16,7 @@ session_start();
 
 $pdo = PdoEpa::getPdoEpa();
 
-include("views/v_entete.php");
+include("views/main/v_entete.php");
 
 
 if (empty($_REQUEST['uc'])) {
@@ -48,5 +48,5 @@ switch ($uc) {
     }
 }
 
-include("views/v_pied.php");
+include("views/main/v_pied.php");
 ?>

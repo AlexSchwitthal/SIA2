@@ -5,7 +5,7 @@ if (!isset($_REQUEST['action'])) {
 $action = $_REQUEST['action'];
 switch ($action) {
     case 'demandeConnexion': {
-            include("views/v_connexion.php");
+            include("views/connexion/v_connexion.php");
             break;
         }
     case 'valideConnexion': {
@@ -13,22 +13,22 @@ switch ($action) {
       		if($verification == 1) {
          		$_SESSION['logs'] = $_REQUEST['login'];
          		$_SESSION['groupe'] = $pdo->getGroupe($_REQUEST['login'], $_REQUEST['mdp']);
-         		include("views/v_connexionValide.php");
+         		include("views/connexion/v_connexionValide.php");
       		}
           else {
             echo '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Votre identifiant ou votre mot de passe est invalide !</b></div</div></div>';
-            include("views/v_connexion.php");
+            include("views/connexion/v_connexion.php");
       		}
             break;
         }
     case 'demandeDeconnexion': {
         session_destroy();
         session_start();
-        include("views/v_deconnexion.php");
+        include("views/connexion/v_deconnexion.php");
         break;
     }
     default : {
-        include("views/v_connexion.php");
+        include("views/connexion/v_connexion.php");
         break;
     }
 }

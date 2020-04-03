@@ -1,4 +1,4 @@
 <?php
   $lesNews = $pdo->getNews();
-  include("views/v_affichageNews.php");
+  include("views/news/v_affichageNews.php");
 ?>

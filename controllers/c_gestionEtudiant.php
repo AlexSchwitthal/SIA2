@@ -1,5 +1,5 @@
 <?php
-include("views/v_menuEtudiant.php");
+include("views/etudiant/v_menuEtudiant.php");
 
 
 if (empty($_REQUEST['action'])) {
@@ -13,7 +13,7 @@ switch ($action) {
     		echo "Vous êtes déjà inscrit";
     	}
     	else{
-    		include("views/v_inscriptionEtudiant.php");
+    		include("views/etudiant/v_inscriptionEtudiant.php");
     	}
     	break;
     }
@@ -22,12 +22,12 @@ switch ($action) {
     	if(userGroupe(3)) {
     		// Vue tous les étudiants
     		$lesEtudiants = $pdo->getEtudiants();
-		  	include("views/v_affichageEtudiant.php");
+		  	include("views/etudiant/v_affichageEtudiant.php");
     	}
     	else if(userGroupe(1)){
     		 //Vue uniquement de l'utilisateur connecté
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
-    		include("views/v_affichageEtudiant.php");
+    		include("views/etudiant/v_affichageEtudiant.php");
     	}
     	else{
     		echo "Connexion requise";
@@ -38,7 +38,7 @@ switch ($action) {
     case 'modifierEtudiant':{
     	if(userGroupe(1)) {
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
-    		include("views/v_modificationEtudiant.php");
+    		include("views/etudiant/v_modificationEtudiant.php");
     	}
     	else{
     		echo "Erreur";
@@ -55,7 +55,7 @@ switch ($action) {
 
     case 'redactionNews' : {
 
-  		include("views/v_redactionNews.php");
+  		include("views/news/v_redactionNews.php");
   		break;
     }
 
@@ -123,7 +123,7 @@ switch ($action) {
                 $autor2
               );
 
-              include("views/v_validationEtudiant.php");
+              include("views/etudiant/v_validationEtudiant.php");
            	  break;
     }
 
@@ -132,13 +132,13 @@ switch ($action) {
         	$_REQUEST['nom'],
             $_REQUEST['description']
         );
-        include("views/v_validationNews.php");
+        include("views/etudiant/v_validationNews.php");
         break;
     }
 
     default: {
       $lesNews = $pdo->getNews();
-  	  include("views/v_affichageNews.php");
+  	  include("views/news/v_affichageNews.php");
       break;
     }
 }
