@@ -61,6 +61,15 @@ class PdoEpa {
         return $requete_prepare->fetchAll();
     }
 
+    public function getIDAdherent($nom, $prenom) {
+      $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id FROM adherent WHERE nom = :nom AND prenom = :prenom");
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->execute();
+      $id = $requete_prepare->fetch();
+      return intval($id['id']);
+    }
+
     public function getAdherentsInscrits($statut) {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent WHERE statut = :statut ORDER BY id");
         $requete_prepare->bindParam(':statut', $statut, PDO::PARAM_STR);
@@ -171,6 +180,14 @@ class PdoEpa {
       $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
       $requete_prepare->execute();
+
+      $username = $nom . $prenom;
+      $password = $nom . $prenom;
+
+      $this->creerLogin($nom, $prenom, 2);
+      $idLogin = $this->getIDlogin($username, $password);
+      $idAdherent = $this->getIDAdherent($nom, $prenom);
+      $this->linkLoginToTable('adherent', $idLogin, $idAdherent);
   }
 
   public function modifierAdherent($id, $nom, $prenom, $ville, $cp, $adresse, $tel, $email) {
@@ -225,11 +242,11 @@ class PdoEpa {
 
       $this->creerLogin($nom, $prenom, 1);
       $idLogin = $this->getIDlogin($username, $password);
-      $idEtudiant = $this->getIDetudiant($nom, $prenom);
+      $idEtudiant = $this->getIDEtudiant($nom, $prenom);
       $this->linkLoginToTable('arrivant', $idLogin, $idEtudiant);
 	}
 
-  public function getIDetudiant($nom, $prenom) {
+  public function getIDEtudiant($nom, $prenom) {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id FROM arrivant WHERE nom = :nom AND prenom = :prenom");
     $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
     $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
