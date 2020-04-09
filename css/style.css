@@ -5078,6 +5078,26 @@ input[type="button"].btn-block {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 input[type=submit], input[type=reset] {
     margin-top: 15px;
     width: 120px;
@@ -5149,6 +5169,7 @@ td.h-valeur {
 .marge {
     margin: 10px 0px 10px 0px;
 }
+
 
 .tableauPersonne {
     display: table;

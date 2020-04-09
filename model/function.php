@@ -24,6 +24,11 @@ function nbErreurs($request) {
   }
 
 
+  if (empty($request['adresse'])) {
+    $messageErreur .= '<br />- L\'adresse';
+    $erreurs = true;
+  }
+
   if (empty($request['ville'])) {
     $messageErreur .= '<br />- La ville';
     $erreurs = true;
@@ -43,17 +48,12 @@ function nbErreurs($request) {
     $erreurs = true;
   }
 
-  if (empty($request['adresse'])) {
-    $messageErreur .= '<br />- L\'adresse';
-    $erreurs = true;
-  }
-
   if (empty($request['tel'])) {
     $messageErreur .= '<br />- Le numéro de téléphone';
     $erreurs = true;
   }
-  else if(!preg_match('/[0-9]{10}/', $request['tel'])) {
-    $messageErreur .='<br />- Le numéro de téléphone doit être valide (10 chiffres)';
+  else if(!preg_match('/[0-9]/', $request['tel'])) {
+    $messageErreur .='<br />- Le numéro de téléphone ne doit contenir que des chiffres';
     $erreurs = true;
   }
 
@@ -68,6 +68,40 @@ function nbErreurs($request) {
       '[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+$',
       $request['email'])) {
     $messageErreur .= '<br />- L\'adresse e-mail doit être valide';
+    $erreurs = true;
+  }
+
+  if(empty($request['sexe'])) {
+    $messageErreur .= '<br />- Le sexe';
+    $erreurs = true;
+  }
+
+  if(empty($request['jour'])) {
+    $messageErreur .= '<br />- Le jour de naissance';
+    $erreurs = true;
+  }
+
+  if(empty($request['mois'])) {
+    $messageErreur .= '<br />- Le mois de naissance';
+    $erreurs = true;
+  }
+
+  if(empty($request['annee'])) {
+    $messageErreur .= '<br />-  L\'année de naissance';
+    $erreurs = true;
+  }
+
+  if(empty($request['type'])) {
+    $messageErreur .= '<br />-  Le type';
+    $erreurs = true;
+  }
+
+  if(empty($request['mdp'])) {
+    $messageErreur .= '<br />-  Le mot de passe';
+    $erreurs = true;
+  }
+  else if($request['mdp'] != $request['mdpconfirm']) {
+    $messageErreur .= '<br />-  Les deux mots de passes saisies sont différent';
     $erreurs = true;
   }
 

@@ -60,7 +60,7 @@ switch ($action) {
     }
 
     case 'ajoutEtudiant': {
-              if(strcmp($_REQUEST['motif'],'autre')==0){
+    if(strcmp($_REQUEST['motif'],'autre')==0){
     	$motif = $_REQUEST['motif_autre'];
     }else{
     	$motif = $_REQUEST['motif'];

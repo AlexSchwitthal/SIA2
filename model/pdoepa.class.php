@@ -169,23 +169,27 @@ class PdoEpa {
    * @param $tel : numéro de téléphone de l'adhérent
    * @param $email : adresse e-mail de l'adhérent
    */
-  public function creerAdherent($nom, $prenom, $ville, $cp, $adresse, $tel, $email) {
-      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO adherent (`nom`, `prenom`, `ville`, `cp`, `adresse`, `tel`, `email`) "
-              . "VALUES (:nom, :prenom, :ville, :cp, :adresse, :tel, :email) ");
+
+  public function creerAdherent($nom, $prenom, $adresse, $ville, $cp, $tel, $email, $sexe, $dateNaissance, $type, $mdp) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO adherent (`nom`, `prenom`, `adresse`, `ville`, `cp`, `tel`, `email`, `sexe`, `dateNaissance`, `type`) "
+              . "VALUES (:nom, :prenom, :adresse, :ville, :cp, :tel, :email, :sexe, :dateNaissance, :type) ");
       $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
       $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':adresse', $adresse, PDO::PARAM_STR);
       $requete_prepare->bindParam(':ville', $ville, PDO::PARAM_STR);
       $requete_prepare->bindParam(':cp', $cp, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':adresse', $adresse, PDO::PARAM_STR);
       $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':dateNaissance', $dateNaissance, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':type', $type, PDO::PARAM_STR);
       $requete_prepare->execute();
 
-      $username = $nom . $prenom;
-      $password = $nom . $prenom;
-
-      $this->creerLogin($nom, $prenom, 2);
-      $idLogin = $this->getIDlogin($username, $password);
+      if (!$requete_prepare) {
+         echo "\nPDO::errorInfo():\n";
+      }
+      $this->creerLogin($email, $mdp, 2);
+      $idLogin = $this->getIDlogin($email, $mdp);
       $idAdherent = $this->getIDAdherent($nom, $prenom);
       $this->linkLoginToTable('adherent', $idLogin, $idAdherent);
   }
@@ -237,11 +241,10 @@ class PdoEpa {
       $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
       $requete_prepare->execute();
 
-      $username = $nom . $prenom;
       $password = $nom . $prenom;
 
-      $this->creerLogin($nom, $prenom, 1);
-      $idLogin = $this->getIDlogin($username, $password);
+      $this->creerLogin($email, $password, 1);
+      $idLogin = $this->getIDlogin($email, $password);
       $idEtudiant = $this->getIDEtudiant($nom, $prenom);
       $this->linkLoginToTable('arrivant', $idLogin, $idEtudiant);
 	}
@@ -256,12 +259,10 @@ class PdoEpa {
   }
 
 
-  public function creerLogin($nom, $prenom, $groupe) {
-    $username = $nom . $prenom;
-    $password = $nom . $prenom;
+  public function creerLogin($email, $password, $groupe) {
     $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO users (`username`, `password`, `groupe`) "
             . "VALUES (:username, :password, :groupe) ");
-    $requete_prepare->bindParam(':username', $username, PDO::PARAM_STR);
+    $requete_prepare->bindParam(':username', $email, PDO::PARAM_STR);
     $requete_prepare->bindParam(':password', $password, PDO::PARAM_STR);
     $requete_prepare->bindParam(':groupe', $groupe, PDO::PARAM_STR);
     $requete_prepare->execute();

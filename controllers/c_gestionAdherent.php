@@ -35,16 +35,22 @@ switch ($action) {
     case 'validerAdherent' : {
             $erreur = nbErreurs($_REQUEST);
             if(strlen($erreur) == 0) {
+              $dateNaissance = $_REQUEST['annee'].'-'.$_REQUEST['mois'].'-'.$_REQUEST['jour'];
+              $tel = $_REQUEST['indicatif'].' '.$_REQUEST['tel'];
               $pdo->creerAdherent(
                 $_REQUEST['nom'],
                 $_REQUEST['prenom'],
+                $_REQUEST['adresse'],
                 $_REQUEST['ville'],
                 $_REQUEST['cp'],
-                $_REQUEST['adresse'],
-                $_REQUEST['tel'],
-                $_REQUEST['email']
+                $tel,
+                $_REQUEST['email'],
+                $_REQUEST['sexe'],
+                $dateNaissance,
+                $_REQUEST['type'],
+                $_REQUEST['mdp']
               );
-              include("views/adherent/v_validationAdherent.php");
+             include("views/adherent/v_validationAdherent.php");
             }
             else {
               include("views/adherent/v_ajoutAdherent.php");
