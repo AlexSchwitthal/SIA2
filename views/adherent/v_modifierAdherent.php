@@ -54,7 +54,6 @@
     <tr>
       <td colspan="2">
         <input type="submit">
-        <input type="submit" value="Annuler" onClick="erase();return false;">
       </td>
     </tr>
  </form>

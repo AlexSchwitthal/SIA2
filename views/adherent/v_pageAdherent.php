@@ -15,6 +15,10 @@
           <td class="h-valeur"><?php echo $lAdherent['prenom'] ?></td>
         </tr>
         <tr>
+          <td class="h-entete"> Adresse : </td>
+          <td class="h-valeur"><?php echo $lAdherent['adresse'] ?></td>
+        </tr>
+        <tr>
           <td class="h-entete"> Ville : </td>
           <td class="h-valeur"><?php echo $lAdherent['ville'] ?></td>
         </tr>
@@ -23,25 +27,44 @@
           <td class="h-valeur"><?php echo $lAdherent['cp'] ?></td>
         </tr>
         <tr>
-          <td class="h-entete"> Adresse : </td>
-          <td class="h-valeur"><?php echo $lAdherent['adresse'] ?></td>
+          <td class="h-entete"> Adresse e-mail : </td>
+          <td class="h-valeur"><?php echo $lAdherent['email'] ?></td>
         </tr>
         <tr>
           <td class="h-entete"> Numéro de téléphone : </td>
           <td class="h-valeur"><?php echo $lAdherent['tel'] ?></td>
         </tr>
         <tr>
-          <td class="h-entete"> Adresse e-mail : </td>
-          <td class="h-valeur"><?php echo $lAdherent['email'] ?></td>
+          <td class="h-entete"> Sexe : </td>
+          <td class="h-valeur"><?php echo $lAdherent['sexe'] ?></td>
         </tr>
+        <tr>
+          <td class="h-entete"> Date de naissance : </td>
+          <td class="h-valeur"><?php echo  date('d-m-Y', strtotime($lAdherent['dateNaissance'])); ?></td>
+        </tr>
+        <tr>
+          <td class="h-entete"> Date de l'adhésion : </td>
+          <td class="h-valeur"><?php echo  date('d-m-Y', strtotime($lAdherent['dateAdhesion'])); ?></td>
+        </tr>
+        <tr>
+          <td class="h-entete"> Statut : </td>
+          <td class="h-valeur"><?php echo $lAdherent['type'] ?></td>
+        </tr>
+
       </tbody>
     </table>
   </div>
 
 
   <?php
-  echo '<p><a href="index.php?uc=gestionAdherent&action=modifierAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> modifier </a>
-  <a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> supprimer </a>
-  </p>';
+
+  echo '<p><a href="index.php?uc=gestionAdherent&action=modifierAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> modifier </a> ';
+  if(userGroupe(3)) {
+      echo '<a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> supprimer </a>';
+  }
+  else {
+      echo '<a href="index.php?uc=gestionAdherent&action=changerMDP&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> changer de mot de passe </a>';
+  }
+  echo '</p>';
   ?>
 </div>

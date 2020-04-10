@@ -71,6 +71,37 @@ switch ($action) {
           break;
     }
 
+    case 'changerMDP' : {
+      if(userGroupe(2)) {
+        $id = $pdo->getIDAdherentByMail($_SESSION['logs']);
+        if($id == $_REQUEST['id']) {
+          $lAdherent = $pdo->getAdherentById($id);
+          $erreur = '';
+          include("views/adherent/v_mdpAdherent.php");
+        }
+      }
+      break;
+    }
+
+    case 'validerModicationMDP' : {
+      if (strlen($_REQUEST['nouveauMdp']) == 0) {
+        $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+        $erreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>les deux mots de passe doivent être non-vide !</b></div></div></div> ';
+        include("views/adherent/v_mdpAdherent.php");
+      }
+      else if($_REQUEST['nouveauMdp'] != $_REQUEST['nouveauMdpConfirmation']) {
+        $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+        $erreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>les deux mots de passe doivent être identiques !</b></div></div></div> ';
+        include("views/adherent/v_mdpAdherent.php");
+      }
+      else {
+        $pdo->modifierMDPUsers($_REQUEST['id'], $_REQUEST['nouveauMdp']);
+        include("views/adherent/v_validationMDPAdherent.php");
+      }
+      break;
+    }
+
+
     case 'supprimerAdherent' : {
           if (!(empty($_REQUEST['id']))) {
               $pdo->supprimerAdherent($_REQUEST['id']);
@@ -112,7 +143,7 @@ switch ($action) {
         if (!(empty($_REQUEST['id']))) {
             $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
             if (is_array($lAdherent)) {
-              include("views/v_modifierAdherent.php");
+              include("views/adherent/v_modifierAdherent.php");
             }
             else {
               header("Location: ./index.php?uc=gestionAdherent&action=listeAdherent");

@@ -198,7 +198,7 @@ class PdoEpa {
       }
       $this->creerLogin($email, $mdp, 2);
       $idLogin = $this->getIDlogin($email, $mdp);
-      $idAdherent = $this->getIDAdherent($nom, $prenom);
+      $idAdherent = $this->getIDAdherentByMail($email);
       $this->linkLoginToTable('adherent', $idLogin, $idAdherent);
   }
 
@@ -215,6 +215,16 @@ class PdoEpa {
       $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
       $requete_prepare->execute();
+  }
+
+  public function modifierMDPUsers($id, $password) {
+    $adherent = $this->getAdherentById($id);
+    $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE users ".
+    "SET password = :password ".
+    "WHERE id = :id");
+    $requete_prepare->bindParam(':id', $adherent['ref_users'], PDO::PARAM_STR);
+    $requete_prepare->bindParam(':password', $password, PDO::PARAM_STR);
+    $requete_prepare->execute();
   }
 
   public function validerAdherent($id) {
