@@ -42,6 +42,18 @@ switch ($uc) {
             include("controllers/c_gestionEtudiant.php");
             break;
     }
+    case 'baseDocumentaire' : {
+            echo 'work in progress !';
+            break;
+    }
+    case 'don' : {
+            echo 'work in progress !';
+            break;
+    }
+    case 'forum' : {
+            echo 'work in progress !';
+            break;
+    }
     default: {
             include("controllers/c_accueil.php");
             break;

@@ -20,8 +20,37 @@
                     <div class="col-md-8">
                         <ul class="nav nav-pills pull-right" role="tablist">
                             <li <?php if (!isset($_REQUEST['uc']) || $_REQUEST['uc'] == 'accueil') { ?> class="active"<?php } ?>><a href="index.php">Accueil</a></li>
-                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=listeAdherent">Gestion des adhérents</a></li>
-                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant">Gestion des étudiants</a></li>
+
+                            <?php if(userGroupe(3)) /* ADMIN */ {
+                              ?>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=listeAdherent">Gestion des adhérents</a></li>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant">Gestion des étudiants</a></li>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'baseDocumentaire') { ?> class="active"<?php } ?>><a href="index.php?uc=baseDocumentaire">Base documentaire</a></li>
+                              <?php
+                            }
+
+                            else if(userGroupe(2)) /* Adhérent */ {
+                              $id = $pdo->getIDAdherentByMail($_SESSION['logs']);
+                              ?>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=pageAdherent&id=<?php echo $id; ?>">Voir mes informations</a></li>
+                              <?php
+                            }
+
+                            else if(userGroupe(1)) /* étudiant */ {
+                              ?>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant">Voir étudiants</a></li>
+                              <?php
+                            }
+
+                            else /* non connecté */ {
+                              ?>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionAdherent&action=ajouterAdherent">Devenir adhérent</a></li>
+                              <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>><a href="index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Demander un accompagnement</a></li>
+                              <?php
+                            }
+                            ?>
+                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'don') { ?> class="active"<?php } ?>><a href="index.php?uc=don">Faire un don</a></li>
+                            <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'forum') { ?> class="active"<?php } ?>><a href="index.php?uc=forum">Forum</a></li>
 
                             <?php if(isset($_SESSION["logs"])) { ?>
                               <li><a href="index.php?uc=connexion&action=demandeDeconnexion">Deconnexion</a></li>
