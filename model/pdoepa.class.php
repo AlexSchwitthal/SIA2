@@ -120,9 +120,12 @@ class PdoEpa {
     }
 
     public function supprimerAdherent($id) {
-      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM adherent WHERE id = :id");
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM users WHERE users.id IN (SELECT ref_users from adherent where id = :id)");
       $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
       $requete_prepare->execute();
+      // $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM adherent WHERE id = :id");
+      // $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      // $requete_prepare->execute();
       return $requete_prepare->fetch();
     }
 
