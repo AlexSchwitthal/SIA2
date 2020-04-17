@@ -114,6 +114,16 @@ switch ($action) {
       $erreur = '';
       if (!(empty($_REQUEST['id']))) {
           $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
+
+          $dateNaissance = explode("-", $lAdherent['dateNaissance']);
+          $annee = $dateNaissance[0];
+          $mois = $dateNaissance[1];
+          $jour = $dateNaissance[2];
+
+          $telephone = explode(' ', $lAdherent['tel']);
+          $indicatif = $telephone[0];
+          $telephone = $telephone[1];
+
           if (is_array($lAdherent)) {
             include("views/adherent/v_modifierAdherent.php");
           }
@@ -125,17 +135,21 @@ switch ($action) {
     }
 
     case 'validerModificationAdherent' : {
-      $erreur = nbErreurs($_REQUEST);
+      $erreur = nbErreursModificationAdherent($_REQUEST);
       if(strlen($erreur) == 0) {
+        $dateNaissance = $_REQUEST['annee'].'-'.$_REQUEST['mois'].'-'.$_REQUEST['jour'];
+        $tel = $_REQUEST['indicatif'].' '.$_REQUEST['tel'];
         $pdo->modifierAdherent(
           $_REQUEST['id'],
           $_REQUEST['nom'],
           $_REQUEST['prenom'],
+          $_REQUEST['adresse'],
           $_REQUEST['ville'],
           $_REQUEST['cp'],
-          $_REQUEST['adresse'],
-          $_REQUEST['tel'],
-          $_REQUEST['email']
+          $tel,
+          $_REQUEST['email'],
+          $dateNaissance,
+          $_REQUEST['type']
         );
         include("views/adherent/v_validationModificationAdherent.php");
       }
@@ -143,6 +157,14 @@ switch ($action) {
         if (!(empty($_REQUEST['id']))) {
             $lAdherent = $pdo->getAdherentById($_REQUEST['id']);
             if (is_array($lAdherent)) {
+              $dateNaissance = explode("-", $lAdherent['dateNaissance']);
+              $annee = $dateNaissance[0];
+              $mois = $dateNaissance[1];
+              $jour = $dateNaissance[2];
+
+              $telephone = explode(' ', $lAdherent['tel']);
+              $indicatif = $telephone[0];
+              $telephone = $telephone[1];
               include("views/adherent/v_modifierAdherent.php");
             }
             else {
