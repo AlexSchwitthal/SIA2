@@ -1,3 +1,87 @@
+/* entete */
+
+#banniere {
+    background-color: #f19a49;
+    border-bottom: 5px solid #ddc30e;
+}
+
+#logo {
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+    border:1px solid orange;
+    margin: 15px;
+}
+
+#banniere-name {
+    left: 0px;
+    display: inline-block;
+    margin-left: 25%;
+    font-size: 50px;
+    color: #1f7d2d;
+}
+
+#menu-bar {
+    padding: 0;
+    /*border: 1px solid red;*/
+    vertical-align: middle;
+}
+
+#menu-bar ul{
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #80b439;
+    /*border: 1px solid red;*/
+}
+
+#menu-bar li {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    /*border: 1px solid black;*/
+    text-align: center;
+}
+
+#menu-bar a {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    line-height: 1.5;
+    width: 150px;
+    height: 50px;
+    /*background-color: #80b439;*/
+    text-decoration: none;
+    color: white;
+    /*border: 1px solid orange;*/
+}
+
+#menu-bar p {
+    margin: auto;
+}
+
+#menu-bar a:hover {
+    text-decoration: underline;
+}
+
+#menu-bar .active {
+    background-color: #3ea82d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -1158,10 +1242,10 @@ textarea {
   line-height: inherit;
 }
 
-a {
+/*a {
   color: #428bca;
   text-decoration: none;
-}
+}*/
 a:hover, a:focus {
   color: #2a6496;
   text-decoration: underline;
@@ -1477,7 +1561,7 @@ a.bg-danger:hover {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid green;
 }
 
 ul,
@@ -3762,7 +3846,7 @@ input[type="button"].btn-block {
   border-radius: 4px;
 }
 .nav-pills > li + li {
-  margin-left: 2px;
+  margin-left: auto;
 }
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: #fff;
