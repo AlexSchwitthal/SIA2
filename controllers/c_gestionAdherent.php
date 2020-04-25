@@ -32,6 +32,11 @@ switch ($action) {
             include("views/adherent/v_ajoutAdherent.php");
             break;
     }
+    case 'accesFormulaires': {
+            $erreur = '';
+            include("views/adherent/v_accesFormulaires.php");
+            break;
+    }
     case 'validerAdherent' : {
             $erreur = nbErreurs($_REQUEST);
             if(strlen($erreur) == 0) {
