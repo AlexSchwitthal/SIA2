@@ -3,7 +3,7 @@
 ?>
 <div class="col-md-10">
 <table class="marge">
-  <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModicationMDP&id=<?php echo $lAdherent['id'] ?>">
+  <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModicationMDP&id=<?php echo $lAdherent['id'] ?>" onsubmit="return confirm('êtes vous sûr de votre nouveau mot de passe ?');">
     <tr>
       <td> nouveau mot de passe : </td>
       <td><input type="password" id="nouveauMdp" name="nouveauMdp"> </td>

@@ -60,7 +60,7 @@
 
   echo '<p><a href="index.php?uc=gestionAdherent&action=modifierAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> modifier </a> ';
   if(userGroupe(3)) {
-      echo '<a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> supprimer </a>';
+      echo '<a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg" onclick="return confirm(\'êtes-vous sûr de vouloir supprimer cet adherent ?\')"> supprimer </a>';
   }
   else {
       echo '<a href="index.php?uc=gestionAdherent&action=changerMDP&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> changer de mot de passe </a>';

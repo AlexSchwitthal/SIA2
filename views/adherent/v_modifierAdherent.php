@@ -2,7 +2,7 @@
   echo $erreur;
 ?>
 <div class="col-md-10">
-<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModificationAdherent">
+<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModificationAdherent" onsubmit="return confirm('Validez les modifications ?');">
   <table class="marge">
     <tr>
       <td> Nom, Prénom :</td>

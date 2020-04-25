@@ -1,5 +1,6 @@
 <?php
 include("views/adherent/v_menuAdherent.php");
+
 $action = $_REQUEST['action'];
 
 switch ($action) {

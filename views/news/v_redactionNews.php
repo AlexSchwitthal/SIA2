@@ -1,6 +1,6 @@
 <div class="col-md-10">
   <table class="marge">
-    <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutNews">
+    <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutNews" onsubmit="return confirm('voulez vous publier la news ?');">
       <tr>
         <td> Nom de la news : </td>
         <td><input type="text" id="nom" name="nom"> </td>

@@ -1,11 +1,12 @@
 <div class="col-md-10">
-<form name="form" method="post" action="index.php?uc=gestionEtudiant&action=updateEtudiant">
+<form name="form" method="post" action="index.php?uc=gestionEtudiant&action=updateEtudiant" onsubmit="return confirm('Validez les modifications ?');">
+>
   <table class="marge">
-  
+
       <tr>
       	<td><h3> Informations personnelles </h3></td>
       </tr>
-      
+
       <tr>
         <td> Nom : </td>
         <td><input type="text" id="nom" name="nom" placeholder="<?php echo $etudiant['nom'] ?>"> </td>
@@ -21,11 +22,11 @@
           	<?php }?>
         </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Prénom : </td>
         <td><input type="text" id="prenom" name="prenom" placeholder="<?php echo $etudiant['prenom'] ?>"> </td>
@@ -226,14 +227,14 @@
   <option value="zambian">Zambian</option>
   <option value="zimbabwean">Zimbabwean</option>
 </select>
-        
+
         </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Date de naissance : </td>
         <td><input type="date" id="ddn" name="ddn" placeholder="<?php echo $etudiant['ddn'] ?>" /td>
@@ -313,33 +314,33 @@
   <option value="VI">Vietnamese</option>
   <option value="CY">Welsh</option>
   <option value="XH">Xhosa</option>
-</select> 
+</select>
         </td>
-        
+
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Tel : </td>
         <td><input type="text" id="tel" name="tel" placeholder="<?php echo $etudiant['tel'] ?>"> </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> E-mail : </td>
         <td><input type="text" id="email" name="email" placeholder="<?php echo $etudiant['email'] ?>"> </td>
       </tr>
-      
+
       <tr>
       	<td><h3> Informations séjour </h3></td>
       </tr>
-      
+
       <tr>
         <td> Date d'arrivée : </td>
         <td><input type="date" id="dap" name="dap" placeholder="<?php echo $etudiant['dap'] ?>"> </td>
@@ -347,16 +348,16 @@
         <td> Date de départ : </td>
         <td><input type="date" id="ddp" name="ddp" placeholder="<?php echo $etudiant['ddp'] ?>"> </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Motif du séjour ? </td>
       </tr>
       <tr>
-      
+
       	<?php if ($etudiant['motif']=='stage'){ ?>
       	<td><input type="radio" name="motif" value="stage" checked> Stage</td>
       </tr>
@@ -393,11 +394,11 @@
         <?php }?>
       </tr>
 
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-	  
+
 	  <tr>
         <td> Besoins </td>
       </tr>
@@ -425,40 +426,40 @@
       <tr>
       	  <?php if($etudiant['besoin_autres_check']=='oui'){ ?>
           <td>
-          		<input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres : 
+          		<input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres :
           		<textarea rows = "1" cols = "10" name = "besoin_autres" onfocus="this.value=''"><?php echo $etudiant['besoin_autres'] ?></textarea>
           </td>
           <?php } else { ?>
           <td>
-          	<input type="checkbox" name="besoin_autres_check" value="oui"> Autres : 
+          	<input type="checkbox" name="besoin_autres_check" value="oui"> Autres :
           	<textarea rows = "1" cols = "10" name = "besoin_autres" onfocus="this.value=''"></textarea>
           </td>
           <?php } ?>
       </tr>
-     
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
-     
+
 	</table>
-	
+
 	<?php if($etudiant['autor1']=='oui'){ ?>
 	<input type="checkbox" name="autor1" value="oui" checked> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
 	<?php } else { ?>
 	<input type="checkbox" name="autor1" value="oui"> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
 	<?php } ?>
-	
+
 	<?php if($etudiant['autor2']=='oui'){ ?>
 	<input type="checkbox" name="autor2" value="oui" checked> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
 	<?php } else { ?>
 	<input type="checkbox" name="autor2" value="oui"> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
 	<?php } ?>
-	
-	<input type="submit" value="Inscription"> 
+
+	<input type="submit" value="Inscription">
     <input type="submit" value="Annuler" onClick="erase();return false;"> <br>
-	
+
    </form>
 
 </div>

@@ -3,7 +3,7 @@
   ?>
 <div class="col-md-10">
   <h2><b>Tous ces champs sont obligatoires</b></h2>
-  <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent">
+  <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent" onsubmit="return confirm('êtes vous sûr de vos informations ?');">
     <table class="marge">
       <tr>
         <td> Nom, Prénom :</td>

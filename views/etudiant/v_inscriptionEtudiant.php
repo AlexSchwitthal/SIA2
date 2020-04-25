@@ -1,11 +1,11 @@
 <div class="col-md-10">
-<form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant">
+<form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant" onsubmit="return confirm('êtes vous sûr de vos informations ?');">
   <table class="marge">
-      
+
       <tr>
       	<td><h3> Informations personnelles </h3></td>
       </tr>
-      
+
       <tr>
         <td> Nom : </td>
         <td><input type="text" id="nom" name="nom"> </td>
@@ -16,11 +16,11 @@
           	<input type="radio" name="sexe" value="femme"> Femme
         </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Prénom : </td>
         <td><input type="text" id="prenom" name="prenom"> </td>
@@ -221,14 +221,14 @@
   <option value="zambian">Zambian</option>
   <option value="zimbabwean">Zimbabwean</option>
 </select>
-        
+
         </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Date de naissance : </td>
         <td><input type="date" id="ddn" name="ddn" placeholder="DD / MM / YYYY" /td>
@@ -308,33 +308,33 @@
   <option value="VI">Vietnamese</option>
   <option value="CY">Welsh</option>
   <option value="XH">Xhosa</option>
-</select> 
+</select>
         </td>
-        
+
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Tel : </td>
         <td><input type="text" id="tel" name="tel"> </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> E-mail : </td>
         <td><input type="text" id="email" name="email"> </td>
       </tr>
-      
+
       <tr>
       	<td><h3> Informations séjour </h3></td>
       </tr>
-      
+
       <tr>
         <td> Date d'arrivée : </td>
         <td><input type="date" id="dap" name="dap" placeholder="DD / MM / YYYY"> </td>
@@ -342,11 +342,11 @@
         <td> Date de départ : </td>
         <td><input type="date" id="ddp" name="ddp" placeholder="DD / MM / YYYY"> </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
         <td> Motif du séjour ? </td>
       </tr>
@@ -362,11 +362,11 @@
         	<textarea rows = "1" cols = "10" name = "motif_autre" onfocus="this.value=''"></textarea>
         </td>
       </tr>
-      
+
       <tr>
         <td>&lrm;</td>
       </tr>
-	  
+
 	  <tr>
         <td> Besoins </td>
       </tr>
@@ -381,23 +381,23 @@
       </tr>
       <tr>
           <td>
-          		<input type="checkbox" name="besoin_autres_check" value="oui"> Autres : 
+          		<input type="checkbox" name="besoin_autres_check" value="oui"> Autres :
           		<textarea rows = "1" cols = "10" name = "besoin_autres" onfocus="this.value=''"></textarea>
           </td>
       </tr>
-     
+
       <tr>
         <td>&lrm;</td>
       </tr>
-      
+
       <tr>
-     
+
 	</table>
 	<input type="checkbox" name="autor1" value="oui"> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
 	<input type="checkbox" name="autor2" value="oui"> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
-	<input type="submit" value="Inscription"> 
+	<input type="submit" value="Inscription">
     <input type="submit" value="Annuler" onClick="erase();return false;"> <br>
-	
+
    </form>
 
 </div>

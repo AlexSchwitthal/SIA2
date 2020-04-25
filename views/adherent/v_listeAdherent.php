@@ -85,8 +85,8 @@
               <?php
               echo '<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdhesion&id='. $adherent['id'] .'">';
               ?>
-                <input type="submit" value="Accepter" name="accepter" id="accepter">
-                <input type="submit" value="Refuser" name="refuser" id="refuser">
+                <input type="submit" value="Accepter" onclick="return confirm('Voulez-vous vraiment ajouter cet adherent ?')" name="accepter" id="accepter">
+                <input type="submit" value="Refuser" onclick="return confirm('Voulez-vous vraiment refuser cet adherent ?')" name="refuser" id="refuser">
               </form>
             </td>
           </tr>
