@@ -17,6 +17,17 @@ session_start();
 $pdo = PdoEpa::getPdoEpa();
 
 include("views/main/v_entete.php");
+include("controllers/c_menuPrincipal.php");
+
+if(isset($_SESSION["logs"])) {
+  echo "<div>connecté en tant que : ".$_SESSION['logs']. " (".getTypeUtilisateurs($_SESSION['groupe']).")</div>";
+}
+else {
+  echo "<div>mode invité</div>";
+}
+?>
+</header>
+<?php
 
 
 if (empty($_REQUEST['uc'])) {

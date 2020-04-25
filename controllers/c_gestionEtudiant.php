@@ -3,7 +3,7 @@ include("views/etudiant/v_menuEtudiant.php");
 
 
 if (empty($_REQUEST['action'])) {
-    $_REQUEST['action'] = 'news';
+    $_REQUEST['action'] = 'affichageEtudiant';
 }
 $action = $_REQUEST['action'];
 
@@ -19,7 +19,7 @@ switch ($action) {
     }
 
     case 'affichageEtudiant': {
-    	if(userGroupe(3)) {
+    	if(userGroupe(3) || userGroupe(2)) {
     		// Vue tous les étudiants
     		$lesEtudiants = $pdo->getEtudiants();
 		  	include("views/etudiant/v_affichageEtudiant.php");

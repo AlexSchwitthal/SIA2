@@ -7,8 +7,8 @@
                   <a href="./index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Inscrire un étudiant</a>
               </li>
 			  <?php } ?>
-				
-              <?php if(userGroupe(3) || userGroupe(1) ){ ?>
+
+              <?php if(userGroupe(3) || userGroupe(2) || userGroupe(1) ){ ?>
               <li>
                   <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
               </li>
