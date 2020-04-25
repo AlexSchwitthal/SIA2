@@ -1,3 +1,6 @@
+<?php
+  echo $erreur;
+?>
 <div class="col-md-10">
 <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant" onsubmit="return confirm('êtes vous sûr de vos informations ?');">
   <table class="marge">
