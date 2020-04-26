@@ -138,6 +138,13 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetch();
     }
+	
+   public function getUserConnecte($username){
+    	$requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM users WHERE username = :username");
+    	$requete_prepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requete_prepare->execute();
+        return $requete_prepare->fetch();
+    }
 
     public function getNews() {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news");
@@ -228,6 +235,15 @@ class PdoEpa {
     $requete_prepare->bindParam(':password', $password, PDO::PARAM_STR);
     $requete_prepare->execute();
   }
+	
+public function modifierMDPUsersEtudiant($id, $password) {
+    $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE users ".
+    "SET password = :password ".
+    "WHERE id = :id");
+    $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+    $requete_prepare->bindParam(':password', $password, PDO::PARAM_STR);
+    $requete_prepare->execute();
+  }
 
   public function validerAdherent($id) {
     $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE adherent ".
@@ -237,7 +253,7 @@ class PdoEpa {
     $requete_prepare->execute();
   }
 
-  public function creerEtudiant($nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2) {
+  public function creerEtudiant($nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2, $pw1) {
 
       // Requête 1 : création de la ligne dans arrivant
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO arrivant (`nom`, `sexe`, `prenom`, `nation`, `ddn`, `langue`, `tel`, `email`, `dap`, `ddp`, `motif`, `besoin_hebergement`, `besoin_accompagnement`, `besoin_transport`, `besoin_autres`, `autor1`, `autor2`) "
@@ -261,14 +277,37 @@ class PdoEpa {
       $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
       $requete_prepare->execute();
 
-      $password = $nom . $prenom;
-
-      $this->creerLogin($email, $password, 1);
-      $idLogin = $this->getIDlogin($email, $password);
+      $this->creerLogin($email, $pw1, 1);
+      $idLogin = $this->getIDlogin($email, $pw1);
       $idEtudiant = $this->getIDEtudiant($nom, $prenom);
       $this->linkLoginToTable('arrivant', $idLogin, $idEtudiant);
 	}
 
+	public function modifierEtudiant($id, $nom, $sexe, $prenom, $nation, $ddn, $langue, $tel, $email, $dap, $ddp, $motif, $besoin_hebergement, $besoin_accompagnement, $besoin_transport, $besoin_autres, $autor1, $autor2) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE arrivant ".
+      "SET nom = :nom, sexe = :sexe, prenom = :prenom, nation = :nation, ddn = :ddn, langue = :langue, tel = :tel, email = :email, dap = :dap, ddp = :ddp, motif = :motif, besoin_hebergement = :besoin_hebergement, besoin_accompagnement = :besoin_accompagnement, besoin_transport = :besoin_transport, besoin_autres = :besoin_autres, autor1 = :autor1, autor2 = :autor2 ".
+      "WHERE id = :id");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':nation', $nation, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ddn', $ddn, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':langue', $langue, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':tel', $tel, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':dap', $dap, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':ddp', $ddp, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':motif', $motif, PDO::PARAM_STR); 
+      $requete_prepare->bindParam(':besoin_hebergement', $besoin_hebergement, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_accompagnement', $besoin_accompagnement, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_transport', $besoin_transport, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':besoin_autres', $besoin_autres, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':autor1', $autor1, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
+	
   public function getIDEtudiant($nom, $prenom) {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id FROM arrivant WHERE nom = :nom AND prenom = :prenom");
     $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
@@ -278,7 +317,14 @@ class PdoEpa {
     return intval($id['id']);
   }
 
-
+  public function getIDEtudiantByEmail($email) {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id FROM arrivant WHERE email = :email");
+    $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+    $requete_prepare->execute();
+    $id = $requete_prepare->fetch();
+    return intval($id['id']);
+  }
+	
   public function creerLogin($email, $password, $groupe) {
     $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO users (`username`, `password`, `groupe`) "
             . "VALUES (:username, :password, :groupe) ");
