@@ -15,7 +15,7 @@
                         <col style="width:33%">
                         <tr>
                             <td>Nom :</td>
-                            <td><input type="text" id="nom" name="nom" size="15"> </td>
+                            <td><input type="text" id="nom" name="nom" size="15" required> </td>
                             <td></td>
                             <td>Sexe : </td>
                             <td>
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td>Prénom : </td>
-                            <td><input type="text" id="prenom" name="prenom" size="15"> </td>
+                            <td><input type="text" id="prenom" name="prenom" size="15" required> </td>
                             <td></td>
                             <td>Nationnalité : </td>
                             <td> 
@@ -37,7 +37,7 @@
                         <tr>
                             <td> Date de naissance : </td>
                             <td>
-                                <input type="date" id="ddn" name="ddn" placeholder="DD/MM/YYYY">
+                                <input type="date" id="ddn" name="ddn" placeholder="DD/MM/YYYY" required>
                             </td>
                             <td></td>
                             <td> Langues : </td>
@@ -49,11 +49,17 @@
                         </tr>
                         <tr>
                             <td> Téléphone : </td>
-                            <td><input type="text" id="tel" name="tel" size="15"> </td>
+                            <td><input type="text" id="tel" name="tel" size="15" required> </td>
+                            <td></td>
+                            <td> Mot de passe : </td>
+                            <td><input type="password" id="pw1" name="pw1" required> </td>
                         </tr>
                         <tr>
                             <td> E-mail : </td>
-                            <td><input type="text" id="email" name="email" size="15"> </td>
+                            <td><input type="text" id="email" name="email" size="15" required> </td>
+                            <td></td>
+                            <td> Confirmation MDP : </td>
+                            <td><input type="password" id="pw2" name="pw2" required> </td>
                         </tr>
                     </table>
                     </br>
@@ -67,12 +73,12 @@
                         <tr>
                             <td> Date d'arrivée : </td>
                             <td>
-                                <input type="date" id="dap" name="dap" placeholder="DD / MM / YYYY">
+                                <input type="date" id="dap" name="dap" placeholder="DD / MM / YYYY" required>
                             </td>
                             <td></td>
                             <td> Date de départ : </td>
                             <td>
-                                <input type="date" id="ddp" name="ddp" placeholder="DD / MM / YYYY">
+                                <input type="date" id="ddp" name="ddp" placeholder="DD / MM / YYYY" required>
                             </td>
                         </tr>
                         <tr>
