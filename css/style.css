@@ -1,6 +1,11 @@
 /* entete */
+header {
+    margin-bottom: 20px;
+}
 
 #banniere {
+    /*display: block;
+    height: 160px;*/
     background-color: #f19a49;
     border-bottom: 5px solid #ddc30e;
 }
@@ -8,76 +13,188 @@
 #logo {
     display: inline-block;
     width: 10%;
-    height: 10%;
     border:1px solid orange;
     margin: 15px;
 }
 
 #banniere-name {
-    left: 0px;
     display: inline-block;
     margin-left: 25%;
     font-size: 50px;
     color: #1f7d2d;
 }
 
-#menu-bar {
-    padding: 0;
-    /*border: 1px solid red;*/
-    vertical-align: middle;
+#menuBar{
+    width:100%;
+    height:50px;
+    text-align:center;
 }
 
-#menu-bar ul{
-    display: block;
-    list-style-type: none;
-    padding: 0;
-    height: 50px;
-    line-height: 50px;
+#menuBar ul li{
+    /*padding:10px 0;*/
+    text-align:center;
+    width:150px;
+    height: 100%;
+    float:left;
+    position:relative;
+    border-right: 1px solid white;
+}
+
+#menuBar > ul > li:last-child {
+	float: right;
+	border-right: none;
+	border-left: 1px solid white;
+}
+
+#menuBar ul{
+    list-style-type:none;
+    height: 100%;
+    padding: 0px;
+    margin:0px;
     background-color: #80b439;
-    /*border: 1px solid red;*/
 }
 
-#menu-bar li {
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    /*border: 1px solid black;*/
-    text-align: center;
+#menuBar > ul {
+    display: block;
 }
 
-#menu-bar a {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    line-height: 1.5;
-    width: 150px;
-    height: 50px;
-    /*background-color: #80b439;*/
-    text-decoration: none;
-    color: white;
-    /*border: 1px solid orange;*/
+#menuBar a{
+    text-decoration:none;
+    position: relative;
+    margin:0px;
+    /*margin-top:-13px;*/
+    color:black;
+    display:block;
+    height: 100%;
+    background-color: #80b439;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
 }
 
-#menu-bar p {
-    margin: auto;
+#menuBar ul li:hover{
+    color:orange;
 }
 
-#menu-bar a:hover {
-    text-decoration: underline;
+#menuBar > ul > li > a > p {
+	line-height: 1.5;
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	color: white;
 }
 
-#menu-bar .active {
+#menuBar a:hover {
+	text-decoration: underline;
+}
+
+#menuBar .active {
     background-color: #3ea82d;
 }
 
+.dropDownContent {
+    display: none;
+    
+    background-color: white;
+    position: absolute;
+    width: 10%;
+    z-index: 999999;
+}
+#menuBar ul li:hover .dropDownContent{
+	display:block;
+}
 
+.dropDownContent li{
+	float:none;
+	width:10%;
+	text-align:left;
+}
+.dropDownContent a{
+    padding: 0px;
+    border-bottom: none;
+}
+.dropDownContent a:hover{
+    border-bottom: none;
+    background-color: RGBa(200,200,200,0.1);
+}
 
+.pageTitle {
+    text-align: center;
+}
 
+h4 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
 
+#contentPage {
+    position: relative;
+    min-height: 800px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    background-color: #fad4a3;
+    
+}
 
+/*** generalForm ***/
+.formDiv {
+    padding-left: 20px;
+    border: 1px solid grey;
+    margin-bottom: 2px;
+    background-color: #f9f4db;
+    border-radius: 8px;
+}
 
+#submitBouton {
+    float: right;
+}
 
+/*** primoArrivantForm ***/
 
+form ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    vertical-align: baseline;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+textarea {
+    resize: none;
+    width: 95%;
+}
+
+/*** accueilPrimoArrivant.php ***/
+.rubriqueDiv {
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.rubriqueDescription {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+
+.rubriqueName {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.rubriqueDiv:hover {
+    text-decoration: underline;
+}
 
 
 
@@ -297,10 +414,10 @@ table {
   border-spacing: 0;
 }
 
-td,
+/*td,
 th {
   padding: 0;
-}
+}*/
 
 @media print {
   * {
@@ -1321,7 +1438,7 @@ hr {
   clip: auto;
 }
 
-h1, h2, h3, h4, h5, h6,
+/*h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
   font-weight: 500;
@@ -1405,7 +1522,7 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 12px;
-}
+}*/
 
 p {
   margin: 0 0 10px;

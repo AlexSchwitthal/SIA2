@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div class="container">
-    <header style="border: 1px solid green">
-		<div id="banniere" class="col-md-12">
-			<img id="logo" src="./img/logo.jpg" alt="logo" title="logo">
-			<p id="banniere-name">Association EPA</p>
-		</div>
+        <header style="border: 1px solid green">
+            <div id="banniere">
+                <img id="logo" src="./img/logo.jpg" alt="logo" title="logo">
+                <p id="banniere-name">Association EPA</p>
+            </div>
