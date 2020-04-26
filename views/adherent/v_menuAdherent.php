@@ -14,6 +14,9 @@ if(userGroupe(3)) {
                   <li>
                       <a href="./index.php?uc=gestionAdherent&action=accesFormulaires">accès formulaires</a>
                   </li>
+                  <li>
+                      <a href="./index.php?uc=gestionAdherent&action=donneesAssociation">données de l'association</a>
+                  </li>
               </ul>
           </div>
       </div>

@@ -38,6 +38,29 @@ switch ($action) {
             include("views/adherent/v_accesFormulaires.php");
             break;
     }
+    case 'donneesAssociation': {
+            $erreur = '';
+
+            var_dump($_FILES);
+            if(!empty($_FILES)){
+                $file_name = $_FILES['fichier']['name'];
+                $file_tmp_name = $_FILES['fichier']['tmp_name'];
+                $file_dest = 'files/'.$file_name;
+
+                if(move_uploaded_file($file_tmp_name, $file_dest)){
+                    echo 'Fichier envoyé avec succès';
+                    $pdo->ajoutFichier(
+                      $file_name,
+                      $file_dest
+                    );
+                } else {
+                    echo "Une erreur est survenue lors de l'envoi du fichier";
+                }
+            }
+            include("views/adherent/v_donneesAssociation.php");
+            break;
+    }
+
     case 'validerAdherent' : {
             $erreur = nbErreurs($_REQUEST);
             if(strlen($erreur) == 0) {

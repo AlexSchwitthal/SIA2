@@ -368,6 +368,13 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->execute();
   }
 
+  public function ajoutFichier($name, $file_url) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO files (`name`, `file_url`) "
+              . "VALUES (:name, :file_url) ");
+      $requete_prepare->bindParam(':name', $name, PDO::PARAM_STR);
+      $requete_prepare->bindParam(':file_url', $file_url, PDO::PARAM_STR);
+      $requete_prepare->execute();
+  }
 
 }
 ?>
