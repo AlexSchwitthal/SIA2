@@ -1,15 +1,14 @@
 <div class="col-md-10">
 <form name="form" method="post" action="index.php?uc=gestionEtudiant&action=updateEtudiant" onsubmit="return confirm('Validez les modifications ?');">
->
-  <table class="marge">
-
+<table class="marge">
+  
       <tr>
       	<td><h3> Informations personnelles </h3></td>
       </tr>
-
+      
       <tr>
         <td> Nom : </td>
-        <td><input type="text" id="nom" name="nom" placeholder="<?php echo $etudiant['nom'] ?>"> </td>
+        <td><input type="text" id="nom" name="nom" value="<?php echo $etudiant['nom'] ?>" required> </td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td> Sexe : </td>
         <td>
@@ -22,14 +21,14 @@
           	<?php }?>
         </td>
       </tr>
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
         <td> Prénom : </td>
-        <td><input type="text" id="prenom" name="prenom" placeholder="<?php echo $etudiant['prenom'] ?>"> </td>
+        <td><input type="text" id="prenom" name="prenom" value="<?php echo $etudiant['prenom'] ?>" required> </td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td> Nationnalité : </td>
         <td> <select name="nation">
@@ -227,17 +226,17 @@
   <option value="zambian">Zambian</option>
   <option value="zimbabwean">Zimbabwean</option>
 </select>
-
+        
         </td>
       </tr>
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
         <td> Date de naissance : </td>
-        <td><input type="date" id="ddn" name="ddn" placeholder="<?php echo $etudiant['ddn'] ?>" /td>
+        <td><input type="date" id="ddn" name="ddn" value="<?php echo $etudiant['ddn'] ?>" required ></td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td> Langues : </td>
         <td> <select name="langue">
@@ -314,50 +313,56 @@
   <option value="VI">Vietnamese</option>
   <option value="CY">Welsh</option>
   <option value="XH">Xhosa</option>
-</select>
+</select> 
         </td>
-
+        
       </tr>
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
         <td> Tel : </td>
-        <td><input type="text" id="tel" name="tel" placeholder="<?php echo $etudiant['tel'] ?>"> </td>
+        <td><input type="text" id="tel" name="tel" value="<?php echo $etudiant['tel'] ?>" required> </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td> Mot de passe : </td>
+        <td><input type="password" id="pw1" name="pw1" value="<?php echo $utilisateur['password'] ?>" required> </td>
       </tr>
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
         <td> E-mail : </td>
-        <td><input type="text" id="email" name="email" placeholder="<?php echo $etudiant['email'] ?>"> </td>
+        <td><input type="text" id="email" name="email" value="<?php echo $etudiant['email'] ?>" disabled="disabled"> </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td> Confirmation MDP : </td>
+        <td><input type="password" id="pw2" name="pw2" value="<?php echo $utilisateur['password'] ?>" required> </td>
       </tr>
-
+      
       <tr>
       	<td><h3> Informations séjour </h3></td>
       </tr>
-
+      
       <tr>
         <td> Date d'arrivée : </td>
-        <td><input type="date" id="dap" name="dap" placeholder="<?php echo $etudiant['dap'] ?>"> </td>
+        <td><input type="date" id="dap" name="dap" value="<?php echo $etudiant['dap'] ?>" required> </td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td> Date de départ : </td>
-        <td><input type="date" id="ddp" name="ddp" placeholder="<?php echo $etudiant['ddp'] ?>"> </td>
+        <td><input type="date" id="ddp" name="ddp" value="<?php echo $etudiant['ddp'] ?>" required> </td>
       </tr>
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
         <td> Motif du séjour ? </td>
       </tr>
       <tr>
-
+      
       	<?php if ($etudiant['motif']=='stage'){ ?>
       	<td><input type="radio" name="motif" value="stage" checked> Stage</td>
       </tr>
@@ -367,7 +372,7 @@
       <tr>
         <td>
         	<input type="radio" name="motif" value="autre"> Autres
-        	<textarea rows = "1" cols = "10" name = "motif_autre" onfocus="this.value=''"></textarea>
+        	<textarea rows = "1" cols = "10" name = "motif_autre"></textarea>
         </td>
         <?php } elseif($etudiant['motif']=='etude'){?>
         <td><input type="radio" name="motif" value="stage"> Stage</td>
@@ -378,7 +383,7 @@
       <tr>
         <td>
         	<input type="radio" name="motif" value="autre"> Autres
-        	<textarea rows = "1" cols = "10" name = "motif_autre" onfocus="this.value=''"></textarea>
+        	<textarea rows = "1" cols = "10" name = "motif_autre"></textarea>
         </td>
         <?php } else{?>
         	<td><input type="radio" name="motif" value="stage"> Stage</td>
@@ -389,16 +394,16 @@
       <tr>
         <td>
         	<input type="radio" name="motif" value="autre" checked> Autres
-        	<textarea rows = "1" cols = "10" name = "motif_autre" onfocus="this.value=''"><?php echo $etudiant['motif'] ?></textarea>
+        	<textarea rows = "1" cols = "10" name = "motif_autre" value="this.value=''"><?php echo $etudiant['motif'] ?></textarea>
         </td>
         <?php }?>
       </tr>
 
-
+      
       <tr>
         <td>&lrm;</td>
       </tr>
-
+	  
 	  <tr>
         <td> Besoins </td>
       </tr>
@@ -426,40 +431,40 @@
       <tr>
       	  <?php if($etudiant['besoin_autres_check']=='oui'){ ?>
           <td>
-          		<input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres :
-          		<textarea rows = "1" cols = "10" name = "besoin_autres" onfocus="this.value=''"><?php echo $etudiant['besoin_autres'] ?></textarea>
+          		<input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres : 
+          		<textarea rows = "1" cols = "10" name = "besoin_autres" value="this.value=''"><?php echo $etudiant['besoin_autres'] ?></textarea>
           </td>
           <?php } else { ?>
           <td>
-          	<input type="checkbox" name="besoin_autres_check" value="oui"> Autres :
-          	<textarea rows = "1" cols = "10" name = "besoin_autres" onfocus="this.value=''"></textarea>
+          	<input type="checkbox" name="besoin_autres_check" value="oui"> Autres : 
+          	<textarea rows = "1" cols = "10" name = "besoin_autres"></textarea>
           </td>
           <?php } ?>
       </tr>
-
+     
       <tr>
         <td>&lrm;</td>
       </tr>
-
+      
       <tr>
-
+     
 	</table>
-
+	
 	<?php if($etudiant['autor1']=='oui'){ ?>
 	<input type="checkbox" name="autor1" value="oui" checked> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
 	<?php } else { ?>
 	<input type="checkbox" name="autor1" value="oui"> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
 	<?php } ?>
-
+	
 	<?php if($etudiant['autor2']=='oui'){ ?>
 	<input type="checkbox" name="autor2" value="oui" checked> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
 	<?php } else { ?>
 	<input type="checkbox" name="autor2" value="oui"> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
 	<?php } ?>
-
-	<input type="submit" value="Inscription">
+	
+	<input type="submit" value="Modifier"> 
     <input type="submit" value="Annuler" onClick="erase();return false;"> <br>
-
+	
    </form>
 
 </div>
