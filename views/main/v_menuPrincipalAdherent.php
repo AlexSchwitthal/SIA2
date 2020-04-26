@@ -1,4 +1,4 @@
-            <div id="menu-bar" class="col-md-12">
+            <div id="menu-bar">
                 <ul>
 
                     <li <?php if (!isset($_REQUEST['uc']) || $_REQUEST['uc'] == 'accueil') { ?> class="active"<?php } ?>>

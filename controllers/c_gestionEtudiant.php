@@ -8,6 +8,11 @@ if (empty($_REQUEST['action'])) {
 $action = $_REQUEST['action'];
 
 switch ($action) {
+    case 'accueilPrimoArrivant': {
+        // a compléter en fonction des droits ?
+		include("views/etudiant/v_accueilPrimoArrivant.php");
+		break;
+    }
     case 'inscriptionEtudiant': {
       $erreur = '';
     	if(isset($_SESSION['groupe'])) {
