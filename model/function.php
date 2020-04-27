@@ -436,6 +436,31 @@ function limitationTaille($string, $limit) {
   else {
     return $string;
   }
+}
 
+function estActif($categorie, $request) {
+  $returnArray =  array();
+  if(isset($request['id']) && $request['id'] == $categorie) {
+    $returnArray[0] = 'btn btn-sm btn-primary';
+    $returnArray[1] = '#fff';
+  }
+  else {
+    $returnArray[0] = 'btn btn-sm btn-default';
+    $returnArray[1] = '#000';
+  }
+  return $returnArray;
+}
+
+function toutesLesNews($request) {
+  $returnArray =  array();
+  if($request['action'] == "affichageNews") {
+    $returnArray[0] = 'btn btn-sm btn-primary';
+    $returnArray[1] = '#fff';
+  }
+  else {
+    $returnArray[0] = 'btn btn-sm btn-default';
+    $returnArray[1] = '#000';
+  }
+  return $returnArray;
 }
 ?>
