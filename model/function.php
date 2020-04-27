@@ -362,4 +362,74 @@ function getTypeUtilisateurs($groupe) {
   }
 }
 
+function getListeCategoriesCheck($request, $nbCategories) {
+  $listeCategories = array();
+  for($i = 1; $i <= $nbCategories; $i++) {
+    if(isset($request['categorie'.$i])) {
+      $listeCategories[$i] = $i;
+    }
+  }
+  return $listeCategories;
+}
+
+function conversionDate($dateTime) {
+  $date = explode(" ", $dateTime);
+  $date = $date[0];
+  $date = explode("-", $date);
+
+  $annee = $date[0];
+  $mois = $date[1];
+  $jour = $date[2];
+
+  if($mois == 1) {
+    $mois = "janvier";
+  }
+  else if($mois == 2) {
+    $mois = "février";
+  }
+  else if($mois == 3) {
+    $mois = "mars";
+  }
+  else if($mois == 4) {
+    $mois = "avril";
+  }
+  else if($mois == 5) {
+    $mois = "mai";
+  }
+  else if($mois == 6) {
+    $mois = "juin";
+  }
+  else if($mois == 7) {
+    $mois = "juillet";
+  }
+  else if($mois == 8) {
+    $mois = "aout";
+  }
+  else if($mois == 9) {
+    $mois = "septembre";
+  }
+  else if($mois == 10) {
+    $mois = "octobre";
+  }
+  else if($mois == 11) {
+    $mois = "novembre";
+  }
+  else if($mois == 12) {
+    $mois = "décembre";
+  }
+
+  return $jour." ".$mois." ".$annee;
+}
+
+function limitationTaille($string, $limit) {
+  if(strlen($string) > $limit) {
+    $chaine = substr($string, 0, $limit);
+    $chaine .= ' [...]';
+    return $chaine;
+  }
+  else {
+    return $string;
+  }
+
+}
 ?>

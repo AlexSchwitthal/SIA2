@@ -97,17 +97,17 @@ switch ($action) {
     	}else{
     	$autor2 = 'non';
     	}
-    
+
     	if($_REQUEST['pw1']!=$_REQUEST['pw2']){
     		echo "<script>alert(\"Le mot de passe n'est pas identique\")</script>";
     		include("views/etudiant/v_modificationEtudiant.php");
     	}
-    
+
 
 
 	$id = $pdo->getIDEtudiantByEmail($_SESSION['logs']);
 	$utilisateur = $pdo->getEtudiantConnecte($_SESSION['logs']);
-	
+
 	// Changement Mdp
 	if( ($_REQUEST['pw1']==$_REQUEST['pw2']) && ($utilisateur['password'] != $_REQUEST['pw1']) ){
 		$pdo->modifierMDPUsersEtudiant($utilisateur['ref_users'], $_REQUEST['pw1']);
@@ -138,11 +138,6 @@ switch ($action) {
               include("views/etudiant/v_validationModifEtudiant.php");
               break;
 
-    }
-
-    case 'redactionNews' : {
-  		include("views/news/v_redactionNews.php");
-  		break;
     }
 
     case 'ajoutEtudiant': {
@@ -189,7 +184,7 @@ switch ($action) {
         } else {
         	$autor2 = 'non';
         }
-	
+
 	if($_REQUEST['pw1']!=$_REQUEST['pw2']){
     		echo "<script>alert(\"Le mot de passe n'est pas identique\")</script>";
     		include("views/etudiant/v_inscriptionEtudiant.php");
@@ -225,16 +220,26 @@ switch ($action) {
       break;
     }
 
+    case 'redactionNews' : {
+      $categories = $pdo->getCategorie();
+  		include("views/news/v_redactionNews.php");
+  		break;
+    }
+
     case 'ajoutNews':{
+      $listeCategories = getListeCategoriesCheck($_REQUEST, $pdo->getNbCategories()[0]);
     	$pdo->creerNews(
-        	$_REQUEST['nom'],
-            $_REQUEST['description']
+        	$_REQUEST['titre'],
+          $_REQUEST['description'],
+          $listeCategories
         );
-        include("views/etudiant/v_validationNews.php");
+        include("views/news/v_validationNews.php");
         break;
     }
 
     default: {
+      $categories = $pdo->getCategorie();
+      $categoriesDesNews = $pdo->getLibelleCategoriesNews();
       $lesNews = $pdo->getNews();
   	  include("views/news/v_affichageNews.php");
       break;

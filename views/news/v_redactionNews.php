@@ -7,19 +7,19 @@
                         <col style="width:75%">
                         <tr>
                             <td>Titre de la publication :</td>
-                            <td><input type="text" id="nom" name="nom" size="50"> </td>
+                            <td><input type="text" id="titre" name="titre" size="50" required> </td>
                         </tr>
                         <tr>
                             <td>Catégorie :</td>
                             <td>
                                 <ul>
-                                    <li><input type="checkbox" name="" value="oui"> Cité universitaire dédiée aux étudiants étrangers</li>
-                                    <li><input type="checkbox" name="" value="oui"> Références de la vie associative étudiante</li>
-                                    <li><input type="checkbox" name="" value="oui"> Mutuelles étudiantes</li>
-                                    <li><input type="checkbox" name="" value="oui"> CROUS</li>
-                                    <li><input type="checkbox" name="" value="oui"> Lieux d'hébergement</li>
-                                    <li><input type="checkbox" name="" value="oui"> Maisons des associations de Paris</li>
-                                    <li><input type="checkbox" name="" value="oui"> Autres</li>
+                                    <?php
+                                    foreach ($categories as $categorie) {
+                                      ?>
+                                      <li><input type="checkbox" name="categorie<?php echo $categorie['id'] ?>" value="<?php echo $categorie['id'] ?>"> <?php echo $categorie['nom'] ?></li>
+                                      <?php
+                                    }
+                                    ?>
                                 <ul>
                             </td>
                         </tr>
@@ -27,7 +27,7 @@
                             <td>Contenu de la publication :</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea rows="8" name = "description" onfocus="this.value=''"> Rédiger le contenu de la publication ...</textarea></td>
+                            <td colspan="2"><textarea rows="8" name = "description" onfocus="this.value=''" required> Rédiger le contenu de la publication ...</textarea></td>
                         </tr>
                     </table>
                 </div>

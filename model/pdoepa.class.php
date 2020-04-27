@@ -138,7 +138,7 @@ class PdoEpa {
         $requete_prepare->execute();
         return $requete_prepare->fetch();
     }
-	
+
    public function getUserConnecte($username){
     	$requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM users WHERE username = :username");
     	$requete_prepare->bindParam(':username', $username, PDO::PARAM_STR);
@@ -147,7 +147,7 @@ class PdoEpa {
     }
 
     public function getNews() {
-        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news");
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news order by datePublication DESC");
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
     }
@@ -235,7 +235,7 @@ class PdoEpa {
     $requete_prepare->bindParam(':password', $password, PDO::PARAM_STR);
     $requete_prepare->execute();
   }
-	
+
 public function modifierMDPUsersEtudiant($id, $password) {
     $requete_prepare = PdoEpa::$monPdo->prepare("UPDATE users ".
     "SET password = :password ".
@@ -298,7 +298,7 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
       $requete_prepare->bindParam(':dap', $dap, PDO::PARAM_STR);
       $requete_prepare->bindParam(':ddp', $ddp, PDO::PARAM_STR);
-      $requete_prepare->bindParam(':motif', $motif, PDO::PARAM_STR); 
+      $requete_prepare->bindParam(':motif', $motif, PDO::PARAM_STR);
       $requete_prepare->bindParam(':besoin_hebergement', $besoin_hebergement, PDO::PARAM_STR);
       $requete_prepare->bindParam(':besoin_accompagnement', $besoin_accompagnement, PDO::PARAM_STR);
       $requete_prepare->bindParam(':besoin_transport', $besoin_transport, PDO::PARAM_STR);
@@ -307,7 +307,7 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->bindParam(':autor2', $autor2, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
-	
+
   public function getIDEtudiant($nom, $prenom) {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT id FROM arrivant WHERE nom = :nom AND prenom = :prenom");
     $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
@@ -324,7 +324,7 @@ public function modifierMDPUsersEtudiant($id, $password) {
     $id = $requete_prepare->fetch();
     return intval($id['id']);
   }
-	
+
   public function creerLogin($email, $password, $groupe) {
     $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO users (`username`, `password`, `groupe`) "
             . "VALUES (:username, :password, :groupe) ");
@@ -360,13 +360,39 @@ public function modifierMDPUsersEtudiant($id, $password) {
     $requete_prepare->execute();
   }
 
-  public function creerNews($nom, $description) {
-      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO news (`nom`, `description`) "
-              . "VALUES (:nom, :description) ");
-      $requete_prepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+  public function creerNews($titre, $description, $listeCategories) {
+      $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO news (`titre`, `description`) "
+              . "VALUES (:titre, :description) ");
+      $requete_prepare->bindParam(':titre', $titre, PDO::PARAM_STR);
       $requete_prepare->bindParam(':description', $description, PDO::PARAM_STR);
       $requete_prepare->execute();
+
+      $id = PdoEpa::$monPdo->lastInsertId();
+      foreach($listeCategories as $categorie){
+         $this->bindNewsCategorie($id, $categorie);
+      }
   }
+
+  public function bindNewsCategorie($idNews, $idCategorie) {
+    $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO categorie_news (`id_news`, `id_categorie`) "
+            . "VALUES (:id_news, :id_categorie) ");
+    $requete_prepare->bindParam(':id_news', $idNews, PDO::PARAM_STR);
+    $requete_prepare->bindParam(':id_categorie', $idCategorie, PDO::PARAM_STR);
+    $requete_prepare->execute();
+  }
+
+  public function getLibelleCategoriesNews() {
+    $requete_prepare = pdoEpa::$monPdo->prepare(
+       "SELECT n.id as newsId, c.id as categorieId, c.nom "
+      ."FROM categorie c "
+      ."INNER JOIN categorie_news cn "
+      ."ON cn.id_categorie = c.id "
+      ."INNER JOIN news n "
+      ."ON cn.id_news = n.id ");
+    $requete_prepare->execute();
+    return $requete_prepare->fetchAll();
+  }
+
 
   public function ajoutFichier($name, $file_url) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO files (`name`, `file_url`) "
@@ -376,5 +402,16 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->execute();
   }
 
+  public function getCategorie() {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM categorie");
+    $requete_prepare->execute();
+    return $requete_prepare->fetchAll();
+  }
+
+  public function getNbCategories() {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT count(*) FROM categorie");
+    $requete_prepare->execute();
+    return $requete_prepare->fetch();
+  }
 }
 ?>
