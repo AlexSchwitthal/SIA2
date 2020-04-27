@@ -1,0 +1,7 @@
+.customPagination, .paginacaoCursor{
+  margin: 5px;
+  padding: 5px 8px;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+}

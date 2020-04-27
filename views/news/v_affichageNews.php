@@ -1,4 +1,4 @@
-<div class="col-md-10">
+<div class="col-md-12">
   <div class="marge" id="listeNews">
     <p>Catégorie :</p>
     <br>
@@ -14,32 +14,48 @@
     </div>
     <br>
 
-    <?php
-    foreach ($lesNews as $news) {
-      ?>
-      <br>
-      <div style="height:175px;border:1px solid #000; padding: 10px 0px 0px 10px; overflow:hidden;">
+    <div class="bloc" style="height:600px;">
+      <span class="paginationTable">
         <?php
-        foreach($categoriesDesNews as $categorieDeLaNews) {
-          if($news['id'] == $categorieDeLaNews['newsId']) {
-            ?>
-            <button type="button" class="btn btn-sm btn-primary"><?php echo $categorieDeLaNews['nom'] ?></button>
-            <?php
-          }
+        foreach ($lesNews as $news) {
+          ?>
+          <br>
+            <div class = "tableItem" style="height:175px;border:1px solid #000; padding: 10px 0px 0px 10px; overflow:hidden;">
+              <?php
+              foreach($categoriesDesNews as $categorieDeLaNews) {
+                if($news['id'] == $categorieDeLaNews['newsId']) {
+                  ?>
+                  <button type="button" class="btn btn-sm btn-primary"><?php echo $categorieDeLaNews['nom'] ?></button>
+                  <?php
+                }
+              }
+              ?>
+              <br>
+              <p>
+                <span style="font-size:18px; color:black"><b><u><?php echo $news['titre'] ?></u></b></span><br>
+                publié le <?php echo conversionDate($news['datePublication']); ?>
+              </p>
+              <p>
+                <?php echo limitationTaille($news['description'], 500); ?>
+              </p>
+            </div>
+          <?php
         }
         ?>
-        <br>
-        <p>
-          <span style="font-size:18px; color:black"><b><u><?php echo $news['titre'] ?></u></b></span><br>
-          publié le <?php echo conversionDate($news['datePublication']); ?>
-        </p>
-        <p>
-          <?php echo limitationTaille($news['description'], 500); ?>
-        </p>
-      </div>
-      <?php
-    }
-    ?>
-    <ul id="pagination" class="pagination-sm"></ul>
+      </span>
+    </div>
+    <!-- <ul id="pagination-container">
+      <li class = "paginacaoCursor" id="beforePagination"></li>
+      <li class = "paginacaoCursor" id="afterPagination"></li>
+    </ul> -->
+    <!-- <ul class="pagination-container">
+      <li class='paginacaoCursor' id="beforePagination"><</li>
+      <li class='paginacaoCursor' id="afterPagination">></li>
+    </ul> -->
+    <div id="pagination-container">
+     <p class='paginacaoCursor' id="beforePagination"><</p>
+     <p class='paginacaoCursor' id="afterPagination">></p>
+    </div>
+
   </div>
 </div>
