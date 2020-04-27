@@ -1,5 +1,5 @@
 <div class="col-md-10">
-  <div class="marge">
+  <div class="marge" id="listeNews">
     <p>Catégorie :</p>
     <br>
     <div>
@@ -10,7 +10,7 @@
       <?php
     }
     ?>
-    <button type="button" class="btn btn-sm btn-primary">toutes les news</button>
+    <button type="button" class="btn btn-sm btn-primary">Toutes les news</button>
     </div>
     <br>
 
@@ -40,6 +40,6 @@
       <?php
     }
     ?>
-
+    <ul id="pagination" class="pagination-sm"></ul>
   </div>
 </div>

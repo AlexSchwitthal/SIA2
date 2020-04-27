@@ -373,13 +373,19 @@ function getListeCategoriesCheck($request, $nbCategories) {
 }
 
 function conversionDate($dateTime) {
-  $date = explode(" ", $dateTime);
-  $date = $date[0];
+  $dateTime = explode(" ", $dateTime);
+  $date = $dateTime[0];
+  $time = $dateTime[1];
+
   $date = explode("-", $date);
+  $time = explode(":", $time);
 
   $annee = $date[0];
   $mois = $date[1];
   $jour = $date[2];
+
+  $heure = $time[0];
+  $minute = $time[1];
 
   if($mois == 1) {
     $mois = "janvier";
@@ -418,7 +424,7 @@ function conversionDate($dateTime) {
     $mois = "décembre";
   }
 
-  return $jour." ".$mois." ".$annee;
+  return $jour." ".$mois." ".$annee. " à ".$heure.":".$minute;
 }
 
 function limitationTaille($string, $limit) {
