@@ -304,7 +304,7 @@
 								<select name="annee">
 									<option value="" selected> AAAA</option>
 									<?php
-									for($it = 1900; $it <= 2010; $it++) {
+									for($it = 2010; $it >= 1900; $it--) {
 									echo '<option value="'.$it.'">'.$it.'</option>';
 									}
 									?>
