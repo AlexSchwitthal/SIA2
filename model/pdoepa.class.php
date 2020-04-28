@@ -431,12 +431,7 @@ public function modifierMDPUsersEtudiant($id, $password) {
     $requete_prepare->execute();
     return $requete_prepare->fetch();
   }
-<<<<<<< HEAD
 
-  public function getNewsById($id) {
-    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news WHERE id = :id");
-=======
-	
   public function ajoutMessage($dest, $expe, $message) {
       $requete_prepare = PdoEpa::$monPdo->prepare("INSERT INTO message (`id_destinataire`, `id_expediteur`, `texte`) "
               . "VALUES (:dest, :expe, :message) ");
@@ -445,50 +440,46 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->bindParam(':message', $message, PDO::PARAM_STR);
       $requete_prepare->execute();
   }
-	
+
   public function getUserById($id) {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM users WHERE id = :id");
->>>>>>> c086351b0e29d503f27f399181f429d96493183c
     $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
     $requete_prepare->execute();
     return $requete_prepare->fetch();
   }
-<<<<<<< HEAD
-=======
-	
-public function getListeMessages($id) {
-        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT m1.`id`, m1.`id_expediteur`, m1.`id_destinataire`, m1.`texte`, m1.`date`
-FROM(
-	(SELECT `id`,`id_expediteur`,`id_destinataire`,`texte`,`date`
-	FROM `message` 
-	WHERE `id_expediteur`= :id
-	UNION
-	SELECT `id`,`id_destinataire`,`id_expediteur`,`texte`,`date`
-	FROM `message` 
-	WHERE `id_destinataire`= :id ) m1
-)
-INNER JOIN(
-    SELECT m2.`id`, m2.`id_expediteur`, m2.`id_destinataire`, m2.`texte`, max(m2.`date`) recent
-	FROM
-		(SELECT `id`,`id_expediteur`,`id_destinataire`,`texte`,`date`
-		FROM `message` 
-		WHERE `id_expediteur`= :id
-		UNION
-		SELECT `id`,`id_destinataire`,`id_expediteur`,`texte`,`date`
-		FROM `message` 
-		WHERE `id_destinataire`= :id ) m2
-    GROUP BY m2.`id_destinataire`
-) m3
 
-WHERE m1.`id_destinataire`=m3.`id_destinataire`
-AND m3.recent=m1.date
-ORDER BY m1.date DESC
-" );
-        $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
-        $requete_prepare->execute();
-        return $requete_prepare->fetchAll();
-    }
-	
+  public function getListeMessages($id) {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT m1.`id`, m1.`id_expediteur`, m1.`id_destinataire`, m1.`texte`, m1.`date`
+      FROM(
+      	(SELECT `id`,`id_expediteur`,`id_destinataire`,`texte`,`date`
+      	FROM `message`
+      	WHERE `id_expediteur`= :id
+      	UNION
+      	SELECT `id`,`id_destinataire`,`id_expediteur`,`texte`,`date`
+      	FROM `message`
+      	WHERE `id_destinataire`= :id ) m1
+      )
+      INNER JOIN(
+          SELECT m2.`id`, m2.`id_expediteur`, m2.`id_destinataire`, m2.`texte`, max(m2.`date`) recent
+      	FROM
+      		(SELECT `id`,`id_expediteur`,`id_destinataire`,`texte`,`date`
+      		FROM `message`
+      		WHERE `id_expediteur`= :id
+      		UNION
+      		SELECT `id`,`id_destinataire`,`id_expediteur`,`texte`,`date`
+      		FROM `message`
+      		WHERE `id_destinataire`= :id ) m2
+          GROUP BY m2.`id_destinataire`
+      ) m3
+      WHERE m1.`id_destinataire`=m3.`id_destinataire`
+      AND m3.recent=m1.date
+      ORDER BY m1.date DESC
+      " );
+    $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+    $requete_prepare->execute();
+    return $requete_prepare->fetchAll();
+  }
+
   public function getConversation($id_destinataire,$id_expediteur) {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM message WHERE (id_destinataire = :id_destinataire AND id_expediteur = :id_expediteur) OR (id_destinataire = :id_expediteur AND id_expediteur = :id_destinataire)");
         $requete_prepare->bindParam(':id_destinataire', $id_destinataire, PDO::PARAM_STR);
@@ -496,7 +487,4 @@ ORDER BY m1.date DESC
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
   }
-	
->>>>>>> c086351b0e29d503f27f399181f429d96493183c
 }
-?>
