@@ -23,11 +23,11 @@
           <td> <?php echo $message['date'] ?></td>
           <td>
           	<?php
-          		$dest=$expediteur['id'];
+          		$dest=$expe['id'];
 				$expe=$pdo->getUserConnecte($_SESSION['logs']);
-          		echo "<button type=\"button\" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\">Afficher la conversation</button> " 
+          		echo "<button type=\"button\" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\">Afficher la conversation</button> "
           	?>
-          	<button type="button" onclick="alert('You pressed the button!')">Effacer</button> 
+          	<button type="button" onclick="alert('You pressed the button!')">Effacer</button>
           </td>
         </tr>
         <?php
