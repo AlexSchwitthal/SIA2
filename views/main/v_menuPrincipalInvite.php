@@ -22,8 +22,8 @@
                     <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>>
                         <a href="index.php?uc=gestionEtudiant&action=accueilPrimoArrivant"><p>Accueil étudiant</p></a>
                         <ul class="dropDownContent">
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
+                            <li><a href="index.php?uc=gestionEtudiant&action=inscriptionEtudiant">Formulaire Primo Arrivant</a></li>
+                            <li><a href="#">Informations Vie Étudiante</a></li>
                             <li><a href="#">Link 3</a></li>
                         </ul>
                     </li>

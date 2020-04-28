@@ -20,7 +20,7 @@
                     </li>
 
                     <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>>
-                        <a href="index.php?uc=gestionEtudiant"><p>Gestion des étudiants</p></a>
+                        <a href="index.php?uc=gestionEtudiant"><p>Accueil étudiant</p></a>
                         <ul class="dropDownContent">
                             <li><a href="#">Link 1</a></li>
                             <li><a href="#">Link 2</a></li>
