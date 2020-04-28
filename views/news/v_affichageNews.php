@@ -1,3 +1,4 @@
+
 <div class="col-md-12">
   <div class="marge" id="listeNews">
     <p>Catégorie :</p>
@@ -42,7 +43,7 @@
 
                     <a href="index.php?uc=accueil&action=affichageNewsRestriction&id=<?php echo $categorieDeLaNews['categorieId'] ?>"
                       style="text-decoration: none; color:#fff">
-                        <button type="button" class="btn btn-sm btn-primary">
+                        <button type="button" class="btn btn-light-green btn-lg">
                           <?php echo $categorieDeLaNews['nom'] ?>
                         </button>
                     </a>
@@ -68,6 +69,6 @@
      <p class='paginacaoCursor' id="beforePagination"><</p>
      <p class='paginacaoCursor' id="afterPagination">></p>
     </div>
-
   </div>
 </div>
+<link href="./css/mdb.min.css" rel="stylesheet" type="text/css" />

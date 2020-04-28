@@ -441,11 +441,11 @@ function limitationTaille($string, $limit) {
 function estActif($categorie, $request) {
   $returnArray =  array();
   if(isset($request['id']) && $request['id'] == $categorie) {
-    $returnArray[0] = 'btn btn-sm btn-primary';
+    $returnArray[0] = 'btn btn-light-green btn-lg';
     $returnArray[1] = '#fff';
   }
   else {
-    $returnArray[0] = 'btn btn-sm btn-default';
+    $returnArray[0] = 'btn btn-dark-green btn-lg';
     $returnArray[1] = '#000';
   }
   return $returnArray;
@@ -454,11 +454,11 @@ function estActif($categorie, $request) {
 function toutesLesNews($request) {
   $returnArray =  array();
   if($request['action'] == "affichageNews") {
-    $returnArray[0] = 'btn btn-sm btn-primary';
+    $returnArray[0] = 'btn btn-light-green btn-lg';
     $returnArray[1] = '#fff';
   }
   else {
-    $returnArray[0] = 'btn btn-sm btn-default';
+    $returnArray[0] = 'btn btn-dark-green btn-lg';
     $returnArray[1] = '#000';
   }
   return $returnArray;
