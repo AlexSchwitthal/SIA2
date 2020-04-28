@@ -237,6 +237,37 @@ switch ($action) {
         break;
     }
 
+    
+    case 'messagerie' : {
+    	$id_destinataire = $pdo->getUserConnecte($_SESSION['logs']);
+    	$lesMessages = $pdo->getListeMessages($id_destinataire['id']);
+    	include("views/etudiant/v_messagerie.php");
+    	break;
+    }
+    
+    case 'conversation' : {
+		$dest = $_REQUEST['id_destinataire'];
+    	$expe = $_REQUEST['id_expediteur'];
+    	$laConversation = $pdo->getConversation($dest,$expe);
+    	include("views/etudiant/v_conversation.php");
+    	break;
+    }
+    
+    case 'envoyerMessage' : {
+    	$pdo->ajoutMessage(
+        	$_REQUEST['dest'],
+            $_REQUEST['expe'],
+            $_REQUEST['message']
+        );
+        
+		// Refresh de la conversation
+    	$dest = $_REQUEST['dest'];
+    	$expe = $_REQUEST['expe'];
+    	$laConversation = $pdo->getConversation($dest,$expe);
+    	include("views/etudiant/v_conversation.php");
+    	break;
+    }		
+		
     default: {
       $categories = $pdo->getCategorie();
       $categoriesDesNews = $pdo->getLibelleCategoriesNews();
