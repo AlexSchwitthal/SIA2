@@ -487,4 +487,11 @@ public function modifierMDPUsersEtudiant($id, $password) {
         $requete_prepare->execute();
         return $requete_prepare->fetchAll();
   }
+
+  public function getNewsById($id) {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news WHERE id = :id");
+    $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+    $requete_prepare->execute();
+    return $requete_prepare->fetch();
+  }
 }
