@@ -175,9 +175,10 @@ textarea {
 /*** accueilPrimoArrivant.php ***/
 .rubriqueDiv {
     border: 1px solid black;
+    background-color: #66975b;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: black;
+    color: #f2d6bc;
 }
 
 .rubriqueDescription {
@@ -2842,7 +2843,7 @@ th {
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: #f9f4db;
 }
 
 .table-hover > tbody > tr:hover > td,
