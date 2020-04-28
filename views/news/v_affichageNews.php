@@ -34,8 +34,9 @@
         <?php
         foreach ($lesNews as $news) {
           ?>
-          <br>
-            <div class = "tableItem" style="height:175px;border:1px solid #000; padding: 10px 0px 0px 10px; overflow:hidden;">
+          <span class="tableItem">
+            <br>
+            <div style="height:175px;border:1px solid #000; padding: 10px 0px 0px 10px; overflow:hidden;">
               <?php
               foreach($categoriesDesNews as $categorieDeLaNews) {
                 if($news['id'] == $categorieDeLaNews['newsId']) {
@@ -65,9 +66,10 @@
                 publié le <?php echo conversionDate($news['datePublication']); ?>
               </p>
               <p>
-                <?php echo limitationTaille($news['description'], 500); ?>
+                <?php echo limitationTaille($news['description'], 150); ?>
               </p>
             </div>
+          </span>
           <?php
         }
         ?>

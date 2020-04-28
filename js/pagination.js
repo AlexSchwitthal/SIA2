@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    var HZperPage = 3, //number of results per page
+  var HZperPage = 3, //number of results per page
     HZwrapper = 'paginationTable', //wrapper class
     HZlines = 'tableItem', //items class
     HZpaginationId = 'pagination-container', //id of pagination container
     HZpaginationArrowsClass = 'paginacaoCursor', //set the class of pagi
-    HZpaginationColorDefault =  '#fff',//default color for the pagination numbers
+    HZpaginationColorDefault = '#fff', //default color for the pagination numbers
     HZpaginationColorActive = '#4285f4', //color when page is clicked
     HZpaginationCustomClass = 'customPagination'; //custom class for styling the pagination (css)
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
     }
   }
   paginationShow(), $("#beforePagination").hide(), $("." + HZlines).hide();
-  for (var tamanhotabela = $("." + HZwrapper).children().length, porPagina = HZperPage, paginas = Math.ceil(tamanhotabela / porPagina), i = 1; i < paginas - 1;) $("#" + HZpaginationId).append("<p class='paginacaoValor " + HZpaginationCustomClass + "' data-valor=" + i + ">" + i + "</p>"), i++, $(".paginacaoValor").hide(), exibir2 = $(".paginacaoValor").slice(0, 5).show();
+  for (var tamanhotabela = $("." + HZwrapper).children().length, porPagina = HZperPage, paginas = Math.ceil(tamanhotabela / porPagina), i = 1; i <= paginas;) $("#" + HZpaginationId).append("<p class='paginacaoValor " + HZpaginationCustomClass + "' data-valor=" + i + ">" + i + "</p>"), i++, $(".paginacaoValor").hide(), exibir2 = $(".paginacaoValor").slice(0, 5).show();
   $(".paginacaoValor:eq(0)").css("background", "" + HZpaginationColorActive).addClass("activePagination");
   var exibir = $("." + HZlines).slice(0, porPagina).show();
   $(".paginacaoValor").on("click", function() {
@@ -28,13 +28,11 @@ $(document).ready(function() {
       i = a * porPagina,
       o = i - porPagina;
     $("." + HZlines).hide(), exibir = $("." + HZlines).slice(o, i).show(), "1" === a ? $("#beforePagination").hide() : $("#beforePagination").show(), a === "" + $(".paginacaoValor:last").attr("data-valor") ? $("#afterPagination").hide() : $("#afterPagination").show(), paginationShow()
-  }), $(".paginacaoValor").last().after($("#afterPagination")), $("#beforePagination").on("click", function(e) {
-    e.stopImmediatePropagation();
+  }), $(".paginacaoValor").last().after($("#afterPagination")), $("#beforePagination").on("click", function() {
     var a = $(".activePagination").attr("data-valor"),
       i = parseInt(a) - 1;
     $("[data-valor=" + i + "]").click(), paginationShow()
-  }), $("#afterPagination").on("click", function(e) {
-    e.stopImmediatePropagation();
+  }), $("#afterPagination").on("click", function() {
     var a = $(".activePagination").attr("data-valor"),
       i = parseInt(a) + 1;
     $("[data-valor=" + i + "]").click(), paginationShow()
