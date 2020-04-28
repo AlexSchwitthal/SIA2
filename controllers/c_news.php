@@ -20,6 +20,20 @@ switch ($action) {
             include("views/news/v_affichageNews.php");
             break;
         }
+    case 'pageNews': {
+          if(isset($_REQUEST['id'])) {
+            $laNews = $pdo->getNewsById($_REQUEST['id']);
+            include("views/news/v_pageNews.php");
+          }
+          else {
+            $categories = $pdo->getCategorie();
+            $categoriesDesNews = $pdo->getLibelleCategoriesNews();
+            $lesNews = $pdo->getNews();
+            include("views/news/v_affichageNews.php");
+          }
+          break;
+    }
+
     case 'demandeDeconnexion': {
 
         break;

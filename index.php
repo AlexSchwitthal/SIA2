@@ -31,14 +31,14 @@ else {
 
 
 if (empty($_REQUEST['uc'])) {
-    $_REQUEST['uc'] = 'accueil';
+    $_REQUEST['uc'] = 'news';
 }
 
 $uc = $_REQUEST['uc'];
 
 switch ($uc) {
-    case 'accueil': {
-            include("controllers/c_accueil.php");
+    case 'news': {
+            include("controllers/c_news.php");
             break;
         }
     case 'connexion': {
@@ -66,7 +66,7 @@ switch ($uc) {
             break;
     }
     default: {
-            include("controllers/c_accueil.php");
+            include("controllers/c_news.php");
             break;
     }
 }

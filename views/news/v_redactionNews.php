@@ -7,7 +7,7 @@
                         <col style="width:75%">
                         <tr>
                             <td>Titre de la publication :</td>
-                            <td><input type="text" id="titre" name="titre" size="50" required> </td>
+                            <td><input type="text" id="titre" name="titre" size="50" maxlength="100" required> </td>
                         </tr>
                         <tr>
                             <td>Catégorie :</td>

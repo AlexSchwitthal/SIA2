@@ -9,7 +9,7 @@
       $estActif = estActif($categorie['id'], $_REQUEST);
       ?>
 
-          <a href="index.php?uc=accueil&action=affichageNewsRestriction&id=<?php echo $categorie['id'] ?>"
+          <a href="index.php?uc=news&action=affichageNewsRestriction&id=<?php echo $categorie['id'] ?>"
             style="text-decoration: none; color:<?php echo $estActif[1] ?>">
               <button type="button" class="<?php echo $estActif[0] ?>"><?php echo $categorie['nom'] ?>
               </button>
@@ -20,7 +20,7 @@
     $toutesLesNews = toutesLesNews($_REQUEST);
     ?>
 
-      <a href="index.php?uc=accueil&action=affichageNews"
+      <a href="index.php?uc=news&action=affichageNews"
         style="text-decoration: none; color:<?php echo $toutesLesNews[1] ?>">
         <button type="button" class="<?php echo $toutesLesNews[0] ?>">
           Toutes les news
@@ -41,7 +41,7 @@
                 if($news['id'] == $categorieDeLaNews['newsId']) {
                   ?>
 
-                    <a href="index.php?uc=accueil&action=affichageNewsRestriction&id=<?php echo $categorieDeLaNews['categorieId'] ?>"
+                    <a href="index.php?uc=news&action=affichageNewsRestriction&id=<?php echo $categorieDeLaNews['categorieId'] ?>"
                       style="text-decoration: none; color:#fff">
                         <button type="button" class="btn btn-light-green btn-lg">
                           <?php echo $categorieDeLaNews['nom'] ?>
@@ -53,7 +53,15 @@
               ?>
               <br>
               <p>
-                <span style="font-size:18px; color:black"><b><u><?php echo $news['titre'] ?></u></b></span><br>
+                <span style="font-size:18px; color:black">
+                  <b><u>
+                    <a href="index.php?uc=news&action=pageNews&id=<?php echo $news['id'] ?>"
+                      style="text-decoration: none; color:#000;">
+                      <?php echo $news['titre'] ?>
+                    </a>
+                  </u></b>
+                </span>
+                <br>
                 publié le <?php echo conversionDate($news['datePublication']); ?>
               </p>
               <p>

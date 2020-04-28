@@ -381,8 +381,13 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->execute();
 
       $id = PdoEpa::$monPdo->lastInsertId();
-      foreach($listeCategories as $categorie){
-         $this->bindNewsCategorie($id, $categorie);
+      if(count($listeCategories) == 0) {
+        $this->bindNewsCategorie($id, 8);
+      }
+      else {
+        foreach($listeCategories as $categorie){
+           $this->bindNewsCategorie($id, $categorie);
+        }
       }
   }
 
@@ -423,6 +428,13 @@ public function modifierMDPUsersEtudiant($id, $password) {
 
   public function getNbCategories() {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT count(*) FROM categorie");
+    $requete_prepare->execute();
+    return $requete_prepare->fetch();
+  }
+
+  public function getNewsById($id) {
+    $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM news WHERE id = :id");
+    $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
     $requete_prepare->execute();
     return $requete_prepare->fetch();
   }
