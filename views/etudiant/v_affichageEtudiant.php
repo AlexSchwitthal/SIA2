@@ -30,8 +30,11 @@
                             Besoin autres : <?php echo $etudiant['besoin_autres'] ?>
 
                         </td>
-                        <td><button type="button" onclick="alert('You pressed the button!')">Contacter</button> </td>
-
+						<?php
+							$dest=$etudiant['ref_users'];
+							$expe=$pdo->getUserConnecte($_SESSION['logs']);
+							echo "<td><button type=\"button\" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$dest}&id_expediteur={$expe['id']}';\">Contacter</button> </td>" 
+						?>
                     </tr>
                     <?php
                         }

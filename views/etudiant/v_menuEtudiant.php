@@ -11,10 +11,11 @@
 					<?php if(userGroupe(3) || userGroupe(2) || userGroupe(1) ){ ?>
 					<li>
 						<a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
+						<a href="./index.php?uc=gestionEtudiant&action=messagerie">Messagerie</a>
 					</li>
-					<?php } ?>
-
-					<?php if(userGroupe(3)) { ?>
+					<?php }
+					 if(userGroupe(3)) { 
+					 ?>
 					<li>
 						<a href="./index.php?uc=gestionEtudiant&action=redactionNews">Rédiger une news</a>
 					</li>
