@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var HZperPage = 3, //number of results per page
+  var HZperPage = 5, //number of results per page
     HZwrapper = 'paginationTable', //wrapper class
     HZlines = 'tableItem', //items class
     HZpaginationId = 'pagination-container', //id of pagination container
