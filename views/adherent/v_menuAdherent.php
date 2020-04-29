@@ -1,4 +1,4 @@
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div id="nav">
           <div id="menuGauche">
               <ul id="menuList">
