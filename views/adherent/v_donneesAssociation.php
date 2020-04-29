@@ -1,7 +1,7 @@
 <?php
     echo $erreur;
 ?>
-<div class="col-md-10">
+<div class="col-md-9">
   	<h2><b>Données de l'association</b></h2>
         
     <form method="POST" enctype="multipart/form-data">
