@@ -29,7 +29,7 @@
     </div>
     <br>
 
-    <div class="bloc" style="height:600px;">
+    <div class="bloc" style="min-height:900px;">
       <span class="paginationTable">
         <?php
         foreach ($lesNews as $news) {
