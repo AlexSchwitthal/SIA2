@@ -20,7 +20,7 @@ include("views/main/v_entete.php");
 include("controllers/c_menuPrincipal.php");
 
 if(isset($_SESSION["logs"])) {
-  echo "<div>connecté en tant que : ".$_SESSION['logs']. " (".getTypeUtilisateurs($_SESSION['groupe']).")</div>";
+  echo "<div>connecté en tant que : ".$_SESSION['logs']. " (".getTypeUtilisateurs($_SESSION['groupe']).")";
 }
 else {
   echo "<div>mode invité<br>";
