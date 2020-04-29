@@ -41,7 +41,7 @@ switch ($action) {
     case 'donneesAssociation': {
             $erreur = '';
 
-            var_dump($_FILES);
+            
             if(!empty($_FILES)){
                 $file_name = $_FILES['fichier']['name'];
                 $file_tmp_name = $_FILES['fichier']['tmp_name'];
@@ -57,6 +57,8 @@ switch ($action) {
                     echo "Une erreur est survenue lors de l'envoi du fichier";
                 }
             }
+
+            $fichiersAssociation = $pdo->getFichiersAssociation();
             include("views/adherent/v_donneesAssociation.php");
             break;
     }

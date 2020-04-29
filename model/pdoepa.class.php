@@ -420,6 +420,12 @@ public function modifierMDPUsersEtudiant($id, $password) {
       $requete_prepare->execute();
   }
 
+  public function getFichiersAssociation() {
+        $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM files");
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll();
+    }
+
   public function getCategorie() {
     $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM categorie");
     $requete_prepare->execute();
