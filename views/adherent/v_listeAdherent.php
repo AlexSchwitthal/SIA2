@@ -2,15 +2,14 @@
 <div class="col-md-10">
 
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=listeAdherentTrier">
+    <h2>Rechercher :</h2>
     <table>
       <tr>
-        <td> Rechercher : </td>
-        <td> Prenom </td>
-        <td> Nom </td>
-        <td> Cotisation payé </td>
+        <td> <h3>Prenom </h3></td>
+        <td> <h3>Nom </h3></td>
+        <td> <h3>Cotisation payé <h3></td>
       <tr>
       <tr>
-        <td></td>
         <td><input type="text" id="prenom" name="prenom"></td>
         <td><input type="text" id="nom" name="nom"></td>
         <td><select id="cotisation" name="cotisation">

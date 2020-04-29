@@ -6,7 +6,7 @@
                     </li>
 
                     <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionAdherent') { ?> class="active"<?php } ?>>
-                        <a href="index.php?uc=gestionAdherent&action=listeAdherent"><p>Gestion des adhérents</p></a>
+                        <a href="index.php?uc=gestionAdherent&action=accueilAdherent"><p>Gestion des adhérents</p></a>
                         <ul class="dropDownContent">
                             <li><a href="./index.php?uc=gestionAdherent&action=listeAdherent">Liste des adhérents</a></li>
                             <li><a href="./index.php?uc=gestionAdherent&action=ajouterAdherent">Ajouter un adhérent</a></li>

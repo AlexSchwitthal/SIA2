@@ -33,6 +33,13 @@ switch ($action) {
             include("views/adherent/v_ajoutAdherent.php");
             break;
     }
+
+    case 'accueilAdherent': {
+            $erreur = '';
+            include("views/adherent/v_accueilAdherent.php");
+            break;
+    }
+
     case 'accesFormulaires': {
             $erreur = '';
             include("views/adherent/v_accesFormulaires.php");
