@@ -23,10 +23,10 @@ if(isset($_SESSION["logs"])) {
   echo "<div>connecté en tant que : ".$_SESSION['logs']. " (".getTypeUtilisateurs($_SESSION['groupe']).")</div>";
 }
 else {
-  echo "<div>mode invité";
+  echo "<div>mode invité<br>";
 }
 
-echo date('l j F Y, H:i');
+echo date('j F Y, H:i');
 echo "</div>"
 ?>
 </header>
