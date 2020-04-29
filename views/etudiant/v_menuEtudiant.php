@@ -58,9 +58,18 @@
                     <?php } ?>
 
                     <?php if(userGroupe(3) || userGroupe(2) || userGroupe(1) ){ ?>
-                    <li>
-                        <a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a>
-                    </li>
+                        <li>
+                            <div><a href="#">Accueil</a></div>
+                        </li>
+                        <li>
+                            <div><a href="#">Voir étudiants</a></div>
+                        </li>
+                        <li>
+                            <div><a href="#">Faire un don</a></div>
+                        </li>
+                        <li>
+                            <div><a href="#">Forum</a></div>
+                        </li>
                     <?php } ?>
 
                     <?php if(userGroupe(3)) { ?>
