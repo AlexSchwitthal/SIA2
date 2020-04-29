@@ -1,7 +1,7 @@
 <?php
   echo $erreur;
 ?>
-<div class="col-md-10">
+<div class="col-md-9">
 <table class="marge">
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModicationMDP&id=<?php echo $lAdherent['id'] ?>" onsubmit="return confirm('êtes vous sûr de votre nouveau mot de passe ?');">
     <tr>
