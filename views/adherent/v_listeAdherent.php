@@ -1,5 +1,5 @@
 
-<div class="col-md-10">
+<div class="col-md-9">
 
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=listeAdherentTrier">
     <h2>Rechercher :</h2>
