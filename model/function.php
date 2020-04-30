@@ -111,7 +111,7 @@ function nbErreurs($request) {
   }
   // RETURN //
   if($erreurs) {
-      $messageErreur .= '</b></div></div>';
+      $messageErreur .= '</b></div></div></div>';
       return $messageErreur;
   }
   else {
@@ -217,7 +217,7 @@ function nbErreursModificationAdherent($request) {
 
   // RETURN //
   if($erreurs) {
-      $messageErreur .= '</b></div></div>';
+      $messageErreur .= '</b></div></div></div>';
       return $messageErreur;
   }
   else {
