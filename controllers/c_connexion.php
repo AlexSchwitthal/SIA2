@@ -16,7 +16,7 @@ switch ($action) {
          		include("views/connexion/v_connexionValide.php");
       		}
           else {
-            echo '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Votre identifiant ou votre mot de passe est invalide !</b></div</div></div>';
+            echo '<div class="col-md-12"><div class="marge"><div class="alert alert-danger"><b>Votre identifiant ou votre mot de passe est invalide !</b></div</div></div>';
             include("views/connexion/v_connexion.php");
       		}
             break;
