@@ -2,7 +2,7 @@
 
 function nbErreurs($request) {
   $erreurs = false;
-  $messageErreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
+  $messageErreur = '<div class="col-md-9"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
 
   if (empty($request['nom'])) {
     $messageErreur .= '<br />- Le nom';
@@ -121,7 +121,7 @@ function nbErreurs($request) {
 
 function nbErreursModificationAdherent($request) {
   $erreurs = false;
-  $messageErreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
+  $messageErreur = '<div class="col-md-9"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
 
   if (empty($request['nom'])) {
     $messageErreur .= '<br />- Le nom';
@@ -228,7 +228,7 @@ function nbErreursModificationAdherent($request) {
 
 function nbErreursAjoutEtudiant($request) {
   $erreurs = false;
-  $messageErreur = '<div class="col-md-10"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
+  $messageErreur = '<div class="col-md-9"><div class="marge"><div class="alert alert-danger"><b>Le ou les champs suivants n\'ont pas été saisis ou sont incorrect : ';
 
   if (empty($request['nom'])) {
     $messageErreur .= '<br />- Le nom';
