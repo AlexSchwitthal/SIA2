@@ -61,7 +61,6 @@ switch ($action) {
                       $file_dest
                     );
                 } else {
-                    echo "Not uploaded because of error #".$_FILES["fichier"]["error"];
                     echo "Une erreur est survenue lors de l'envoi du fichier";
                 }
             }
