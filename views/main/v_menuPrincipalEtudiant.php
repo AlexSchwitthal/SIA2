@@ -6,9 +6,9 @@
                     </li>
 
                     <li <?php if (isset($_REQUEST['uc']) && $_REQUEST['uc'] == 'gestionEtudiant') { ?> class="active"<?php } ?>>
-                        <a href="index.php?uc=gestionEtudiant"><p>Voir étudiants</p></a>
+                        <a href="index.php?uc=gestionEtudiant"><p>Espace étudiant</p></a>
                         <ul class="dropDownContent">
-                            <li><a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Liste des étudiants</a></li>
+                            <li><a href="./index.php?uc=gestionEtudiant&action=affichageEtudiant">Mon compte</a></li>
                             <li><a href="./index.php?uc=gestionEtudiant&action=messagerie">Messagerie</a></li>
                         </ul>
                     </li>
