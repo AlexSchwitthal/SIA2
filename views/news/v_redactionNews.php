@@ -27,7 +27,7 @@
                             <td>Contenu de la publication :</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea rows="8" name = "description" onfocus="this.value=''" required> Rédiger le contenu de la publication ...</textarea></td>
+                            <td colspan="2"><textarea rows="8" name = "description" placeholder="Rédiger le contenu de la publication ..." required></textarea></td>
                         </tr>
                     </table>
                 </div>

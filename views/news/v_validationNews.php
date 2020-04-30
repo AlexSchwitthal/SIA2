@@ -1,4 +1,4 @@
-<div class="col-md-10">
+<div class="col-md-9">
   <div class="marge">
     <div class="alert alert-info" role="alert">
         <p>News publiée ! <a href="index.php?uc=accueil">Cliquez ici</a> pour revenir à l'accueil.</p>
