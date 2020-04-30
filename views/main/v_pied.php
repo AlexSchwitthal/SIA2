@@ -11,36 +11,36 @@
         <div class="footer-custom">
           <div class="footer-lists">
             <div class="footer-list-wrap">
-              <h6 class="ftr-hdr">Contact</h6>
+              <h6 class="ftr-hdr" style="color:green">Contact</h6>
               <ul class="ftr-links-sub">
-                <li>XX-XX-XX-XX-XX</li>
-                <li>epa@gmail.com</li>
+                <li style="color:darkorange">XX-XX-XX-XX-XX</li>
+                <li style="color:darkorange">epa@gmail.com</li>
               </ul>
-              <h6 class="ftr-hdr">International</h6>
+              <h6 class="ftr-hdr" style="color:green">International</h6>
               <ul class="ftr-links-sub">
-                <li><a href="" rel="nofollow">France</a></li>
-                <li><a href="" rel="nofollow">Afrique</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">France</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">Afrique</a></li>
               </ul>
             </div>
             <!--/.footer-list-wrap-->
 
             <div class="footer-list-wrap">
-              <h6 class="ftr-hdr">À propos d'EPA</h6>
+              <h6 class="ftr-hdr" style="color:green">À propos d'EPA</h6>
               <ul class="ftr-links-sub">
-                <li><a href="" rel="nofollow">Notre association</a></li>
-                <li><a href="" rel="nofollow">Notre histoire</a></li>
-                <li><a href="" rel="nofollow">Nos valeurs</a></li>
-                <li><a href="" rel="nofollow">Nos partenaires</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">Notre association</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">Notre histoire</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">Nos valeurs</a></li>
+                <li><a href="" rel="nofollow" style="color:darkorange">Nos partenaires</a></li>
               </ul>
             </div>
             <!--/.footer-list-wrap-->
             <div class="footer-list-wrap">
-              <h6 class="ftr-hdr">Mon compte</h6>
+              <h6 class="ftr-hdr" style="color:green">Mon compte</h6>
               <ul class="ftr-links-sub">
                 <art:content rule="!loggedin">
-                  <li class="ftr-Login"><span class="link login-trigger">Accéder à mon compte</span></li>
-                  <li><span class="link" onclick="link('/asp/secure/your_account/track_orders-asp/_/posters.htm')">Sécurité et connexion</span></li>
-                  <li class="ftr-Login"><span class="link login-trigger">Notifications</span></li>
+                  <li class="ftr-Login"><span class="link login-trigger" style="color:darkorange">Accéder à mon compte</span></li>
+                  <li><span class="link" onclick="link('/asp/secure/your_account/track_orders-asp/_/posters.htm')" style="color:darkorange">Sécurité et connexion</span></li>
+                  <li class="ftr-Login"><span class="link login-trigger" style="color:darkorange">Notifications</span></li>
                 </art:content>
               </ul>
             </div>
@@ -48,9 +48,9 @@
           </div>
           <!--/.footer-lists-->
           <div class="footer-email">
-            <h6 class="ftr-hdr">Newsletter</h6>
+            <h6 class="ftr-hdr" style="color:green">Newsletter</h6>
             <div id="ftr-email" class="ftr-email-form">
-              <form id="ftrEmailForm" method="post" action="http://em.art.com/pub/rf">
+              <form id="ftrEmailForm" method="post" action="">
                 <div class="error">Entrez une adresse mail valide</div>
                 <input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Entrez une adresse mail valide" />
                 <!--
@@ -70,7 +70,7 @@
           </div>
           <!--/.footer-email-->
           <div class="footer-social">
-            <h6 class="ftr-hdr">Suivez-nous</h6>
+            <h6 class="ftr-hdr" style="color:green">Suivez-nous</h6>
             <ul>
               <li>
                 <a href="https://www.facebook.com/" title="Facebook" onclick="_gaq.push(['_trackSocial', 'Facebook', 'Follow', 'Footer', 'undefined', 'True']);">

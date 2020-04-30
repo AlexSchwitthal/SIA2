@@ -264,8 +264,8 @@
 								<option value="+1869">+1869 (Saint-Crhistophe-et-Niévès)</option>
 								<option value="+1876">+1876 (Jamaïque)</option>
 								</select>
+								<input type="tel" id="tel" name="tel" value="<?php echo $telephone ?>">
 							</td>
-							<td><input type="tel" id="tel" name="tel" value="<?php echo $telephone ?>"></td>
 						</tr>
 
 						<tr>
