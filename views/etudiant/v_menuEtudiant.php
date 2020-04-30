@@ -22,16 +22,21 @@
 																	<li><a href="index.php?uc=gestionEtudiant&action=modifierEtudiant">Mon compte</a></li>
 																<?php
 																}
+																else { ?>
+																	<li><a href="index.php?uc=gestionEtudiant&action=affichagerEtudiant">Gestion des étudiants</a></li>
+																<?php
+																}
 																?>
                                 <li><a href="index.php?uc=gestionEtudiant&action=messagerie">Messagerie</a></li>
+																<?php if(userGroupe(3)) { ?>
+																<li>
+																		<a href="./index.php?uc=gestionEtudiant&action=redactionNews">Rédiger une news</a>
+																</li>
+															<?php } ?>
                             </ul>
                         </li>
                     <?php } ?>
 
-                    <?php if(userGroupe(3)) { ?>
-                    <li>
-                        <a href="./index.php?uc=gestionEtudiant&action=redactionNews">Rédiger une news</a>
-                    </li>
-                    <?php } ?>
+
                 </ul>
 		</div>
