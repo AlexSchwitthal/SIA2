@@ -1,7 +1,7 @@
 		<?php
 			echo $erreur;
 		?>
-		<div id="contentPage" class="col-md-9">
+		<div id="contentPage" class="col-md-9 pull-right">
 			<h2>Bulletin d'adhésion</h2>
 			<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdherent" onsubmit="return confirm('êtes vous sûr de vos informations ?');">
 				<div class="formDiv">

@@ -2,7 +2,7 @@
             echo $erreur;
         ?>
 
-        <div id="contentPage" class="col-md-9">
+        <div id="contentPage" class="col-md-9 pull-right">
             <h2 class="pageTitle">Formulaire d'accompagnement</br>Primo Arrivant</h2>
             <form id="primoArrivantForm" name="form" method="post" action="index.php?uc=gestionEtudiant&action=ajoutEtudiant">
                 <div class="formDiv">
@@ -28,7 +28,7 @@
                             <td><input type="text" id="prenom" name="prenom" size="15" required> </td>
                             <td></td>
                             <td>Nationnalité : </td>
-                            <td> 
+                            <td>
                                 <select id="nation" name="nation">
                                     <option value="">-- Sélectionner --</option>
                                 </select>
@@ -41,7 +41,7 @@
                             </td>
                             <td></td>
                             <td>Langues :</td>
-                            <td> 
+                            <td>
                                 <select name="langue">
                                     <option value="">-- Sélectionner --</option>
                                     <option value="AF">Afrikaans</option>
@@ -116,7 +116,7 @@
                                     <option value="VI">Vietnamese</option>
                                     <option value="CY">Welsh</option>
                                     <option value="XH">Xhosa</option>
-                                </select> 
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -160,7 +160,7 @@
                                     <li><input type="radio" name="motif" value="stage" checked> Stage</li>
                                     <li><input type="radio" name="motif" value="etude"> Études</li>
                                     <li>
-                                        <input type="radio" name="motif" value="autre"> Autres : 
+                                        <input type="radio" name="motif" value="autre"> Autres :
                                         <input type="text" name = "motif_autre" onfocus="this.value=''">
                                     </li>
                                 </ul>
@@ -185,7 +185,7 @@
                 <p>(*) Champ obligatoire</p>
                 <input type="checkbox" name="autor1" value="oui"> Vous autorisez l’association EPA à stocker les informations vous concernant. </br>
                 <input type="checkbox" name="autor2" value="oui"> Vous autorisez les membres de l’association EPA à consulter vos informations. </br></br>
-                <input id="submitBouton" type="submit" value="S'inscrire"> 
+                <input id="submitBouton" type="submit" value="S'inscrire">
                 <input type="submit" value="Annuler" onClick="erase();return false;">
             </form>
             <script>
