@@ -230,7 +230,7 @@ switch ($action) {
       $listeCategories = getListeCategoriesCheck($_REQUEST, $pdo->getNbCategories()[0]);
     	$pdo->creerNews(
         	$_REQUEST['titre'],
-          $_REQUEST['description'],
+          nl2br($_REQUEST['description']),
           $listeCategories
         );
         include("views/news/v_validationNews.php");
