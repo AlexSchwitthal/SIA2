@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div id="contentPage" class="col-md-9">
   <div class="marge">
     <table class="table table-bordered table-responsive table-striped">
       <tr>
