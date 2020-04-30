@@ -50,7 +50,7 @@
           <div class="footer-email">
             <h6 class="ftr-hdr" style="color:green">Newsletter</h6>
             <div id="ftr-email" class="ftr-email-form">
-              <form id="ftrEmailForm" method="post" action="http://em.art.com/pub/rf">
+              <form id="ftrEmailForm" method="post" action="">
                 <div class="error">Entrez une adresse mail valide</div>
                 <input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Entrez une adresse mail valide" />
                 <!--
