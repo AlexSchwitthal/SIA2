@@ -48,11 +48,11 @@ switch ($action) {
     case 'donneesAssociation': {
             $erreur = '';
 
-            
+
             if(!empty($_FILES)){
                 $file_name = $_FILES['fichier']['name'];
                 $file_tmp_name = $_FILES['fichier']['tmp_name'];
-                $file_dest = 'files/'.$file_name;
+                $file_dest = './files/'.$file_name;
 
                 if(move_uploaded_file($file_tmp_name, $file_dest)){
                     echo 'Fichier envoyé avec succès';
