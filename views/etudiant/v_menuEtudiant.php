@@ -23,7 +23,7 @@
 																<?php
 																}
 																else { ?>
-																	<li><a href="index.php?uc=gestionEtudiant&action=affichagerEtudiant">Gestion des étudiants</a></li>
+																	<li><a href="index.php?uc=gestionEtudiant&action=affichageEtudiant">Gestion des étudiants</a></li>
 																<?php
 																}
 																?>
