@@ -16,8 +16,8 @@
           </ul>
           <h6 class="ftr-hdr">International</h6>
           <ul class="ftr-links-sub">
-            <li><a href="http://www.art.fr" rel="nofollow">France</a></li>
-            <li><a href="https://www.art.co.uk" rel="nofollow">Afrique</a></li>
+            <li><a href="" rel="nofollow">France</a></li>
+            <li><a href="" rel="nofollow">Afrique</a></li>
           </ul>
         </div>
         <!--/.footer-list-wrap-->
@@ -25,10 +25,10 @@
         <div class="footer-list-wrap">
           <h6 class="ftr-hdr">À propos d'EPA</h6>
           <ul class="ftr-links-sub">
-            <li><a href="/asp/aboutus/default-asp/_/posters.htm" rel="nofollow">Notre association</a></li>
-            <li><a href="http://corporate.art.com/careers" rel="nofollow">Notre histoire</a></li>
-            <li><a href="/asp/landing/artistrising" rel="nofollow">Nos valeurs</a></li>
-            <li><a href="/~/art-for-business" rel="nofollow">Nos partenaires</a></li>
+            <li><a href="" rel="nofollow">Notre association</a></li>
+            <li><a href="" rel="nofollow">Notre histoire</a></li>
+            <li><a href="" rel="nofollow">Nos valeurs</a></li>
+            <li><a href="" rel="nofollow">Nos partenaires</a></li>
           </ul>
         </div>
         <!--/.footer-list-wrap-->
@@ -76,11 +76,6 @@
             </a>
           </li>
           <li>
-            <a href="https://google.com" title="Google+" onclick="_gaq.push(['_trackSocial', 'GooglePlus', 'Follow', 'Footer', 'undefined', 'True']);">
-              <img width="24" height="24" alt="Follow us on Google+" src="http://cache1.artprintimages.com/images/jump_pages/rebrand/footer/gplus.png">
-            </a>
-          </li>
-          <li>
             <a href="https://pinterest.com/" target="_blank">
               <img width="24" height="24" alt="Follow us on Pinterest" src="http://cache1.artprintimages.com/images/jump_pages/rebrand/footer/pin-badge.png">
             </a>
@@ -99,7 +94,7 @@
       </div>
       <!--/.footer-social-->
       <div class="footer-legal">
-        <p>&copy; EPA SIA2 2020. | <a href="/help/privacy-policy.html" rel="nofollow">Politique de confidentialité</a> | <a href="/help/terms-of-use.html" rel="nofollow">Condition d'utilisations</a> | <a href="/help/terms-of-sale.html" rel="nofollow">Conditions de ventes</a></p>
+        <p>&copy; EPA SIA2 2020. | <a href="/help/privacy-policy.html" rel="nofollow">Politique de confidentialité</a> | <a href="/help/terms-of-use.html" rel="nofollow">Condition d'utilisations</a></p>
       </div>
       <!--/.footer-legal-->
     </div>
