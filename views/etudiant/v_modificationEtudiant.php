@@ -7,8 +7,8 @@
                         <col style="width:24%">
                         <col style="width:24%">
                         <col style="width:4%">
-                        <col style="width:15%">
-                        <col style="width:33%">
+                        <col style="width:18%">
+                        <col style="width:30%">
             
                         <tr>
                             <td>Nom : </td>
