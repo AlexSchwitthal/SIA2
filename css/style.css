@@ -234,7 +234,7 @@ textarea {
     background-color: #66975b;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #f2d6bc;
+    color: white;
 }
 
 .rubriqueDescription {
@@ -3199,6 +3199,16 @@ th {
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f4db;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: #fdf9f5;
+}
+
+.table-striped > thead {
+    background-color: #f19a49;
+    color: white;
 }
 
 .table-hover > tbody > tr:hover > td,

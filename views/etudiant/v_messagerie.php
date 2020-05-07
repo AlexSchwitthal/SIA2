@@ -1,12 +1,12 @@
 <div id="contentPage" class="col-md-9">
-  <div class="marge">
+    <h2 class="pageTitle">Messagerie</h2>
     <table class="table table-bordered table-responsive table-striped">
-      <tr>
+      <thead>
         <td> Contact </td>
         <td> Dernier Message </td>
         <td> Date </td>
         <td> Action </td>
-      </tr>
+      </thead>
       <?php
       foreach ($lesMessages as $message) {
       	$expe=$pdo->getUserConnecte($_SESSION['logs']);
@@ -34,5 +34,4 @@
       }
       ?>
     </table>
-  </div>
 </div>
