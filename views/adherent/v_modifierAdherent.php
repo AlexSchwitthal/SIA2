@@ -1,7 +1,7 @@
 		<?php
 		echo $erreur;
 		?>
-		
+
 		<div id="contentPage" class="col-md-9">
 			<h2>Modifier les informations d'un adhérent</h2>
 			<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModificationAdherent" onsubmit="return confirm('Validez les modifications ?');">
@@ -13,7 +13,7 @@
 							<td>Nom :</td>
 							<td><input type="text" id="nom" name="nom" value="<?php echo $lAdherent['nom'] ?>"> </td>
 						</tr>
-						
+
 						<tr>
 							<td>Prénom :</td>
 							<td><input type="text" id="prenom" name="prenom" value="<?php echo $lAdherent['prenom'] ?>"> </td>
@@ -276,9 +276,9 @@
 						<tr>
 							<td> Sexe : </td>
 							<td>
-								<input type="radio" id="homme" name="sexe" value="homme" <?php if($lAdherent['sexe'] == 'homme') { echo "checked";} ?>>
+								<input type="radio" id="homme" name="sexe" value="homme" <?php if($lAdherent['sexe'] == 'Homme') { echo "checked";} ?>>
 								<label for="homme">Homme</label>
-								<input type="radio" id="femme" name="sexe" value="femme" <?php if($lAdherent['sexe'] == 'femme') { echo "checked";} ?>>
+								<input type="radio" id="femme" name="sexe" value="femme" <?php if($lAdherent['sexe'] == 'Femme') { echo "checked";} ?>>
 								<label for="homme">Femme</label>
 							</td>
 						</tr>
