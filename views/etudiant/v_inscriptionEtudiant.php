@@ -35,10 +35,35 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Date de naissance :</td>
-                            <td>
-                                <input type="date" id="ddn" name="ddn" placeholder="DD/MM/YYYY" required>
-                            </td>
+                          <td>Date de naissance : </td>
+                          <td>
+                            <select name="jourNaissance">
+                              <option value="" selected> JJ</option>
+                              <?php
+                              for($it = 1; $it <= 31; $it++) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+
+                            <select name="moisNaissance">
+                              <option value="" selected> MM</option>
+                              <?php
+                              for($it = 1; $it <= 12; $it++) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+
+                            <select name="anneeNaissance">
+                              <option value="" selected> AAAA</option>
+                              <?php
+                              for($it = 2010; $it >= 1900; $it--) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+                          </td>
                             <td></td>
                             <td>Langues :</td>
                             <td>
@@ -143,14 +168,64 @@
                         <col style="width:15%">
                         <col style="width:33%">
                         <tr>
-                            <td>Date d'arrivée : </td>
-                            <td>
-                                <input type="date" id="dap" name="dap" placeholder="DD / MM / YYYY" required>
-                            </td>
+                          <td>Date d'arrivé : </td>
+                          <td>
+                            <select name="jourArrive">
+                              <option value="" selected> JJ</option>
+                              <?php
+                              for($it = 1; $it <= 31; $it++) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+
+                            <select name="moisArrive">
+                              <option value="" selected> MM</option>
+                              <?php
+                              for($it = 1; $it <= 12; $it++) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+
+                            <select name="anneeArrive">
+                              <option value="" selected> AAAA</option>
+                              <?php
+                              for($it = 2020; $it <= 2030; $it++) {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                              ?>
+                            </select>
+                          </td>
                             <td></td>
                             <td>Date de départ : </td>
                             <td>
-                                <input type="date" id="ddp" name="ddp" placeholder="DD / MM / YYYY" required>
+                              <select name="jourDepart">
+                                <option value="" selected> JJ</option>
+                                <?php
+                                for($it = 1; $it <= 31; $it++) {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                                ?>
+                              </select>
+
+                              <select name="moisDepart">
+                                <option value="" selected> MM</option>
+                                <?php
+                                for($it = 1; $it <= 12; $it++) {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                                ?>
+                              </select>
+
+                              <select name="anneeDepart">
+                                <option value="" selected> AAAA</option>
+                                <?php
+                                for($it = 2020; $it <= 2030; $it++) {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                                ?>
+                              </select>
                             </td>
                         </tr>
                         <tr>

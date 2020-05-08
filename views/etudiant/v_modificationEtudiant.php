@@ -37,8 +37,50 @@
                             </td>
                         </tr>
                         <tr>
-                            <td> Date de naissance : </td>
-                            <td><input type="date" id="ddn" name="ddn" value="<?php echo $etudiant['ddn'] ?>" required ></td>
+                          <td>Date de naissance : </td>
+                          <td>
+                            <select name="jourNaissance">
+                            <option value="" selected> JJ</option>
+                            <?php
+                            for($it = 1; $it <= 31; $it++) {
+                              if($it == $jourNaissance) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+
+                            <select name="moisNaissance">
+                            <option value="" selected> MM</option>
+                            <?php
+                            for($it = 1; $it <= 12; $it++) {
+                              if($it == $moisNaissance) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+
+                            <select name="anneeNaissance">
+                            <option value="" selected> AAAA</option>
+                            <?php
+                            for($it = 2010; $it >= 1900; $it--) {
+                              if($it == $anneeNaissance) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+                          </td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td> Langues : </td>
                             <td>
@@ -143,11 +185,94 @@
                         <col style="width:15%">
                         <col style="width:33%">
                         <tr>
-                            <td>Date d'arrivée :</td>
-                            <td><input type="date" id="dap" name="dap" value="<?php echo $etudiant['dap'] ?>" required> </td>
+                          <td>Date d'arrivée : </td>
+                          <td>
+                            <select name="jourArrive">
+                            <option value="" selected> JJ</option>
+                            <?php
+                            for($it = 1; $it <= 31; $it++) {
+                              if($it == $jourArrive) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+
+                            <select name="moisArrive">
+                            <option value="" selected> MM</option>
+                            <?php
+                            for($it = 1; $it <= 12; $it++) {
+                              if($it == $moisArrive) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+
+                            <select name="anneeArrive">
+                            <option value="" selected> AAAA</option>
+                            <?php
+                            for($it = 2020; $it <= 2030; $it++) {
+                              if($it == $anneeArrive) {
+                              echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                              }
+                              else {
+                              echo '<option value="'.$it.'">'.$it.'</option>';
+                              }
+                            }
+                            ?>
+                            </select>
+                          </td>
                             <td></td>
-                            <td>Date de départ :</td>
-                            <td><input type="date" id="ddp" name="ddp" value="<?php echo $etudiant['ddp'] ?>" required> </td>
+                            <td>Date de départ : </td>
+                            <td>
+                              <select name="jourDepart">
+                              <option value="" selected> JJ</option>
+                              <?php
+                              for($it = 1; $it <= 31; $it++) {
+                                if($it == $jourDepart) {
+                                echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                                }
+                                else {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                              }
+                              ?>
+                              </select>
+
+                              <select name="moisDepart">
+                              <option value="" selected> MM</option>
+                              <?php
+                              for($it = 1; $it <= 12; $it++) {
+                                if($it == $moisDepart) {
+                                echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                                }
+                                else {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                              }
+                              ?>
+                              </select>
+                              <select name="anneeDepart">
+                              <option value="" selected> AAAA</option>
+                              <?php
+                              for($it = 2010; $it <= 2030; $it++) {
+                                if($it == $anneeDepart) {
+                                echo '<option value="'.$it.'" selected>'.$it.'</option>';
+                                }
+                                else {
+                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                }
+                              }
+                              ?>
+                              </select>
+                            </td>
                         </tr>
 
                         <tr>

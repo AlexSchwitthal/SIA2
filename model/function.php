@@ -287,18 +287,48 @@ function nbErreursAjoutEtudiant($request) {
     $erreurs = true;
   }
 
-  if(empty($request['ddn'])) {
-    $messageErreur .= '<br />- La date de naissance';
+  if(empty($request['jourNaissance'])) {
+    $messageErreur .= '<br />- Le jour de naissance';
     $erreurs = true;
   }
 
-  if(empty($request['dap'])) {
-    $messageErreur .= '<br />- La date d\'arrivé';
+  if(empty($request['moisNaissance'])) {
+    $messageErreur .= '<br />- Le mois de naissance';
     $erreurs = true;
   }
 
-  if(empty($request['ddp'])) {
-    $messageErreur .= '<br />- La date de départ';
+  if(empty($request['anneeNaissance'])) {
+    $messageErreur .= '<br />-  L\'année de naissance';
+    $erreurs = true;
+  }
+
+  if(empty($request['jourArrive'])) {
+    $messageErreur .= '<br />- Le jour d\'arrivé';
+    $erreurs = true;
+  }
+
+  if(empty($request['moisArrive'])) {
+    $messageErreur .= '<br />- Le mois d\'arrivé';
+    $erreurs = true;
+  }
+
+  if(empty($request['anneeArrive'])) {
+    $messageErreur .= '<br />-  L\'année d\'arrivé';
+    $erreurs = true;
+  }
+
+  if(empty($request['jourDepart'])) {
+    $messageErreur .= '<br />- Le jour de départ';
+    $erreurs = true;
+  }
+
+  if(empty($request['moisDepart'])) {
+    $messageErreur .= '<br />- Le mois de départ';
+    $erreurs = true;
+  }
+
+  if(empty($request['anneeDepart'])) {
+    $messageErreur .= '<br />-  L\'année de départ';
     $erreurs = true;
   }
 
@@ -309,7 +339,7 @@ function nbErreursAjoutEtudiant($request) {
 
   // RETURN //
   if($erreurs) {
-      $messageErreur .= '</b></div></div>';
+      $messageErreur .= '</b></div></div></div>';
       return $messageErreur;
   }
   else {

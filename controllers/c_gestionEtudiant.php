@@ -45,6 +45,22 @@ switch ($action) {
     	if(userGroupe(1)) {
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
 		    $utilisateur = $pdo->getUserConnecte($_SESSION['logs']);
+
+        $dateNaissance = explode("-", $etudiant['ddn']);
+        $anneeNaissance = $dateNaissance[0];
+        $moisNaissance = $dateNaissance[1];
+        $jourNaissance = $dateNaissance[2];
+
+        $dateArrive = explode("-", $etudiant['dap']);
+        $anneeArrive = $dateArrive[0];
+        $moisArrive = $dateArrive[1];
+        $jourArrive = $dateArrive[2];
+
+        $dateDepart = explode("-", $etudiant['ddp']);
+        $anneeDepart = $dateDepart[0];
+        $moisDepart = $dateDepart[1];
+        $jourDepart = $dateDepart[2];
+
     		include("views/etudiant/v_modificationEtudiant.php");
     	}
     	else{
@@ -103,15 +119,20 @@ switch ($action) {
     		include("views/etudiant/v_modificationEtudiant.php");
     	}
 
+      $dateNaissance = $_REQUEST['anneeNaissance'].'-'.$_REQUEST['moisNaissance'].'-'.$_REQUEST['jourNaissance'];
+    //  var_dump($dateNaissance);
+      $dateDepart = $_REQUEST['anneeDepart'].'-'.$_REQUEST['moisDepart'].'-'.$_REQUEST['jourDepart'];
+    //  var_dump($dateDepart);
+      $dateArrive = $_REQUEST['anneeArrive'].'-'.$_REQUEST['moisArrive'].'-'.$_REQUEST['jourArrive'];
+    //  var_dump($dateArrive);
 
+  	$id = $pdo->getIDEtudiantByEmail($_SESSION['logs']);
+  	$utilisateur = $pdo->getEtudiantConnecte($_SESSION['logs']);
 
-	$id = $pdo->getIDEtudiantByEmail($_SESSION['logs']);
-	$utilisateur = $pdo->getEtudiantConnecte($_SESSION['logs']);
-
-	// Changement Mdp
-	if( ($_REQUEST['pw1']==$_REQUEST['pw2']) && ($utilisateur['password'] != $_REQUEST['pw1']) ){
-		$pdo->modifierMDPUsersEtudiant($utilisateur['ref_users'], $_REQUEST['pw1']);
-	}
+  	// Changement Mdp
+  	if( ($_REQUEST['pw1']==$_REQUEST['pw2']) && ($utilisateur['password'] != $_REQUEST['pw1']) ){
+  		$pdo->modifierMDPUsersEtudiant($utilisateur['ref_users'], $_REQUEST['pw1']);
+  	}
 
               $pdo->modifierEtudiant(
                 $id,
@@ -119,12 +140,12 @@ switch ($action) {
                 $_REQUEST['sexe'],
                 $_REQUEST['prenom'],
                 $_REQUEST['nation'],
-                $_REQUEST['ddn'],
+                $dateNaissance,
                 $_REQUEST['langue'],
                 $_REQUEST['tel'],
                 $_REQUEST['email'],
-                $_REQUEST['dap'],
-                $_REQUEST['ddp'],
+                $dateArrive,
+                $dateDepart,
                 $motif,
                 $besoin_hebergement,
                 $besoin_accompagnement,
@@ -190,18 +211,23 @@ switch ($action) {
     		include("views/etudiant/v_inscriptionEtudiant.php");
     	}
 
-
+        $dateNaissance = $_REQUEST['anneeNaissance'].'-'.$_REQUEST['moisNaissance'].'-'.$_REQUEST['jourNaissance'];
+      //  var_dump($dateNaissance);
+        $dateDepart = $_REQUEST['anneeDepart'].'-'.$_REQUEST['moisDepart'].'-'.$_REQUEST['jourDepart'];
+      //  var_dump($dateDepart);
+        $dateArrive = $_REQUEST['anneeArrive'].'-'.$_REQUEST['moisArrive'].'-'.$_REQUEST['jourArrive'];
+      //  var_dump($dateArrive);
         $pdo->creerEtudiant(
           $_REQUEST['nom'],
           $_REQUEST['sexe'],
           $_REQUEST['prenom'],
           $_REQUEST['nation'],
-          $_REQUEST['ddn'],
+          $dateNaissance,
           $_REQUEST['langue'],
           $_REQUEST['tel'],
           $_REQUEST['email'],
-          $_REQUEST['dap'],
-          $_REQUEST['ddp'],
+          $dateArrive,
+          $dateDepart,
           $motif,
           $besoin_hebergement,
           $besoin_accompagnement,

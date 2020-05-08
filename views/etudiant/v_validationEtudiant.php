@@ -1,7 +1,7 @@
 <div class="col-md-9">
   <div class="marge">
     <div class="alert alert-info" role="alert">
-        <p>Inscription réussi ! <a href="index.php?uc=gestionEtudiant&action=affichageEtudiant">Cliquez ici</a> pour revenir à l'accueil.</p>
+        <p>Inscription réussi ! <a href="index.php">Cliquez ici</a> pour revenir à l'accueil.</p>
     </div>
   </div>
 </div>
