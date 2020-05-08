@@ -276,9 +276,9 @@
 						<tr>
 							<td> Sexe : </td>
 							<td>
-								<input type="radio" id="homme" name="sexe" value="homme" <?php if($lAdherent['sexe'] == 'Homme') { echo "checked";} ?>>
+								<input type="radio" id="homme" name="sexe" value="homme" <?php if($lAdherent['sexe'] == 'homme') { echo "checked";} ?>>
 								<label for="homme">Homme</label>
-								<input type="radio" id="femme" name="sexe" value="femme" <?php if($lAdherent['sexe'] == 'Femme') { echo "checked";} ?>>
+								<input type="radio" id="femme" name="sexe" value="femme" <?php if($lAdherent['sexe'] == 'femme') { echo "checked";} ?>>
 								<label for="homme">Femme</label>
 							</td>
 						</tr>
