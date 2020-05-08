@@ -173,7 +173,7 @@
                                         <li><input type="radio" name="motif" value="etude" checked> Études</li>
                                         <li>
                                             <input type="radio" name="motif" value="autre" checked> Autres
-                                            <input type="text" name="motif_autre" value="this.value=''"><?php echo $etudiant['motif'] ?></textarea>
+                                            <input type="text" name="motif_autre" value="<?php echo $etudiant['motif'] ?>">
                                         </li>
                                     <?php }?>
                                 </ul>
@@ -204,7 +204,7 @@
                                     <?php if($etudiant['besoin_autres_check']=='oui'){ ?>
                                         <li>
                                             <input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres : 
-                                            <input type="text" name="besoin_autres" value="this.value=''"><?php echo $etudiant['besoin_autres'] ?></textarea>
+                                            <input type="text" name="besoin_autres" value="<?php echo $etudiant['besoin_autres'] ?>">
                                         </li>
                                     <?php } else { ?>
                                         <li>
