@@ -1,5 +1,5 @@
-<h2 class="pageTitle">Vos informations</h2>
 <div id="contentPage" class="col-md-9">
+  <h2 class="pageTitle">Vos informations</h2>
   <div class="marge">
     <table class="table table-bordered table-responsive table-striped">
       <tbody>
