@@ -9,7 +9,7 @@
                         <col style="width:4%">
                         <col style="width:18%">
                         <col style="width:30%">
-            
+
                         <tr>
                             <td>Nom : </td>
                             <td><input type="text" id="nom" name="nom" value="<?php echo $etudiant['nom'] ?>" required> </td>
@@ -30,7 +30,7 @@
                             <td><input type="text" id="prenom" name="prenom" value="<?php echo $etudiant['prenom'] ?>" required> </td>
                             <td></td>
                             <td>Nationnalité :</td>
-                            <td> 
+                            <td>
                                 <select id="nation" name="nation">
                                     <option value="<?php echo $etudiant['nation'] ?>"><?php echo $etudiant['nation'] ?></option>
                                 </select>
@@ -41,7 +41,7 @@
                             <td><input type="date" id="ddn" name="ddn" value="<?php echo $etudiant['ddn'] ?>" required ></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td> Langues : </td>
-                            <td> 
+                            <td>
                                 <select name="langue">
                                     <option value="<?php echo $etudiant['langue'] ?>"><?php echo $etudiant['langue'] ?></option>
                                     <option value="AF">Afrikaans</option>
@@ -116,7 +116,7 @@
                                     <option value="VI">Vietnamese</option>
                                     <option value="CY">Welsh</option>
                                     <option value="XH">Xhosa</option>
-                                </select> 
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -149,7 +149,7 @@
                             <td>Date de départ :</td>
                             <td><input type="date" id="ddp" name="ddp" value="<?php echo $etudiant['ddp'] ?>" required> </td>
                         </tr>
-            
+
                         <tr>
                             <td> Motif du séjour ? </td>
                             <td colspan="3">
@@ -188,7 +188,7 @@
                                     <?php } else { ?>
                                         <li><input type="checkbox" name="besoin_hebergement" value="oui"> Hébergement provisoire</li>
                                     <?php } ?>
-                                    
+
                                     <?php if($etudiant['besoin_accompagnement']=='oui'){ ?>
                                         <li><input type="checkbox" name="besoin_accompagnement" value="oui" checked> Accompagnement</li>
                                     <?php } else { ?>
@@ -203,13 +203,13 @@
 
                                     <?php if($etudiant['besoin_autres_check']=='oui'){ ?>
                                         <li>
-                                            <input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres : 
+                                            <input type="checkbox" name="besoin_autres_check" value="oui" checked> Autres :
                                             <input type="text" name="besoin_autres" value="<?php echo $etudiant['besoin_autres'] ?>">
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                            <input type="checkbox" name="besoin_autres_check" value="oui"> Autres : 
-                                            <input type="text" name = "besoin_autres"></textarea>
+                                            <input type="checkbox" name="besoin_autres_check" value="oui"> Autres :
+                                            <input type="text" name = "besoin_autres">
                                         </li>
                                     <?php } ?>
                                 </ul>
@@ -217,20 +217,20 @@
                         </tr>
                     </table>
                 </div>
-                    
+
                 <?php if($etudiant['autor1']=='oui'){ ?>
                 <input type="checkbox" name="autor1" value="oui" checked> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
                 <?php } else { ?>
                 <input type="checkbox" name="autor1" value="oui"> Vous autorisez l’association EPA à stocker les informations vous concernant. <br>
                 <?php } ?>
-                
+
                 <?php if($etudiant['autor2']=='oui'){ ?>
                 <input type="checkbox" name="autor2" value="oui" checked> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
                 <?php } else { ?>
                 <input type="checkbox" name="autor2" value="oui"> Vous autorisez les membres de l’association EPA à consulter vos informations. <br>
                 <?php } ?>
-                
-                <input id="submitBouton" type="submit" value="Modifier"> 
+
+                <input id="submitBouton" type="submit" value="Modifier">
                 <input type="submit" value="Annuler" onClick="erase();return false;"> <br>
             </form>
             <script>
