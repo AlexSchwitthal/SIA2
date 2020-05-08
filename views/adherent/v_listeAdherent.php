@@ -3,13 +3,13 @@
   <h2 class="pageTitle">Liste des adhérents</h2>
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=listeAdherentTrier">
     <h2>Rechercher :</h2>
-      <table>
-      <tr style="font-weight: bold;">
+      <table style="border-collapse: collapse;">
+      <tr style="font-weight: bold; line-height: 0">
         <td>Prenom</td>
         <td>Nom </td>
         <td>Cotisation payé</td>
-      <tr>
-      <tr>
+       </tr>
+       <tr style="line-height: 0">
         <td><input type="text" id="prenom" name="prenom"></td>
         <td><input type="text" id="nom" name="nom"></td>
         <td><select id="cotisation" name="cotisation">
@@ -18,7 +18,7 @@
               <option value="non"> Non </option>
             </select>
         </td>
-        <td><input type="submit" value="Rechercher"></td>
+        <td><input type="submit" value="Rechercher" style="line-height: 1"></td>
       </tr>
     </table>
   </form>
@@ -84,8 +84,8 @@
               <?php
               echo '<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdhesion&id='. $adherent['id'] .'">';
               ?>
-                <input type="submit" value="Accepter" onclick="return confirm('Voulez-vous vraiment ajouter cet adherent ?')" name="accepter" id="accepter" style="width: 90px">
-                <input type="submit" value="Refuser" onclick="return confirm('Voulez-vous vraiment refuser cet adherent ?')" name="refuser" id="refuser" style="width: 90px">
+                <input type="submit" value="Accepter" onclick="return confirm('Voulez-vous vraiment ajouter cet adherent ?')" name="accepter" id="accepter" style="width: 90px; margin: 0; ">
+                <input type="submit" value="Refuser" onclick="return confirm('Voulez-vous vraiment refuser cet adherent ?')" name="refuser" id="refuser" style="width: 90px; margin: 0;">
               </form>
             </td>
           </tr>
