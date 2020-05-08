@@ -78,6 +78,14 @@ class PdoEpa {
       return intval($id['id']);
     }
 
+    public function getStatutAdherentByMail($email) {
+      $requete_prepare = pdoEpa::$monPdo->prepare("SELECT statut FROM adherent WHERE email = :email");
+      $requete_prepare->bindParam(':email', $email, PDO::PARAM_STR);
+      $requete_prepare->execute();
+      $id = $requete_prepare->fetch();
+      return intval($id['statut']);
+    }
+
     public function getAdherentsInscrits($statut) {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM adherent WHERE statut = :statut ORDER BY id");
         $requete_prepare->bindParam(':statut', $statut, PDO::PARAM_STR);

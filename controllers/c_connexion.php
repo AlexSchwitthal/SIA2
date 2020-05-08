@@ -13,6 +13,10 @@ switch ($action) {
       		if($verification == 1) {
          		$_SESSION['logs'] = $_REQUEST['login'];
          		$_SESSION['groupe'] = $pdo->getGroupe($_REQUEST['login'], $_REQUEST['mdp']);
+            $_SESSION['statut'] = 1;
+            if(userGroupe(2)) {
+                $_SESSION['statut'] = $pdo->getStatutAdherentByMail($_SESSION['logs']);;
+            }
          		include("views/connexion/v_connexionValide.php");
       		}
           else {

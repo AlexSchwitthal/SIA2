@@ -26,9 +26,14 @@ switch ($action) {
 
     case 'affichageEtudiant': {
     	if(userGroupe(3) || userGroupe(2)) {
-    		// Vue tous les étudiants
-    		$lesEtudiants = $pdo->getEtudiants();
-		  	include("views/etudiant/v_affichageEtudiant.php");
+        if($_SESSION['statut'] == 0) {
+          echo 'vous n\'avez pas encore accès à la liste des étudiants, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
+        }
+        else {
+          // Vue tous les étudiants
+          $lesEtudiants = $pdo->getEtudiants();
+          include("views/etudiant/v_affichageEtudiant.php");
+        }
     	}
     	else if(userGroupe(1)){
     		 //Vue uniquement de l'utilisateur connecté
@@ -265,9 +270,14 @@ switch ($action) {
 
 
     case 'messagerie' : {
-    	$id_destinataire = $pdo->getUserConnecte($_SESSION['logs']);
-    	$lesMessages = $pdo->getListeMessages($id_destinataire['id']);
-    	include("views/etudiant/v_messagerie.php");
+      if($_SESSION['statut'] == 0) {
+        echo 'vous n\'avez pas encore accès à la liste des étudiants, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
+      }
+      else {
+        $id_destinataire = $pdo->getUserConnecte($_SESSION['logs']);
+        $lesMessages = $pdo->getListeMessages($id_destinataire['id']);
+        include("views/etudiant/v_messagerie.php");
+      }
     	break;
     }
 

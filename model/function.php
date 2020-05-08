@@ -371,8 +371,8 @@ function userGroupe($valueExpected) {
   }
 }
 
-function getTypeUtilisateurs($groupe) {
-  switch($groupe) {
+function getTypeUtilisateurs($session) {
+  switch($session['groupe']) {
     case '0' : {
       return 'invité';
       break;
@@ -382,7 +382,12 @@ function getTypeUtilisateurs($groupe) {
       break;
     }
     case '2' : {
-      return 'adherent';
+      if($session['statut'] == 1) {
+        return 'adherent';
+      }
+      else {
+        return 'adherent en attente de confirmation';
+      }
       break;
     }
     case '3' : {
