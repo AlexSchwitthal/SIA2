@@ -4,6 +4,7 @@
 <div class="col-md-9">
   <h2><b>Accès Formulaires</b></h2>
     <ul>
+    <h3>
         <li><a href="./img/form1.png">1 - Bulletin d'adhésion</a></li>
         <li><a href="./img/form2.png">2 - Appel à cotisation</a></li>
         <li><a href="./img/form3.png">3 - Modèle de reçu de dons</a></li>
@@ -17,5 +18,6 @@
         <li><a href="./img/form11.png">11 - Lettre de demande d'ouverture d'un compte bancaire</a></li>
         <li><a href="./img/form12.png">12 - Demande de subvention</a></li>
         <li><a href="./img/form13.png">13 - Demande de disposition d'un local municipal</a></li>
+    </h3>
     </ul>
 </div>

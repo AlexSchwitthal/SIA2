@@ -1,6 +1,6 @@
-<div class="col-md-9">
+<div id="contentPage" class="col-md-9">
   <div class="marge">
-    <table class="tableauPersonne">
+    <table class="table table-bordered table-responsive table-striped">
       <tbody>
         <tr>
           <td class="h-entete"> ID : </td>

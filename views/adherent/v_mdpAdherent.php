@@ -1,16 +1,17 @@
 <?php
   echo $erreur;
 ?>
-<div class="col-md-9">
-<table class="marge">
+<div id="contentPage" class="col-md-9" style="min-height: 100px">
+  <br>
+<table class="table table-bordered table-responsive table-striped">
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModicationMDP&id=<?php echo $lAdherent['id'] ?>" onsubmit="return confirm('êtes vous sûr de votre nouveau mot de passe ?');">
     <tr>
-      <td> nouveau mot de passe : </td>
+      <td class="h-entete"> Nouveau mot de passe : </td>
       <td><input type="password" id="nouveauMdp" name="nouveauMdp"> </td>
     </tr>
 
     <tr>
-      <td> Confirmer le nouveau mot de passe : </td>
+      <td class="h-entete"> Confirmer le nouveau mot de passe : </td>
       <td><input type="password" id="nouveaumdpConfirmation" name="nouveauMdpConfirmation"> </td>
     </tr>
     <tr>

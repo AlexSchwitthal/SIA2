@@ -5,8 +5,17 @@
   	<h2><b>Données de l'association</b></h2>
         
     <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="fichier" />
-        <input type="submit" value="Envoyer le fichier" />
+        <input type="file" name="fichier" id="file"/>
+        <label for="file" />Choisir un fichier</label>
+        <br>
+        <input type="submit" value="Envoyer le fichier" style="padding:5px 15px; 
+		    background:#ccc; 
+		    border:0 none;
+		    cursor:pointer;
+		    -webkit-border-radius: 5px;
+		    border-radius: 5px; 
+		    width: 12em; height: 2em;
+		    font-weight: bold;" />
     </form>
 
     <h1>Fichiers enregistrés</h1>
