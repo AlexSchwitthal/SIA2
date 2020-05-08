@@ -1,7 +1,8 @@
 <?php
   echo $erreur;
 ?>
-<div id="contentPage" class="col-md-9" style="min-height: 100px">
+<div id="contentPage" class="col-md-9">
+  <h2 class="pageTitle">Modifier votre mot de passe</h2>
   <br>
 <table class="table table-bordered table-responsive table-striped">
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerModicationMDP&id=<?php echo $lAdherent['id'] ?>" onsubmit="return confirm('êtes vous sûr de votre nouveau mot de passe ?');">
