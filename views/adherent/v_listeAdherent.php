@@ -1,13 +1,13 @@
 
-<div class="col-md-9">
-
+<div  id="contentPage" class="col-md-9">
+  <h2 class="pageTitle">Liste des adhérents</h2>
   <form name="form" method="post" action="index.php?uc=gestionAdherent&action=listeAdherentTrier">
     <h2>Rechercher :</h2>
-    <table>
-      <tr>
-        <td> <h3>Prenom </h3></td>
-        <td> <h3>Nom </h3></td>
-        <td> <h3>Cotisation payé <h3></td>
+      <table>
+      <tr style="font-weight: bold;">
+        <td>Prenom</td>
+        <td>Nom </td>
+        <td>Cotisation payé</td>
       <tr>
       <tr>
         <td><input type="text" id="prenom" name="prenom"></td>
@@ -84,8 +84,8 @@
               <?php
               echo '<form name="form" method="post" action="index.php?uc=gestionAdherent&action=validerAdhesion&id='. $adherent['id'] .'">';
               ?>
-                <input type="submit" value="Accepter" onclick="return confirm('Voulez-vous vraiment ajouter cet adherent ?')" name="accepter" id="accepter">
-                <input type="submit" value="Refuser" onclick="return confirm('Voulez-vous vraiment refuser cet adherent ?')" name="refuser" id="refuser">
+                <input type="submit" value="Accepter" onclick="return confirm('Voulez-vous vraiment ajouter cet adherent ?')" name="accepter" id="accepter" style="width: 90px">
+                <input type="submit" value="Refuser" onclick="return confirm('Voulez-vous vraiment refuser cet adherent ?')" name="refuser" id="refuser" style="width: 90px">
               </form>
             </td>
           </tr>
