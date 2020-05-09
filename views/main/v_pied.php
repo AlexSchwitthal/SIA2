@@ -25,7 +25,7 @@
               </ul>
             </div>
             <!--/.footer-list-wrap-->
-            <div class="footer-list-wrap" style="padding-left: 3em; width: 16em">
+            <div class="footer-list-wrap" style="padding-left: 3em; width: 17em">
               <h6 class="ftr-hdr" style="color:green">À propos d'EPA</h6>
               <ul class="ftr-links-sub">
                 <li><a href="" rel="nofollow" style="color:darkorange">Notre association</a></li>
@@ -35,7 +35,7 @@
               </ul>
             </div>
             <!--/.footer-list-wrap-->
-            <div class="footer-list-wrap"  style="padding-left: 3em; width: 16em">
+            <div class="footer-list-wrap"  style="padding-left: 3em; width: 17em">
               <h6 class="ftr-hdr" style="color:green">Mon compte</h6>
               <ul class="ftr-links-sub">
                 <art:content rule="!loggedin">
