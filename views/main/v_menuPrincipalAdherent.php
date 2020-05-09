@@ -11,7 +11,6 @@
                         <ul class="dropDownContent">
                             <li><a href="index.php?uc=gestionAdherent&action=pageAdherent&id=<?php echo $id; ?>"><p>Voir mes informations</p></a></li>
                             <li><a href="./index.php?uc=gestionAdherent&action=accesFormulaires">Accès formulaires</a></li>
-                            <li><a href="./index.php?uc=gestionAdherent&action=donneesAssociation">Données association</a></li>
                         </ul>
                     </li>
 
