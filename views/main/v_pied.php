@@ -13,8 +13,10 @@
             <div class="footer-list-wrap">
               <h6 class="ftr-hdr" style="color:green">Contact</h6>
               <ul class="ftr-links-sub">
-                <li style="color:darkorange">XX-XX-XX-XX-XX</li>
-                <li style="color:darkorange">epa@gmail.com</li>
+                <li style="color:darkorange">Siret n°484-104-237-00017</li>
+                <li style="color:darkorange">10, avenue Paul appell 75014 PARIS</li>
+                <li style="color:darkorange">+33 0145409733</li>
+                <li style="color:darkorange">epa20052001@yahoo.fr</li>
               </ul>
               <h6 class="ftr-hdr" style="color:green">International</h6>
               <ul class="ftr-links-sub">
@@ -23,8 +25,7 @@
               </ul>
             </div>
             <!--/.footer-list-wrap-->
-
-            <div class="footer-list-wrap">
+            <div class="footer-list-wrap" style="padding-left: 3em; width: 17em">
               <h6 class="ftr-hdr" style="color:green">À propos d'EPA</h6>
               <ul class="ftr-links-sub">
                 <li><a href="" rel="nofollow" style="color:darkorange">Notre association</a></li>
@@ -34,7 +35,7 @@
               </ul>
             </div>
             <!--/.footer-list-wrap-->
-            <div class="footer-list-wrap">
+            <div class="footer-list-wrap"  style="padding-left: 3em; width: 17em">
               <h6 class="ftr-hdr" style="color:green">Mon compte</h6>
               <ul class="ftr-links-sub">
                 <art:content rule="!loggedin">
