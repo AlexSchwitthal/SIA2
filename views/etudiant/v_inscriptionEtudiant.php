@@ -15,7 +15,7 @@
                         <col style="width:33%">
                         <tr>
                             <td>Nom :</td>
-                            <td><input type="text" id="nom" name="nom" size="15" required> </td>
+                            <td><input type="text" id="nom" name="nom" size="15" value="<?php echo isset($_POST['nom']) ? htmlspecialchars($_POST['nom'], ENT_QUOTES) : ''; ?>" required> </td>
                             <td></td>
                             <td>Sexe : </td>
                             <td>
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td>Prénom : </td>
-                            <td><input type="text" id="prenom" name="prenom" size="15" required> </td>
+                            <td><input type="text" id="prenom" name="prenom" value="<?php echo isset($_POST['prenom']) ? htmlspecialchars($_POST['prenom'], ENT_QUOTES) : ''; ?>" size="15" required> </td>
                             <td></td>
                             <td>Nationnalité : </td>
                             <td>
@@ -41,7 +41,13 @@
                               <option value="" selected> JJ</option>
                               <?php
                               for($it = 1; $it <= 31; $it++) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['jourNaissance'])) {
+                                  if($_POST['jourNaissance'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -50,7 +56,13 @@
                               <option value="" selected> MM</option>
                               <?php
                               for($it = 1; $it <= 12; $it++) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['moisNaissance'])) {
+                                  if($_POST['moisNaissance'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -59,7 +71,13 @@
                               <option value="" selected> AAAA</option>
                               <?php
                               for($it = 2010; $it >= 1900; $it--) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['anneeNaissance'])) {
+                                  if($_POST['anneeNaissance'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -67,7 +85,7 @@
                             <td></td>
                             <td>Langues :</td>
                             <td>
-                                <select name="langue">
+                                <select name="langue" id="langue">
                                     <option value="">-- Sélectionner --</option>
                                     <option value="AF">Afrikaans</option>
                                     <option value="SQ">Albanian</option>
@@ -143,20 +161,21 @@
                                     <option value="XH">Xhosa</option>
                                 </select>
                             </td>
+
                         </tr>
                         <tr>
                             <td>Téléphone :</td>
-                            <td><input type="text" id="tel" name="tel" size="15" required> </td>
+                            <td><input type="text" id="tel" name="tel" size="15" value="<?php echo isset($_POST['tel']) ? htmlspecialchars($_POST['tel'], ENT_QUOTES) : ''; ?>" required> </td>
                             <td></td>
                             <td>Mot de passe :</td>
                             <td><input type="password" id="pw1" name="pw1" required> </td>
                         </tr>
                         <tr>
                             <td>E-mail :</td>
-                            <td><input type="text" id="email" name="email" size="15" required> </td>
+                            <td><input type="text" id="email" name="email" size="15" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES) : ''; ?>" required> </td>
                             <td></td>
                             <td>Confirmation MDP :</td>
-                            <td><input type="password" id="pw2" name="pw2" required> </td>
+                            <td><input type="password" id="pw2" name="pw2" value="" required> </td>
                         </tr>
                     </table>
                     </br>
@@ -174,7 +193,13 @@
                               <option value="" selected> JJ</option>
                               <?php
                               for($it = 1; $it <= 31; $it++) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['jourArrive'])) {
+                                  if($_POST['jourArrive'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -183,7 +208,13 @@
                               <option value="" selected> MM</option>
                               <?php
                               for($it = 1; $it <= 12; $it++) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['moisArrive'])) {
+                                  if($_POST['moisArrive'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -192,7 +223,13 @@
                               <option value="" selected> AAAA</option>
                               <?php
                               for($it = 2020; $it <= 2030; $it++) {
-                              echo '<option value="'.$it.'">'.$it.'</option>';
+                                $selected = '';
+                                if(isset($_POST['anneeArrive'])) {
+                                  if($_POST['anneeArrive'] == $it) {
+                                  $selected = 'selected';
+                                  }
+                                }
+                                echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                               }
                               ?>
                             </select>
@@ -204,7 +241,13 @@
                                 <option value="" selected> JJ</option>
                                 <?php
                                 for($it = 1; $it <= 31; $it++) {
-                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                  $selected = '';
+                                  if(isset($_POST['jourDepart'])) {
+                                    if($_POST['jourDepart'] == $it) {
+                                    $selected = 'selected';
+                                    }
+                                  }
+                                  echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                                 }
                                 ?>
                               </select>
@@ -213,7 +256,13 @@
                                 <option value="" selected> MM</option>
                                 <?php
                                 for($it = 1; $it <= 12; $it++) {
-                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                  $selected = '';
+                                  if(isset($_POST['moisDepart'])) {
+                                    if($_POST['moisDepart'] == $it) {
+                                    $selected = 'selected';
+                                    }
+                                  }
+                                  echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                                 }
                                 ?>
                               </select>
@@ -222,7 +271,13 @@
                                 <option value="" selected> AAAA</option>
                                 <?php
                                 for($it = 2020; $it <= 2030; $it++) {
-                                echo '<option value="'.$it.'">'.$it.'</option>';
+                                  $selected = '';
+                                  if(isset($_POST['anneeDepart'])) {
+                                    if($_POST['anneeDepart'] == $it) {
+                                    $selected = 'selected';
+                                    }
+                                  }
+                                  echo '<option value="'.$it.'"'.$selected.'>'.$it.'</option>';
                                 }
                                 ?>
                               </select>
@@ -232,11 +287,11 @@
                             <td> Motif du séjour : </td>
                             <td colspan="3">
                                 <ul>
-                                    <li><input type="radio" name="motif" value="stage" checked> Stage</li>
-                                    <li><input type="radio" name="motif" value="etude"> Études</li>
+                                    <li><input type="radio" name="motif" value="stage" <?php if((!(isset($_POST['motif'])) OR (isset($_POST['motif']) AND $_POST['motif'] == 'stage'))) { echo 'checked'; } ?> > Stage</li>
+                                    <li><input type="radio" name="motif" value="etude" <?php if(isset($_POST['motif']) and $_POST['motif'] == 'etude') { echo 'checked'; } ?> > Études</li>
                                     <li>
-                                        <input type="radio" name="motif" value="autre"> Autres :
-                                        <input type="text" name = "motif_autre" onfocus="this.value=''">
+                                        <input type="radio" name="motif" value="autre" <?php if(isset($_POST['motif']) and $_POST['motif'] == 'autre') { echo 'checked'; } ?> > Autres :
+                                        <input type="text" name = "motif_autre" value="<?php echo isset($_POST['motif_autre']) ? htmlspecialchars($_POST['motif_autre'], ENT_QUOTES) : ''; ?>">
                                     </li>
                                 </ul>
                             </td>
@@ -245,12 +300,12 @@
                             <td>Besoins : </td>
                             <td colspan="3">
                                 <ul>
-                                    <li><input type="checkbox" name="besoin_hebergement" value="oui"> Hébergement provisoire</li>
-                                    <li><input type="checkbox" name="besoin_accompagnement" value="oui"> Accompagnement</li>
-                                    <li><input type="checkbox" name="besoin_transport" value="oui"> Recherche de moyens de transport</li>
+                                    <li><input type="checkbox" name="besoin_hebergement" value="oui"  <?php if(isset($_POST['besoin_hebergement'])) { echo 'checked'; } ?> > Hébergement provisoire</li>
+                                    <li><input type="checkbox" name="besoin_accompagnement" value="oui" <?php if(isset($_POST['besoin_accompagnement'])) { echo 'checked'; } ?> > Accompagnement</li>
+                                    <li><input type="checkbox" name="besoin_transport" value="oui" <?php if(isset($_POST['besoin_transport'])) { echo 'checked'; } ?> > Recherche de moyens de transport</li>
                                     <li>
-                                        <input type="checkbox" name="besoin_autres_check" value="oui"> Autres :
-                                        <input type="text" name = "besoin_autres" onfocus="this.value=''">
+                                        <input type="checkbox" name="besoin_autres_check" value="oui" <?php if(isset($_POST['besoin_autres_check'])) { echo 'checked'; } ?> > Autres :
+                                        <input type="text" name = "besoin_autres" value="<?php echo isset($_POST['besoin_autres']) ? htmlspecialchars($_POST['besoin_autres'], ENT_QUOTES) : ''; ?>">
                                     </li>
                                 <ul>
                             </td>
@@ -265,5 +320,9 @@
             </form>
             <script>
                 generateNationality();
+            </script>
+            <script type="text/javascript">
+              document.getElementById('langue').value = "<?php echo $_POST['langue'];?>";
+              document.getElementById('nation').value = "<?php echo $_POST['nation'];?>";
             </script>
         </div>

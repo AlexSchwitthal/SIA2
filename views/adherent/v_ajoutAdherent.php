@@ -35,7 +35,7 @@
 						<tr>
 							<td>Tel : </td>
 							<td>
-							<select name="indicatif">
+							<select name="indicatif" id="indicatif">
 								<option value="+1">+1 (Etat-Unis)</option>
 								<option value="+7">+7 (Russie)</option>
 								<option value="+20">+20 (Egypte)</option>
@@ -273,9 +273,9 @@
 						<tr>
 							<td>Sexe : </td>
 							<td>
-								<input type="radio" id="homme" name="sexe" value="homme" checked>
+								<input type="radio" id="homme" name="sexe" value="homme" <?php if((!(isset($_POST['sexe'])) OR (isset($_POST['sexe']) AND $_POST['sexe'] == 'homme'))) { echo 'checked'; } ?> >
 								<label for="homme">Homme</label>
-								<input type="radio" id="femme" name="sexe" value="femme">
+								<input type="radio" id="femme" name="sexe" value="femme" <?php if(isset($_POST['sexe']) and $_POST['sexe'] == 'femme') { echo 'checked'; } ?> >
 								<label for="homme">Femme</label>
 							</td>
 						</tr>
@@ -283,7 +283,7 @@
 						<tr>
 							<td>Date de naissance : </td>
 							<td>
-								<select name="jour">
+								<select name="jour" id="jour">
 									<option value="" selected> JJ</option>
 									<?php
 									for($it = 1; $it <= 31; $it++) {
@@ -292,7 +292,7 @@
 									?>
 								</select>
 
-								<select name="mois">
+								<select name="mois" id="mois">
 									<option value="" selected> MM</option>
 									<?php
 									for($it = 1; $it <= 12; $it++) {
@@ -301,7 +301,7 @@
 									?>
 								</select>
 
-								<select name="annee">
+								<select name="annee" id="annee">
 									<option value="" selected> AAAA</option>
 									<?php
 									for($it = 2010; $it >= 1900; $it--) {
@@ -315,12 +315,12 @@
 						<tr>
 							<td> Vous êtes : </td>
 							<td>
-								<input type="radio" id="etudiant" name="type" value="etudiant">
-								<label for="homme">Etudiant</label>
-								<input type="radio" id="stagiaire" name="type" value="stagaire">
-								<label for="homme">Stagiaire</label>
-								<input type="radio" id="autres" name="type" value="autres" checked>
-								<label for="homme">Autres</label>
+								<input type="radio" id="etudiant" name="type" value="etudiant" <?php if(isset($_POST['type']) and $_POST['type'] == 'etudiant') { echo 'checked'; } ?> >
+								<label for="etudiant">Etudiant</label>
+								<input type="radio" id="stagiaire" name="type" value="stagaire" <?php if(isset($_POST['type']) and $_POST['type'] == 'stagaire') { echo 'checked'; } ?> >
+								<label for="stagiaire">Stagiaire</label>
+								<input type="radio" id="autres" name="type" value="autres" <?php if((!(isset($_POST['type'])) OR (isset($_POST['type']) AND $_POST['type'] == 'autres'))) { echo 'checked'; } ?> >
+								<label for="autres">Autres</label>
 							</td>
 						</tr>
 
@@ -350,3 +350,16 @@
 				<input type="submit" style="float: right">
 			</form>
 		</div>
+		<script type="text/javascript">
+			document.getElementById('nom').value = "<?php echo $_POST['nom'];?>";
+			document.getElementById('prenom').value = "<?php echo $_POST['prenom'];?>";
+			document.getElementById('adresse').value = "<?php echo $_POST['adresse'];?>";
+			document.getElementById('ville').value = "<?php echo $_POST['ville'];?>";
+			document.getElementById('cp').value = "<?php echo $_POST['cp'];?>";
+			document.getElementById('indicatif').value = "<?php echo $_POST['indicatif'];?>";
+			document.getElementById('tel').value = "<?php echo $_POST['tel'];?>";
+			document.getElementById('email').value = "<?php echo $_POST['email'];?>";
+			document.getElementById('jour').value = "<?php echo $_POST['jour'];?>";
+			document.getElementById('mois').value = "<?php echo $_POST['mois'];?>";
+			document.getElementById('annee').value = "<?php echo $_POST['annee'];?>";
+		</script>
