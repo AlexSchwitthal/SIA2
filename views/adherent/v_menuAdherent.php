@@ -21,9 +21,13 @@
       <?php } if(userGroupe(3) || userGroupe(2)) { ?>
         <ul class="subMenu">
           <li><a href="./index.php?uc=gestionAdherent&action=accesFormulaires">Accès formulaires</a></li>
-          <li><a href="./index.php?uc=gestionAdherent&action=donneesAssociation">Données de l'association</a></li>
+          <?php if(userGroupe(3)) {
+            ?>
+            <li><a href="./index.php?uc=gestionAdherent&action=donneesAssociation">Données de l'association</a></li>
+          <?php
+          }
+          ?>
         </ul>
       <?php } ?>
   </ul>
 </div>
-
