@@ -271,7 +271,7 @@ switch ($action) {
 
     case 'messagerie' : {
       if($_SESSION['statut'] == 0) {
-        echo 'vous n\'avez pas encore accès à la liste des étudiants, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
+        echo 'vous n\'avez pas encore accès à la messagerie, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
       }
       else {
         $id_destinataire = $pdo->getUserConnecte($_SESSION['logs']);

@@ -42,31 +42,40 @@ switch ($action) {
 
     case 'accesFormulaires': {
             $erreur = '';
-            include("views/adherent/v_accesFormulaires.php");
+            if($_SESSION['statut'] == 0) {
+              echo 'vous n\'avez pas encore accès à la liste des formulaire, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
+            }
+            else {
+              include("views/adherent/v_accesFormulaires.php");
+            }
             break;
     }
     case 'donneesAssociation': {
             $erreur = '';
 
-
-            if(!empty($_FILES)){
-                $file_name = $_FILES['fichier']['name'];
-                $file_tmp_name = $_FILES['fichier']['tmp_name'];
-                $file_dest = 'files/'.$file_name;
-
-                if(move_uploaded_file($file_tmp_name, $file_dest)){
-                    echo 'Fichier envoyé avec succès';
-                    $pdo->ajoutFichier(
-                      $file_name,
-                      $file_dest
-                    );
-                } else {
-                    echo "Une erreur est survenue lors de l'envoi du fichier";
-                }
+            if($_SESSION['statut'] == 0) {
+              echo 'vous n\'avez pas encore accès aux données de l\'association, vous devez attendre d\'être confirmé par les administrateurs de l\'association';
             }
+            else {
+              if(!empty($_FILES)){
+                  $file_name = $_FILES['fichier']['name'];
+                  $file_tmp_name = $_FILES['fichier']['tmp_name'];
+                  $file_dest = 'files/'.$file_name;
 
-            $fichiersAssociation = $pdo->getFichiersAssociation();
-            include("views/adherent/v_donneesAssociation.php");
+                  if(move_uploaded_file($file_tmp_name, $file_dest)){
+                      echo 'Fichier envoyé avec succès';
+                      $pdo->ajoutFichier(
+                        $file_name,
+                        $file_dest
+                      );
+                  }
+                  else {
+                      echo "Une erreur est survenue lors de l'envoi du fichier";
+                  }
+              }
+              $fichiersAssociation = $pdo->getFichiersAssociation();
+              include("views/adherent/v_donneesAssociation.php");
+            }
             break;
     }
 
