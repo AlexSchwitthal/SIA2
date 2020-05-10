@@ -61,11 +61,10 @@
 
   echo '<p><a href="index.php?uc=gestionAdherent&action=modifierAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> modifier les informations </a> ';
 
-  echo '<a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg" onclick="return confirm(\'êtes-vous sûr de vouloir supprimer le compte ?\')"> supprimer le compte </a> ';
-
   if(userGroupe(2)) {
-      echo '<a href="index.php?uc=gestionAdherent&action=changerMDP&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> changer de mot de passe </a>';
+      echo '<a href="index.php?uc=gestionAdherent&action=changerMDP&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg"> changer de mot de passe </a> ';
   }
+  echo '<a href="index.php?uc=gestionAdherent&action=supprimerAdherent&id='. $lAdherent['id'] . '" class="btn btn-danger btn-lg" onclick="return confirm(\'êtes-vous sûr de vouloir supprimer le compte ?\')"> supprimer le compte </a> ';
   echo '</p>';
   ?>
 </div>
