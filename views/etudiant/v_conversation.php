@@ -2,10 +2,11 @@
 	<h2 class="pageTitle">Conversation</h2>
   	<?php echo "<button type=\"button\" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=messagerie';\">Retour à la messagerie</button> " ?>
 		<table class="table table-bordered table-responsive table-striped">
+			<col style="width:25%">
+            <col style="width:75%">
 			<thead>
 				<td> Expéditeur </td>
 				<td> Message </td>
-				
 			</thead>
 		<?php
 			foreach ($laConversation as $message) {
