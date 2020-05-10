@@ -152,6 +152,10 @@ switch ($action) {
     case 'supprimerAdherent' : {
           if (!(empty($_REQUEST['id']))) {
               $pdo->supprimerAdherent($_REQUEST['id']);
+              if(userGroupe(2)) {
+                session_destroy();
+                session_start();
+              }
               include("views/adherent/v_suppressionAdherent.php");
           }
           break;

@@ -14,7 +14,7 @@
             <div id="menu3"><a href="#"><p>Espace étudiant</p></a></div>
                 <ul class="subMenu">
                 <?php if(userGroupe(1)) { ?>
-                <li><a href="index.php?uc=gestionEtudiant&action=modifierEtudiant">Mon compte</a></li>
+                <li><a href="index.php?uc=gestionEtudiant&action=affichageEtudiant">Mon compte</a></li>
                 <?php } else { ?>
                 <li><a href="index.php?uc=gestionEtudiant&action=affichageEtudiant">Gestion des étudiants</a></li>
                 <?php } ?>

@@ -134,6 +134,22 @@ class PdoEpa {
       return $requete_prepare->fetch();
     }
 
+    public function supprimerEtudiant($id) {
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM message WHERE message.id_expediteur IN (SELECT ref_users from arrivant where id = :id)");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM message WHERE message.id_destinataire IN (SELECT ref_users from arrivant where id = :id)");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM users WHERE users.id IN (SELECT ref_users from arrivant where id = :id)");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+      
+      return $requete_prepare->fetch();
+    }
+
     public function getEtudiants() {
         $requete_prepare = pdoEpa::$monPdo->prepare("SELECT * FROM arrivant");
         $requete_prepare->execute();

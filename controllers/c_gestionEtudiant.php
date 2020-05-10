@@ -38,7 +38,7 @@ switch ($action) {
     	else if(userGroupe(1)){
     		 //Vue uniquement de l'utilisateur connecté
     		$etudiant = $pdo->getEtudiantConnecte($_SESSION['logs']);
-    		include("views/etudiant/v_affichageEtudiant.php");
+    		include("views/etudiant/v_pageEtudiant.php");
     	}
     	else{
     		echo "Connexion requise";
@@ -76,8 +76,8 @@ switch ($action) {
 
     }
 
-    case 'updateEtudiant':{
-	if(strcmp($_REQUEST['motif'],'autre')==0){
+  case 'updateEtudiant':{
+	   if(strcmp($_REQUEST['motif'],'autre')==0){
     		$motif = $_REQUEST['motif_autre'];
     	}else{
     		$motif = $_REQUEST['motif'];
@@ -92,7 +92,7 @@ switch ($action) {
     	if(strcmp($_REQUEST['besoin_hebergement'],'oui')==0){
     		$besoin_hebergement = $_REQUEST['besoin_hebergement'];
     	}else{
-		$besoin_hebergement = 'non';
+		    $besoin_hebergement = 'non';
     	}
 
     	if(strcmp($_REQUEST['besoin_accompagnement'],'oui')==0){
@@ -248,6 +248,19 @@ switch ($action) {
         include("views/etudiant/v_inscriptionEtudiant.php");
       }
 
+      break;
+    }
+
+    case 'supprimerEtudiant' : {
+      if (!(empty($_REQUEST['id']))) {
+          $pdo->supprimerEtudiant($_REQUEST['id']);
+          session_destroy();
+          session_start();
+          include("views/etudiant/v_suppressionEtudiant.php");
+      }
+      else {
+        echo 'erreur';
+      }
       break;
     }
 
