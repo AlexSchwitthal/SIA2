@@ -128,6 +128,14 @@ class PdoEpa {
     }
 
     public function supprimerAdherent($id) {
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM message WHERE message.id_expediteur IN (SELECT ref_users from adherent where id = :id)");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+
+      $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM message WHERE message.id_destinataire IN (SELECT ref_users from adherent where id = :id)");
+      $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
+      $requete_prepare->execute();
+
       $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM users WHERE users.id IN (SELECT ref_users from adherent where id = :id)");
       $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
       $requete_prepare->execute();
@@ -146,7 +154,7 @@ class PdoEpa {
       $requete_prepare = pdoEpa::$monPdo->prepare("DELETE FROM users WHERE users.id IN (SELECT ref_users from arrivant where id = :id)");
       $requete_prepare->bindParam(':id', $id, PDO::PARAM_STR);
       $requete_prepare->execute();
-      
+
       return $requete_prepare->fetch();
     }
 
