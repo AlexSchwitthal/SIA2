@@ -170,7 +170,7 @@
                         </tr>
                         <tr>
                             <td>E-mail :</td>
-                            <td><input type="text" id="email" name="email" value="<?php echo $etudiant['email'] ?>"> </td>
+                            <td><input type="text" id="email" name="email" value="<?php echo $etudiant['email'] ?>" readonly> </td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td>Confirmation MDP :</td>
                             <td><input type="password" id="pw2" name="pw2" value="<?php echo $utilisateur['password'] ?>" required> </td>
