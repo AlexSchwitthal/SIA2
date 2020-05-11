@@ -19,15 +19,13 @@
         ?>
         <tr>
           <td> <?php echo $contact['username'] ?></td>
-          <td> 
+          <?php
+          	$dest=$expe['id'];
+			$expe=$pdo->getUserConnecte($_SESSION['logs']);
+			echo "<td onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\"> "
+          ?>
 			<div style="display: block">
 				<p style="font-size: 10px; display: inline-block"><?php echo $message['date'] ?></p>
-				<button style="float: right" type="button" onclick="alert('You pressed the button!')">Effacer</button>
-				<?php
-						$dest=$expe['id'];
-						$expe=$pdo->getUserConnecte($_SESSION['logs']);
-						echo "<button style=\"float: right\" type=\"button\" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\">Afficher la conversation</button> "
-				?>
 			</div>
 			<?php echo $message['texte'] ?>
           </td>
