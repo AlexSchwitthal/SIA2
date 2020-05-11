@@ -22,7 +22,7 @@
           <?php
           	$dest=$expe['id'];
 			$expe=$pdo->getUserConnecte($_SESSION['logs']);
-			echo "<td onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\"> "
+			echo "<td style=\" cursor: pointer; \" onclick=\"window.location='./index.php?uc=gestionEtudiant&action=conversation&id_destinataire={$contact['id']}&id_expediteur={$expe['id']}';\"> "
           ?>
 			<div style="display: block">
 				<p style="font-size: 10px; display: inline-block"><?php echo $message['date'] ?></p>
